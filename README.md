@@ -27,10 +27,15 @@ Strona zawiera interaktywne elementy, np. w postaci tekstowego kota, który ukry
 
 #### Uznanie autorstwa
 
-- Invertocat to logo GitHub, używane w projekcie wyłącznie jako przycisk społecznościowy, aby poinformować, że ten projekt jest zintegrowany z GitHubem.
-- Bongo Cat został utworzony przez DitzyFlama.
-- Stich jest postacią z bajki wytwórni Walta Disneya. Gif stworzony przez leidianenunes.
-- Nyan Cat jest postacią, której autorem jest PRguitarman.
+- **Invertocat** to logo GitHub, używane w projekcie wyłącznie jako przycisk społecznościowy, aby poinformować, że ten projekt jest zintegrowany z GitHubem.
+
+- **Bongo** Cat został utworzony przez DitzyFlama.
+
+- **Stich** jest postacią z bajki wytwórni Walta Disneya. Gif stworzony przez leidianenunes.
+
+- **Nyan Cat** jest postacią, której autorem jest PRguitarman.
+
+**Perski Lew** to Symbol Lwa i Słońca - jeden z najstarszych emblematów Iranu. Umieszczam go dziś, 28.02.2026 r., jako hołd dla Irańczyków poświęcających życie w walce z islamską dyktaturą o swoją niepodległość. Dzisiejszy dzień ma dla Iranu znaczenie historyczne, dlatego chcę w ten sposób okazać solidarność i przypomnieć o ich odwadze.
 
 ## Projekty
 

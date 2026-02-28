@@ -277,7 +277,11 @@ display: inline-block;
         width: 200px;
         float: left;
     }
-
+    #persian{
+        margin-right: -20px;
+        width: 20%;
+        float: right;
+    }
 /* Poprawić navbar na duze ekrany */
 
 /* min-width / big-screens */
@@ -535,7 +539,7 @@ refractoring jednak na vw i vh?
     .cats-dropdown-content, .projects-dropdown-content {
         height: fit-content;
     }
-}
+} 
 </style>
 
 <body>
@@ -551,6 +555,7 @@ refractoring jednak na vw i vh?
                     <li id="bongo_cat" class="cat-underline">Bongo Cat</li>
                     <!-- <li id="disneys_stitch" class="cat-underline">Disney's Stitch</li> -->
                     <li id="nyan_cat" class="cat-underline">Nyan Cat</li>
+                    <li id="persian_cat" class="cat-underline">Persian Cat</li>
                 </div> 
               </div>
             </nav>
@@ -624,17 +629,16 @@ refractoring jednak na vw i vh?
         ///https://bongo.cat/
     } 
 
-    let select_disneys_stitch = document.getElementById("disneys_stitch");
-    select_disneys_stitch.onclick = function disneys_stitch() {
-        document.querySelector("#cat").innerHTML = `<img id="stitch" src="src/stitch.gif" alt="Disney's Stitch" onmouseenter="piesikotEnter()" onmouseleave="piesikotLeave()" onclick="stitchClick()">` ;
-        document.querySelector("#copyright").textContent = "Stitch is a character in Disney's Lilo & Stitch cartoon.";
-        document.querySelector("#copyright").style.transition = "3s"
-        nyanInAction = false;
-        //gif created by leidianenunes
-        //https://giphy.com/stickers/lilo-stitch-disney-leidianenunes-3o6Zt481isNVuQI1l6   
-        //alert("Stitch is a character in Disney's Lilo & Stitch cartoon." );
-    } 
-    
+    // let select_disneys_stitch = document.getElementById("disneys_stitch");
+    // select_disneys_stitch.onclick = function disneys_stitch() {
+    //     document.querySelector("#cat").innerHTML = `<img id="stitch" src="src/stitch.gif" alt="Disney's Stitch" onmouseenter="piesikotEnter()" onmouseleave="piesikotLeave()" onclick="stitchClick()">` ;
+    //     document.querySelector("#copyright").textContent = "Stitch is a character in Disney's Lilo & Stitch cartoon.";
+    //     document.querySelector("#copyright").style.transition = "3s"
+    //     nyanInAction = false;
+    //     //gif created by leidianenunes
+    //     //https://giphy.com/stickers/lilo-stitch-disney-leidianenunes-3o6Zt481isNVuQI1l6   
+    //     //alert("Stitch is a character in Disney's Lilo & Stitch cartoon." );
+    // } 
 
     let select_nyan_cat = document.getElementById("nyan_cat");
     select_nyan_cat.onclick = function nyan_cat() {
@@ -643,6 +647,13 @@ refractoring jednak na vw i vh?
         //alert("Nyan Cat created by PRguitarman." );
         //https://www.nyan.cat
     } 
+
+    let select_persian_cat = document.getElementById("persian_cat");
+    select_persian_cat.onclick = function persian_cat() {
+        document.querySelector("#cat").innerHTML = `<img id="persian" src="src/Persian_Lion.png" alt="Persian Lion and Sun" onmouseenter="persiancatEnter()" onmouseleave="persiancatLeave()">` ;
+        document.querySelector("#copyright").textContent = "The Persian Lion and Sun symbol is the emblem of Free Iran.";
+        document.querySelector("#copyright").style.transition = "3s";
+    }
 
     function navcatsEnter() {
         document.getElementById("cat-arrow").style.transform = "rotate(0.80turn)";

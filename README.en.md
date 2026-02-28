@@ -27,10 +27,15 @@ The site contains interactive elements, for example, a text-based cat hiding in 
 
 #### Credits
 
-- Invertocat is the GitHub logo, used in this project only as a social button to indicate that the project integrates with GitHub.
-- Bongo Cat was created by DitzyFlama.
-- Stitch is a character from a Walt Disney cartoon. Gif created by leidianenunes.
-- Nyan Cat is a character created by PRguitarman.
+- **Invertocat** is the GitHub logo, used in this project only as a social button to indicate that the project integrates with GitHub.
+
+- **Bongo Cat** was created by DitzyFlama.
+
+- **Stitch** is a character from a Walt Disney cartoon. Gif created by leidianenunes.
+
+- **Nyan Cat** is a character created by PRguitarman.
+
+- **Persian Cat** is the Lion and Sun symbol — one of the oldest emblems of Iran. I am placing it here today, 28.02.2026, as a tribute to Iranians who are sacrificing their lives in the fight against the Islamic dictatorship for their independence. Today is a historic day for Iran, which is why I want to show solidarity and remind others of their courage.
 
 ## Projects
 

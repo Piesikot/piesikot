@@ -35,7 +35,9 @@ Strona zawiera interaktywne elementy, np. w postaci tekstowego kota, który ukry
 
 - **Nyan Cat** jest postacią, której autorem jest PRguitarman.
 
-**Perski Kot** to Symbol Lwa i Słońca - jeden z najstarszych emblematów Iranu. Umieszczam go dziś, 28.02.2026 r., jako hołd dla Irańczyków poświęcających życie w walce z islamską dyktaturą o swoją niepodległość. Dzisiejszy dzień ma dla Iranu znaczenie historyczne, dlatego chcę w ten sposób okazać solidarność i przypomnieć o ich odwadze.
+- **Perski Kot** to Symbol Lwa i Słońca - jeden z najstarszych emblematów Iranu. Umieszczam go dziś, 28.02.2026 r., jako hołd dla Irańczyków poświęcających życie w walce z islamską dyktaturą o swoją niepodległość. Dzisiejszy dzień ma dla Iranu znaczenie historyczne, dlatego chcę w ten sposób okazać solidarność i przypomnieć o ich odwadze. Utworem muzycznym jest cover irańskiej pieśni „Khodahafez”, śpiewanej przez młodą Irankę na ulicach — w kraju, gdzie publiczne śpiewanie przez kobiety jest zabronione i karane. Oryginalnym autorem utworu jest Erfan Tahmasbi.
+
+
 
 ## Projekty
 

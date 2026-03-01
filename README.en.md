@@ -35,7 +35,8 @@ The site contains interactive elements, for example, a text-based cat hiding in 
 
 - **Nyan Cat** is a character created by PRguitarman.
 
-- **Persian Cat** is the Lion and Sun symbol — one of the oldest emblems of Iran. I am placing it here today, 28.02.2026, as a tribute to Iranians who are sacrificing their lives in the fight against the Islamic dictatorship for their independence. Today is a historic day for Iran, which is why I want to show solidarity and remind others of their courage.
+- **Persian Cat** is the Lion and Sun symbol — one of the oldest emblems of Iran. I am placing it here today, 28.02.2026, as a tribute to Iranians who are sacrificing their lives in the fight against the Islamic dictatorship for their independence. Today is a historic day for Iran, which is why I want to show solidarity and remind others of their courage. The musical piece is a cover of the Iranian song “Khodahafez”, sung by a young Iranian woman on the streets — in a country where public singing by women is forbidden and punishable. The original author of the song is Erfan Tahmasbi.
+
 
 ## Projects
 

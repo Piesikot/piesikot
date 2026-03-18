@@ -87,10 +87,47 @@
 
         #dog{
             position: absolute;
-            left: 20px;
+            left: 10px;
             bottom: 0;
+        } 
+        .hint{
+            position: absolute;
+
+            /* transform: translateY(-50%); */
+            width: 40vw;
+            font-size: 1em;
+            color: black;
+            /* position: fixed; */
+            left: 0;
+            bottom: 25px;
+            width: 100%;
+            padding: 5px;
+            text-align: center;
+            max-width: 60vw;
+            margin-left: 18vw;
+            /* opacity: 0.1; */
+            transition: 3s;
+
+            opacity: 0.75;
+            /* color: lightslategray; */
+        }
+        .hint__text {
+            opacity: 1;
+            transition: 3s;
         }
 
+        .hint__text--hidden {
+            opacity: 0;
+        }
+
+        .hint:hover .hint__text {
+            opacity: 1;
+        }
+
+        /* .hint-msg{
+            font-family: Arial, Helvetica, sans-serif;
+            position:relative;
+        } */
         #kot{
             position: absolute;
             right: 20px;
@@ -99,7 +136,6 @@
             transition: 3s;
             font-family: Arial, Helvetica, sans-serif;
         }
-
         #copyright{ 
             color: black;
             position: fixed;
@@ -608,7 +644,15 @@ refractoring jednak na vw i vh?
             </p>
         </header>
         <main>
-            <img id="dog" src="src/e-Pies.svg" alt="e-Pies Logo">
+            <div class="logo" onmouseenter="piesikotEnter()" onmouseleave="piesikotLeave()" onmouseenter="dogEnter()" onmouseleave="dogLeave()"  >
+                <img id="dog" src="src/e-Pies.svg" alt="e-Pies Logo">
+                <span class="hint" > ⓘ Hint <span class="hint__text"> - you can pet the dog, using your finger or cursor. </span> </span>
+
+                <!-- POTEM ZROBIĆ FUNKCJĘ GŁASKANIA w jakiś sposób -->
+                <!-- class="hint__text--petting" -->
+                 <!-- class="hint__text--pet-proposition" -->
+
+            </div>
             <div id="kot" onmouseenter="piesikotEnter()" onmouseleave="piesikotLeave()">
                 <div id="cat">
                     <span id="text-cat">/ᐠ..ᐟ\</span>
@@ -626,6 +670,7 @@ refractoring jednak na vw i vh?
     </audio>
 
 <script>
+
     let persianRevolution = false;
 
     let select_text_cat = document.getElementById("text_cat");
@@ -721,7 +766,20 @@ refractoring jednak na vw i vh?
         document.getElementById("ot1").style.color = "ghostwhite";
         document.getElementById("copyright").style.opacity = "0.1";
     }     
-    
+
+        function hintDisappear(){
+            setTimeout(() => {
+                document.querySelector(".hint__text").classList.add("hint__text--hidden");
+            }, 3000); // Czekaj 3 sekundy przed rozpoczęciem znikania
+        }
+
+        // do ogarnięcia, funcja wiadoości przy głaskaniu.
+        // function dogEnter(){
+        //     document.querySelector(".hint__text").textContent = "- dasfsafsa";
+        // }
+
+   
+
         function bongocatDown(){ 
             document.getElementById("bongo").src = "src/bongocat-lmb.gif";
         }
@@ -861,6 +919,7 @@ refractoring jednak na vw i vh?
 
         }
 
+         hintDisappear();
 
 </script>
 </body>

@@ -728,7 +728,15 @@ refractoring jednak na vw i vh?
     let select_bongo_cat = document.getElementById("bongo_cat");
     select_bongo_cat.onclick = function bongo_cat() {
         document.querySelector("#cat").innerHTML = '<img id="bongo" src="src/bongocat.gif" alt="Bongo Cat" onmouseenter="piesikotEnter()" onmouseleave="piesikotLeave()" onmousedown="bongocatDown()" onmouseup="bongocatUp()" ontouchstart="bongocatDown()">';
-        document.querySelector("#copyright").innerHTML =  " <a href='https://bongo.cat/' target='_blank' class='github-link'>Bongo Cat created by DitzyFlama.</a> ";
+
+        document.querySelector("#copyright").innerHTML =  "<a href='https://bongo.cat/' target='_blank' class='github-link'>Bongo Cat created by DitzyFlama.</a>";
+
+         if (language === "en"){
+                copyRight.innerHTML  = "<a href='https://bongo.cat/' target='_blank' class='github-link'>Bongo Cat created by DitzyFlama.</a>";
+                } else if (language === "pl"){
+                copyRight.innerHTML  = "<a href='https://bongo.cat/' target='_blank' class='github-link'>Bongo Cat utworzony przez DitzyFlama.</a>";
+                }
+
         document.querySelector("#copyright").style.transition = "3s";
         nyanInAction = false;
         //alert("Bongo Cat created by DitzyFlama"  )
@@ -958,6 +966,8 @@ refractoring jednak na vw i vh?
         
         hintDisappear();
 
+        // ⚠ 📌Lang changes must be implemented in two places! 📌 ⚠ 
+
         //Spolszczenie
         let catsDropbtn = document.querySelector(".cats-dropbtn");
         let projectsDropbtn = document.querySelector(".projects-dropbtn");
@@ -974,9 +984,13 @@ refractoring jednak na vw i vh?
 
              if (copyRight.textContent === "Just cat made from text.") {
                 copyRight.textContent = "Po prostu kot zrobiony z tekstu."
-            } else if (copyRight.innerHTML  = '<a href="https://github.com/piesikot" target="_blank" class="github-link"> <span> Invertocat is GitHub logo used here only as social button to inform that this project integrates with GitHub. </span> </a>'){
-                copyRight.innerHTML  = '<a href="https://github.com/piesikot" target="_blank" class="github-link"> <span> Invertocat jest logiem GitHuba użytym tutaj tylko jako przycisk społecznościowy” informujący, że projekt jest zintegrowany z GitHubem. </span> </a>'
-            } 
+
+            } else if (copyRight.innerHTML  === '<a href="https://github.com/piesikot" target="_blank" class="github-link"> <span> Invertocat is GitHub logo used here only as social button to inform that this project integrates with GitHub. </span> </a>')
+            { copyRight.innerHTML = '<a href="https://github.com/piesikot" target="_blank" class="github-link"> <span> Invertocat jest logiem GitHuba użytym tutaj tylko jako przycisk społecznościowy” informujący, że projekt jest zintegrowany z GitHubem. </span> </a>';
+
+            } else if (copyRight.innerHTML  === "<a href='https://bongo.cat/' target='_blank' class='github-link'>Bongo Cat created by DitzyFlama.</a>")
+            { copyRight.innerHTML = "<a href='https://bongo.cat/' target='_blank' class='github-link'>Bongo Cat utworzony przez DitzyFlama.</a>";
+             }
         }
 
        

@@ -15,6 +15,12 @@
         flex-direction:column;
         overflow-x: hidden;
     }
+    #nav-topbar{
+        display: flex;
+        justify-content: center;
+
+        /* Do przemyślenia refaktoryzacja całego nav-top. Obecnie bez position:absolute na nav-projects i nav-cats przestaje działać podkreślenie. */
+    }
     #nav-cats{
         position: absolute;
         top: 0px;
@@ -110,6 +116,9 @@
 
             opacity: 0.75;
             /* color: lightslategray; */
+        }
+        .hint-arrow{
+            
         }
         .hint__text {
             opacity: 1;
@@ -601,10 +610,11 @@ refractoring jednak na vw i vh?
             </video>       
         </div>
 
-            <nav id="nav-cats" onmouseenter="navcatsEnter()" onmouseleave="navcatsLeave()"> 
+        <nav id="nav-topbar">
+            <div id="nav-cats" onmouseenter="navcatsEnter()" onmouseleave="navcatsLeave()"> 
                 <div class="cats-dropdown">
-                  <button class="cats-dropbtn">Change cat <img id="cat-arrow" src="src/south.svg" alt="">
-                  </button>
+                  <button class="cats-dropbtn">Change cat </button><img id="cat-arrow" src="src/south.svg" alt="">
+                  
                   <div id="cat-dropbtn-underline"></div>
                   <div class="cats-dropdown-content" >
                     <li id="text_cat" class="cat-underline">Text cat</li>
@@ -615,11 +625,15 @@ refractoring jednak na vw i vh?
                     <li id="persian_cat" class="cat-underline">Persian Cat</li>
                 </div> 
               </div>
-            </nav>
+            </div>
         
-        <nav id="nav-projects" onmouseenter="navcprojectsEnter()" onmouseleave="navprojectsLeave()" >
+            <div id="nav-lang">
+                <button class="nav-lang-btn" onclick="langChange()">Ustaw język polski</button>
+            </div>
+
+        <div id="nav-projects" onmouseenter="navcprojectsEnter()" onmouseleave="navprojectsLeave()" >
             <div class="projects-dropdown">
-                <button class="projects-dropbtn"><img id="projects-arrow" src="src/south.svg" alt=""> Projects
+                <img id="projects-arrow" src="src/south.svg" alt=""><button class="projects-dropbtn"> Projects
                 </button>
                 <div id="projects-dropbtn-underline"></div>
                 <div class="projects-dropdown-content">
@@ -629,8 +643,8 @@ refractoring jednak na vw i vh?
                     <!-- <a href="   "><li id="   " class="   </li></a> -->
               </div> 
             </div>
+        </div>
         </nav>
-
         <!--
         <iframe src="todolist/todolist.html " title="whatever" frameBorder="0" style="margin-top: 50px;">
         </iframe>
@@ -645,8 +659,9 @@ refractoring jednak na vw i vh?
         </header>
         <main>
             <div class="logo" onmouseenter="piesikotEnter()" onmouseleave="piesikotLeave()" onmouseenter="dogEnter()" onmouseleave="dogLeave()"  >
+            
                 <img id="dog" src="src/e-Pies.svg" alt="e-Pies Logo">
-                <span class="hint" > ⓘ Hint <span class="hint__text"> - you can pet the dog, using your finger or cursor. </span> </span>
+                <span class="hint" ><label class="hint__label"> ⓘ Hint</label> <span class="hint__text"> - you can pet the dog, using your finger or cursor. </span> </span>
 
                 <!-- POTEM ZROBIĆ FUNKCJĘ GŁASKANIA w jakiś sposób -->
                 <!-- class="hint__text--petting" -->
@@ -719,7 +734,10 @@ refractoring jednak na vw i vh?
         //https://www.nyan.cat
     } 
 
-    let select_persian_cat = document.getElementById("persian_cat");
+    let select_persian_cat = document.getElementById("persian_cat");   
+
+
+
     select_persian_cat.onclick = function persian_cat() {
         document.querySelector("#cat").innerHTML = `<img id="persian" src="src/Persian_Lion.png" alt="Persian Lion and Sun" onmouseenter="persiancatEnter()" onmouseleave="persiancatLeave()">` ;
         document.querySelector("#copyright").textContent = "The Persian Lion and Sun symbol is the emblem of free Iran.";
@@ -916,11 +934,37 @@ refractoring jednak na vw i vh?
                            audio.pause();
                            }
                            playAudio();
+        }
+        
+        hintDisappear();
+
+        //Spolszczenie
+        let catsDropbtn = document.querySelector(".cats-dropbtn");
+        let projectsDropbtn = document.querySelector(".projects-dropbtn");
+        let hintLabel = document.querySelector(".hint__label");
+        let hintText = document.querySelector(".hint__text");
+        // let hintTextHidden = document.querySelector(".hint__text--hidden");
+
+        // hint__text--hidden
+
+         function langChange() {
+            catsDropbtn.textContent = "Zmień kota";
+            projectsDropbtn.textContent = "Projekty";
+            hintLabel.textContent = "ⓘ Wskazówka";
+            hintText.textContent = "- możesz pogłaskać pieska, używając palca lub kursora.";
 
         }
 
-         hintDisappear();
 
+       
+
+
+         
+
+         
+  
+
+    
 </script>
 </body>
 </html>

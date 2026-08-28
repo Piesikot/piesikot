@@ -96,6 +96,9 @@
             left: 10px;
             bottom: 0;
         } 
+        /* 🟠  trzeba dobrze umiejscowyć, bo przypuszczalnie coliduje z copyright. */
+        /* Może nad  logiem? */
+        /*  a drugie ⓘ nad kotem!  */
         .hint{
             position: absolute;
 
@@ -105,7 +108,7 @@
             color: black;
             /* position: fixed; */
             left: 0;
-            bottom: 25px;
+            bottom: 30px;
             width: 100%;
             padding: 5px;
             text-align: center;
@@ -697,9 +700,9 @@ refractoring jednak na vw i vh?
         
         if (language === "en"){
             copyRight.textContent = "Just cat made from text."
-        } else if (language === "pl"){
-           copyRight.textContent = "Po prostu kot zrobiony z tekstu.";
-        }
+            } else if (language === "pl"){
+            copyRight.textContent = "Po prostu kot zrobiony z tekstu.";
+            }
 
         document.querySelector("#copyright").style.transition = "3s"
         nyanInAction = false
@@ -711,11 +714,11 @@ refractoring jednak na vw i vh?
 
                 document.querySelector("#copyright").innerHTML  = '<a href="https://github.com/piesikot" target="_blank" class="github-link"> <span> Invertocat is GitHub logo used here only as social button to inform that this project integrates with GitHub. </span> </a>'
 
-                    if (language === "en"){
-                copyRight.
-            } else if (language === "pl"){
-               copyRight.;
-            }
+            if (language === "en"){
+                copyRight.innerHTML  = '<a href="https://github.com/piesikot" target="_blank" class="github-link"> <span> Invertocat is GitHub logo used here only as social button to inform that this project integrates with GitHub. </span> </a>';
+                } else if (language === "pl"){
+                copyRight.innerHTML  = '<a href="https://github.com/piesikot" target="_blank" class="github-link"> <span> Invertocat jest logiem GitHuba użytym tutaj tylko jako przycisk społecznościowy” informujący, że projekt jest zintegrowany z GitHubem. </span> </a>'
+                }
 
                 document.querySelector("#copyright").style.transition = "3s"
                 //alert("Invertocat is GitHub logo used here only as social button to inform that this project integrates with GitHub." );
@@ -971,8 +974,10 @@ refractoring jednak na vw i vh?
 
              if (copyRight.textContent === "Just cat made from text.") {
                 copyRight.textContent = "Po prostu kot zrobiony z tekstu."
-            }}
-
+            } else if (copyRight.innerHTML  = '<a href="https://github.com/piesikot" target="_blank" class="github-link"> <span> Invertocat is GitHub logo used here only as social button to inform that this project integrates with GitHub. </span> </a>'){
+                copyRight.innerHTML  = '<a href="https://github.com/piesikot" target="_blank" class="github-link"> <span> Invertocat jest logiem GitHuba użytym tutaj tylko jako przycisk społecznościowy” informujący, że projekt jest zintegrowany z GitHubem. </span> </a>'
+            } 
+        }
 
        
 

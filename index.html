@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en pl ">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -685,14 +685,22 @@ refractoring jednak na vw i vh?
     </audio>
 
 <script>
-    
+    let languange = "en";
+    let copyRight = document.querySelector("#copyright");
+
 
     let persianRevolution = false;
 
     let select_text_cat = document.getElementById("text_cat");
     select_text_cat.onclick = function text_cat() {
         document.querySelector("#cat").innerHTML = '<span id="text-cat">/ᐠ..ᐟ\\</span>'
-        document.querySelector("#copyright").textContent = "Just cat made from text."
+        
+        if (languange === "en"){
+            copyRight.textContent = "Just cat made from text."
+        } else if (languange === "pl"){
+           copyRight.textContent = "Po prostu kot zrobiony z tekstu.";
+        }
+
         document.querySelector("#copyright").style.transition = "3s"
         nyanInAction = false
     }    
@@ -700,7 +708,15 @@ refractoring jednak na vw i vh?
     let select_invertocat = document.getElementById("invertocat");
     select_invertocat.onclick = function invertocat() {
                 document.querySelector("#cat").innerHTML = '<div id="cat"> <a href="https://github.com/piesikot" class="github-link" target="_blank"><img id="inverto" src="src/Invertocat.png" alt="GitHub Logo"></a></div>'
+
                 document.querySelector("#copyright").innerHTML  = '<a href="https://github.com/piesikot" target="_blank" class="github-link"> <span> Invertocat is GitHub logo used here only as social button to inform that this project integrates with GitHub. </span> </a>'
+
+        //         if (languange === "en"){
+        //     copyRight.
+        // } else if (languange === "pl"){
+        //    copyRight.;
+        // }
+
                 document.querySelector("#copyright").style.transition = "3s"
                 //alert("Invertocat is GitHub logo used here only as social button to inform that this project integrates with GitHub." );
                 nyanInAction = false
@@ -944,20 +960,18 @@ refractoring jednak na vw i vh?
         let projectsDropbtn = document.querySelector(".projects-dropbtn");
         let hintLabel = document.querySelector(".hint__label");
         let hintText = document.querySelector(".hint__text");
-        let copyRight = document.querySelector("#copyright");
          function langChange() {
+            languange = "pl";
+
             catsDropbtn.textContent = "Zmień kota";
             projectsDropbtn.textContent = "Projekty";
             hintLabel.textContent = "ⓘ Wskazówka";
             hintText.textContent = "- możesz pogłaskać pieska, używając palca lub kursora.";
 
-            if (copyRight.textContent === "Just cat made from text.") {
-                copyRight.textContent = "Po prostu kot zrobiony z tekstu.";
-                } else if (copyRight.innerHTML === '<a href="https://github.com/piesikot" target="_blank" class="github-link"> <span> Invertocat is GitHub logo used here only as social button to inform that this project integrates with GitHub. </span> </a>' ){
-                    copyRight.innerHTML = ':D';
-                }
 
-        }
+             if (copyRight.textContent === "Just cat made from text.") {
+                copyRight.textContent = "Po prostu kot zrobiony z tekstu."
+            }}
 
 
        

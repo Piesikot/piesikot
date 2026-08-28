@@ -685,7 +685,7 @@ refractoring jednak na vw i vh?
     </audio>
 
 <script>
-    let languange = "en";
+    let language = "en";
     let copyRight = document.querySelector("#copyright");
 
 
@@ -695,9 +695,9 @@ refractoring jednak na vw i vh?
     select_text_cat.onclick = function text_cat() {
         document.querySelector("#cat").innerHTML = '<span id="text-cat">/ᐠ..ᐟ\\</span>'
         
-        if (languange === "en"){
+        if (language === "en"){
             copyRight.textContent = "Just cat made from text."
-        } else if (languange === "pl"){
+        } else if (language === "pl"){
            copyRight.textContent = "Po prostu kot zrobiony z tekstu.";
         }
 
@@ -711,11 +711,11 @@ refractoring jednak na vw i vh?
 
                 document.querySelector("#copyright").innerHTML  = '<a href="https://github.com/piesikot" target="_blank" class="github-link"> <span> Invertocat is GitHub logo used here only as social button to inform that this project integrates with GitHub. </span> </a>'
 
-        //         if (languange === "en"){
-        //     copyRight.
-        // } else if (languange === "pl"){
-        //    copyRight.;
-        // }
+                    if (language === "en"){
+                copyRight.
+            } else if (language === "pl"){
+               copyRight.;
+            }
 
                 document.querySelector("#copyright").style.transition = "3s"
                 //alert("Invertocat is GitHub logo used here only as social button to inform that this project integrates with GitHub." );
@@ -961,7 +961,7 @@ refractoring jednak na vw i vh?
         let hintLabel = document.querySelector(".hint__label");
         let hintText = document.querySelector(".hint__text");
          function langChange() {
-            languange = "pl";
+            language = "pl";
 
             catsDropbtn.textContent = "Zmień kota";
             projectsDropbtn.textContent = "Projekty";

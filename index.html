@@ -29,7 +29,6 @@
         position: relative;
         min-width:50px;
         /* flex-wrap: wrap; */
-
         font-size: 1em;
         border: none;
         outline: none;
@@ -214,7 +213,7 @@
         }
 
 .cats-dropdown .cats-dropbtn, .projects-dropdown .projects-dropbtn  {
-  font-size: 1.3em;  
+  font-size: 1em;  
   border: none;
   outline: none;
   color: black;
@@ -231,7 +230,7 @@
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
-  font-size: 1.5rem;
+  font-size: 1.5em;
 }
 
 .cats-dropdown-content li, .projects-dropdown-content li  {
@@ -255,7 +254,7 @@
 
 .projects-dropdown-content{
   text-align: center;
-  margin-left: -20px;   
+  margin-left: -50px;   
 }
 
 .cats-dropdown-content, .projects-dropdown-content {
@@ -714,7 +713,10 @@ refractoring jednak na vw i vh?
             </div>
         
             <div id="nav-lang">
-                <img id="lang-arrow-left" class="lang-arrow" src="src/south.svg" alt=""><button class="nav-lang-btn" onclick="langChangeToPl()">Język Polski</button><img id="lang-arrow-right" class="lang-arrow" src="src/south.svg" alt="">
+                <img id="lang-arrow-left" class="lang-arrow" src="src/south.svg" alt="">
+                <button class="nav-lang-btn" onclick="langChangeToPl()">Polski
+
+                </button><img id="lang-arrow-right" class="lang-arrow" src="src/south.svg" alt="">
             </div>
 
         <div id="nav-projects" onmouseenter="navcprojectsEnter()" onmouseleave="navprojectsLeave()" >
@@ -1098,7 +1100,7 @@ refractoring jednak na vw i vh?
 
 
         function langChangeToPl() {
-            languageButton.innerHTML = '<img id="lang-arrow-left" class="lang-arrow" src="src/south.svg" alt=""><button class="nav-lang-btn" onclick="langChangeToEn()">English Language</button><img id="lang-arrow-right" class="lang-arrow" src="src/south.svg" alt="">';
+            languageButton.innerHTML = '<img id="lang-arrow-left" class="lang-arrow" src="src/south.svg" alt=""><button class="nav-lang-btn" onclick="langChangeToEn()">English</button><img id="lang-arrow-right" class="lang-arrow" src="src/south.svg" alt="">';
 
             language = "pl";
             
@@ -1142,7 +1144,7 @@ refractoring jednak na vw i vh?
         }
 
         function langChangeToEn() {
-            languageButton.innerHTML = '<img id="lang-arrow-left" class="lang-arrow" src="src/south.svg" alt=""><button class="nav-lang-btn" onclick="langChangeToPl()">Język Polski</button><img id="lang-arrow-right" class="lang-arrow" src="src/south.svg" alt="">';
+            languageButton.innerHTML = '<img id="lang-arrow-left" class="lang-arrow" src="src/south.svg" alt=""><button class="nav-lang-btn" onclick="langChangeToPl()">Polski</button><img id="lang-arrow-right" class="lang-arrow" src="src/south.svg" alt="">';
 
             language = "en";
             

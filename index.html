@@ -784,6 +784,12 @@ refractoring jednak na vw i vh?
 
         document.querySelector("#copyright").textContent = "The Persian Lion and Sun symbol is the emblem of free Iran.";
         
+         if (language === "en"){
+                copyRight.textContent = "The Persian Lion and Sun symbol is the emblem of free Iran.";
+                } else if (language === "pl"){
+                copyRight.textContent = "Symbol Perskiego Lwa i Słońce to emblematy wolnego Iranu.";
+                }
+
         //  if (language === "en"){
         //         copyRight.innerHTML = innerHTML = "<a href='https://www.nyan.cat' target='_blank' class='github-link'>Nyan Cat created by PRguitarman.</a>";
         //         } else if (language === "pl"){
@@ -1018,7 +1024,10 @@ refractoring jednak na vw i vh?
             // (copyRight.innerHTML==="<a href='https://www.nyan.cat' target='_blank' class='github-link'>Nyan Cat created by PRguitarman.</a>")
             (copyRight.textContent.includes("created by PRguitarman.")) 
              { copyRight.innerHTML  = "<a href='https://www.nyan.cat' target='_blank' class='github-link'>Nyan Cat utworzony przez PRguitarman.</a>"
-             }
+             } else if 
+             (copyRight.textContent.includes("The Persian Lion and Sun")) {
+                copyRight.textContent = "Symbol Perskiego Lwa i Słońce to emblematy wolnego Iranu.";
+                }
         }
 
        

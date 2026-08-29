@@ -687,7 +687,7 @@ refractoring jednak na vw i vh?
             </div>
         
             <div id="nav-lang">
-                <button class="nav-lang-btn" onclick="langChange()">Język Polski</button>
+                <button class="nav-lang-btn" onclick="langChangeToPl()">Język Polski</button>
             </div>
 
         <div id="nav-projects" onmouseenter="navcprojectsEnter()" onmouseleave="navprojectsLeave()" >
@@ -720,7 +720,7 @@ refractoring jednak na vw i vh?
         
 
         <main>
-            <span class="hint" ><label class="hint__label"> ⓘ Hint</label> <span class="hint__text"> - you can pet the dog, using your finger or cursor. </span> </span>
+            <span class="hint" ><label class="hint__label"> ⓘ Hint</label> <span class="hint__text"> - you can pet the dog, using your finger or cursor.</span> </span>
             <div class="logo" onmouseenter="piesikotEnter()" onmouseleave="piesikotLeave()" onmouseenter="dogEnter()" onmouseleave="dogLeave()">
             
                 <img id="dog" src="src/e-Pies.svg" alt="e-Pies Logo">
@@ -748,6 +748,8 @@ refractoring jednak na vw i vh?
     </audio>
 
 <script>
+    let languageButton = document.querySelector('#nav-lang')
+
     let language = "en";
     let copyRight = document.querySelector("#copyright");
 
@@ -1068,7 +1070,9 @@ refractoring jednak na vw i vh?
         let hintText = document.querySelector(".hint__text");
 
 
-         function langChange() {
+        function langChangeToPl() {
+            languageButton.innerHTML = '<button class="nav-lang-btn" onclick="langChangeToEn()">English Language</button>';
+
             language = "pl";
             
             //żeby wskazówka się wyświetliła po zmianie języka
@@ -1109,6 +1113,47 @@ refractoring jednak na vw i vh?
                 copyRight.textContent = "Symbol Perskiego Lwa i Słońce to emblematy wolnego Iranu.";
                 }
         }
+
+        function langChangeToEn() {
+            languageButton.innerHTML = '<button class="nav-lang-btn" onclick="langChangeToPl()">Język Polski</button>';
+
+            language = "en";
+            
+            //żeby wskazówka się wyświetliła po zmianie języka
+            document.querySelector(".hint__text").classList.remove("hint__text--hidden");
+
+            hintDisappear();
+
+            catsDropbtn.textContent = "Change Cat";
+            select_text_cat.textContent = "Text Cat";
+            select_bongo_cat.textContent = "Bongo Cat";
+            select_nyan_cat.textContent = "Nyan Cat";
+            select_persian_cat.textContent = "Persian Cat"; 
+
+            projectsDropbtn.textContent = "Projects";
+            toDoProject.textContent = "To do list";
+            racismProject.textContent = "Racism";
+            dogFarmProject.textContent = "Dog Farm";
+
+            hintLabel.textContent = "ⓘ Hint";
+            hintText.textContent = " you can pet the dog, using your finger or cursor.";
+
+        //⚠ 📌Wykomentone, żeby uniknąć redundancji, aczkolwiek istnieje możliwość, że bez tego język nie będzie się zmieniał w kazdym miejscu! ⚠
+            // if (copyRight.textContent === "Just cat made from text.") {
+            //     copyRight.textContent = "Po prostu kot zrobiony z tekstu."
+            // } else if (copyRight.innerHTML==='<a href="https://github.com/piesikot" target="_blank" class="github-link"> <span> Invertocat is GitHub logo used here only as social button to inform that this project integrates with GitHub. </span> </a>'){ copyRight.innerHTML = '<a href="https://github.com/piesikot" target="_blank" class="github-link"> <span> Invertocat jest logiem GitHuba użytym tutaj tylko jako przycisk społecznościowy informujący, że projekt jest zintegrowany z GitHubem. </span> </a>'} 
+            // else if 
+            // (copyRight.textContent.includes("Bongo Cat created by DitzyFlama.")) 
+            // { copyRight.innerHTML="<a href='https://bongo.cat/' target='_blank' class='github-link'>Bongo Cat utworzony przez DitzyFlama.</a>"} 
+            // else if 
+            // (copyRight.textContent.includes("created by PRguitarman.")) 
+            //  { copyRight.innerHTML  = "<a href='https://www.nyan.cat' target='_blank' class='github-link'>Nyan Cat utworzony przez PRguitarman.</a>"
+            //  } else if 
+            //  (copyRight.textContent.includes("The Persian Lion and Sun")) {
+            //     copyRight.textContent = "Symbol Perskiego Lwa i Słońce to emblematy wolnego Iranu.";
+            //     }
+        }
+        
 
        
 

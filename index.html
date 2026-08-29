@@ -677,11 +677,11 @@ refractoring jednak na vw i vh?
                   <div id="cat-dropbtn-underline"></div>
                   <div class="cats-dropdown-content" >
                     <li id="text_cat" class="cat-underline">Text cat</li>
-                    <li id="invertocat" class="cat-underline">Invertocat</li>
                     <li id="bongo_cat" class="cat-underline">Bongo Cat</li>
                     <!-- <li id="disneys_stitch" class="cat-underline">Disney's Stitch</li> -->
                     <li id="nyan_cat" class="cat-underline">Nyan Cat</li>
                     <li id="persian_cat" class="cat-underline">Persian Cat</li>
+                    <li id="invertocat" class="cat-underline">Invertocat</li>
                 </div> 
               </div>
             </div>
@@ -1070,6 +1070,11 @@ refractoring jednak na vw i vh?
 
          function langChange() {
             language = "pl";
+            
+            //żeby wskazówka się wyświetliła po zmianie języka
+            document.querySelector(".hint__text").classList.remove("hint__text--hidden");
+
+            hintDisappear();
 
             catsDropbtn.textContent = "Zmień Kota";
             select_text_cat.textContent = "Kot z tekstu";

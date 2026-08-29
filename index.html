@@ -662,8 +662,8 @@ refractoring jednak na vw i vh?
                 <div id="projects-dropbtn-underline"></div>
                 <div class="projects-dropdown-content">
                     <a href="todolist/index.html"><li id="todolist" class="project-underline">To do list</li></a>
-                    <a href="https://www.racism.wtf"><li id="racism" class="project-underline">Racism WTF</li></a>
-                    <a href="https://piesikodpokolen.pl"><li id="piesikodpokolen" class="project-underline">Psia Farma</li></a>
+                    <a href="https://www.racism.wtf"><li id="racism" class="project-underline">Racism</li></a>
+                    <a href="https://piesikodpokolen.pl"><li id="piesikodpokolen" class="project-underline">Dog Farm</li></a>
                     <!-- <a href="   "><li id="   " class="   </li></a> -->
               </div> 
             </div>
@@ -1024,20 +1024,28 @@ refractoring jednak na vw i vh?
         //Spolszczenie
         let catsDropbtn = document.querySelector(".cats-dropbtn");
         
-
         let projectsDropbtn = document.querySelector(".projects-dropbtn");
+        let toDoProject = document.querySelector("#todolist");
+        let racismProject = document.querySelector("#racism");
+        let dogFarmProject = document.querySelector("#piesikodpokolen")
+
         let hintLabel = document.querySelector(".hint__label");
         let hintText = document.querySelector(".hint__text");
+
+
          function langChange() {
             language = "pl";
 
             catsDropbtn.textContent = "Zmień kota";
-            projectsDropbtn.textContent = "Projekty";
-
             select_text_cat.textContent = "Kot z tekstu";
             select_bongo_cat.textContent = "Kot Bongo";
             select_nyan_cat.textContent = "Kot Nyan";
             select_persian_cat.textContent = "Perski Kot"; 
+
+            projectsDropbtn.textContent = "Projekty";
+            toDoProject.textContent = "Lista zadań";
+            racismProject.textContent = "Szowinizm";
+            dogFarmProject.textContent = "Psia Farma";
 
             hintLabel.textContent = "ⓘ Wskazówka";
             hintText.textContent = "- możesz pogłaskać pieska, używając palca lub kursora.";

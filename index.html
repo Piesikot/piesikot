@@ -44,6 +44,8 @@
         /* font-family: inherit; */
         /* margin: 0; */
         /* margin-top:10px; */
+
+        /* border: solid red 3px; */
     }
 
     .nav-lang-btn::after {
@@ -273,6 +275,31 @@
  
 #cat-arrow{
     rotate: 90deg;
+}
+
+
+#lang-arrow-left{
+    rotate: 270deg;
+    transform-origin: center;
+}
+#lang-arrow-right{
+    rotate: 90deg;
+    /* transform-origin: center; */
+}
+
+.lang-arrow{
+    width: 3em; 
+    margin-bottom: -9px;
+    transition: transform 0.7s ease, rotate 0.7s ease;
+    /* transform-origin: center; */
+}
+
+#nav-lang:hover #lang-arrow-left {
+    transform: rotate(-0.8turn);
+}
+
+#nav-lang:hover #lang-arrow-right {
+    transform: rotate(0.8turn);
 }
 
 #projects-arrow{
@@ -687,7 +714,7 @@ refractoring jednak na vw i vh?
             </div>
         
             <div id="nav-lang">
-                <button class="nav-lang-btn" onclick="langChangeToPl()">Język Polski</button>
+                <img id="lang-arrow-left" class="lang-arrow" src="src/south.svg" alt=""><button class="nav-lang-btn" onclick="langChangeToPl()">Język Polski</button><img id="lang-arrow-right" class="lang-arrow" src="src/south.svg" alt="">
             </div>
 
         <div id="nav-projects" onmouseenter="navcprojectsEnter()" onmouseleave="navprojectsLeave()" >
@@ -1071,7 +1098,7 @@ refractoring jednak na vw i vh?
 
 
         function langChangeToPl() {
-            languageButton.innerHTML = '<button class="nav-lang-btn" onclick="langChangeToEn()">English Language</button>';
+            languageButton.innerHTML = '<img id="lang-arrow-left" class="lang-arrow" src="src/south.svg" alt=""><button class="nav-lang-btn" onclick="langChangeToEn()">English Language</button><img id="lang-arrow-right" class="lang-arrow" src="src/south.svg" alt="">';
 
             language = "pl";
             
@@ -1115,7 +1142,7 @@ refractoring jednak na vw i vh?
         }
 
         function langChangeToEn() {
-            languageButton.innerHTML = '<button class="nav-lang-btn" onclick="langChangeToPl()">Język Polski</button>';
+            languageButton.innerHTML = '<img id="lang-arrow-left" class="lang-arrow" src="src/south.svg" alt=""><button class="nav-lang-btn" onclick="langChangeToPl()">Język Polski</button><img id="lang-arrow-right" class="lang-arrow" src="src/south.svg" alt="">';
 
             language = "en";
             

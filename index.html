@@ -18,9 +18,18 @@
     #nav-topbar{
         display: flex;
         justify-content: center;
+        /* align-items: center; */
 
+        margin-left: 20px ;
+        margin-top: 10px;
+        
         /* Do przemyślenia refaktoryzacja całego nav-top. Obecnie bez position:absolute na nav-projects i nav-cats przestaje działać podkreślenie. */
     }
+    .nav-lang-btn{
+        min-width:50px ;
+        /* flex-wrap: wrap; */
+    }
+
     #nav-cats{
         position: absolute;
         top: 0px;
@@ -101,20 +110,24 @@
         /*  a drugie ⓘ nad kotem!  */
         /* 🟠🟠 teraz chyba nawet jest przypuszczalnie dobrze, ALE kot się wyłania jak hint jest aktywny, trzeba to zmienić ASAP!!! */
         .hint{
-            position: absolute;
 
             /* transform: translateY(-50%); */
-            width: 40vw;
+
+            position: absolute;
+            width: 50vw;
+             left: 0;
+            top: 45px;
+            margin-left: 18vw;
+
             font-size: 1em;
             color: black;
             /* position: fixed; */
-            left: 0;
-            top: 50px;
+           
             width: 100%;
             padding: 5px;
             text-align: center;
             max-width: 60vw;
-            margin-left: 18vw;
+            
             /* opacity: 0.1; */
             transition: 3s;
 
@@ -523,6 +536,13 @@ display: inline-block;
     }
 
 @media only screen and (max-width: 350px) {
+
+    #nav-cats, #nav-projects{
+        font-size: 60%;
+    }
+    .hint__label, .hint__text{
+        font-size: 40%;
+    }
     .cats-dropdown-content, .projects-dropdown-content {
         height: 150px;
         overflow-y:scroll; 
@@ -632,7 +652,7 @@ refractoring jednak na vw i vh?
             </div>
         
             <div id="nav-lang">
-                <button class="nav-lang-btn" onclick="langChange()">Ustaw język polski</button>
+                <button class="nav-lang-btn" onclick="langChange()">język polski</button>
             </div>
 
         <div id="nav-projects" onmouseenter="navcprojectsEnter()" onmouseleave="navprojectsLeave()" >
@@ -661,11 +681,15 @@ refractoring jednak na vw i vh?
             <p><span id="ot2">ot</span><span class="dot">.</span >co</span>
             </p>
         </header>
+
+        
+
         <main>
-            <div class="logo" onmouseenter="piesikotEnter()" onmouseleave="piesikotLeave()" onmouseenter="dogEnter()" onmouseleave="dogLeave()"  >
+            <span class="hint" ><label class="hint__label"> ⓘ Hint</label> <span class="hint__text"> - you can pet the dog, using your finger or cursor. </span> </span>
+            <div class="logo" onmouseenter="piesikotEnter()" onmouseleave="piesikotLeave()" onmouseenter="dogEnter()" onmouseleave="dogLeave()">
             
                 <img id="dog" src="src/e-Pies.svg" alt="e-Pies Logo">
-                <span class="hint" ><label class="hint__label"> ⓘ Hint</label> <span class="hint__text"> - you can pet the dog, using your finger or cursor. </span> </span>
+                
 
                 <!-- POTEM ZROBIĆ FUNKCJĘ GŁASKANIA w jakiś sposób -->
                 <!-- class="hint__text--petting" -->

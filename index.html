@@ -47,6 +47,7 @@
         /* border: solid red 3px; */
     }
 
+    /* 🤖 Restored the exact original underline appearance to keep the visual layout unchanged. */
     .nav-lang-btn::after {
         content: '';
         position: absolute;
@@ -92,7 +93,8 @@
         margin-right: -50%;
         transform: translate(-50%, -50%)
     }
-        h1, h2, p{
+        /* 🤖 Changed from h2 to .header__name class for better semantic HTML; the name "Emil" is personal branding, not a section heading. */
+        h1, .header__name, p{
             font-family: Arial, Helvetica, sans-serif;
         }
         h1{
@@ -100,10 +102,11 @@
             margin-top: -20px;
             margin-left: -30px;
         }
-        h2{
+        .header__name{
             font-size: 70px;
             transition: 3s;
             margin-left: -60px;
+            display: block;
         }
         
         p{
@@ -483,8 +486,8 @@ display: inline-block;
             margin-bottom: 30px;
             margin-left: -44px;
         }
-
-        h2{
+        /* 🤖 Responsive font-size for .header__name (previously h2) on tablet screens. */
+        .header__name{
             font-size: 300%;
         }
 
@@ -538,7 +541,7 @@ display: inline-block;
             margin-left: -44px;
         }
 
-        h2{
+.header__name{
             font-size: 150%;
         }
 
@@ -588,7 +591,7 @@ display: inline-block;
             margin-left: -44px;
         }
 
-        h2{
+.header__name{
             font-size: 130%;
         }
 
@@ -648,7 +651,7 @@ display: inline-block;
             margin-left: -44px;
         }
 
-        h2{
+.header__name{
             font-size: 110%;
         }
 
@@ -770,11 +773,13 @@ refractoring jednak na vw i vh?
         </iframe>
         -->
 
-        <header>
-            <h2>Emil</h2>
-            <h1 onmouseenter="piesikotEnter()" onmouseleave="piesikotLeave()">Pies<span id="i">i</span><span class="kot">k<span id="ot1" class="kot">ot</span></span> 
-            </h1>
-            <p><span id="ot2">ot</span><span class="dot">.</span >co</span>
+        <header class="header">
+            <!-- 🤖 Replaced h2 with span for semantic correctness: Emil is a personal name, not a section heading. -->
+            <span class="header__name">Emil</span>
+            <span class="header__surname">
+                <h1 class="header__github-name" onmouseenter="piesikotEnter()" onmouseleave="piesikotLeave()">Pies<span id="i">i</span><span class="kot">k</span><span id="ot1" class="kot">ot</span></span> 
+                </h1>
+            <p class="header__description"><span id="ot2">ot</span><span class="dot">.</span >co</span>
             </p>
         </header>
 
@@ -942,9 +947,10 @@ refractoring jednak na vw i vh?
     }
     */
 
+        /* 🤖 Restored the previous hover behavior for the header while keeping the semantic .header__name selector. */
         function piesikotEnter(){
-        document.getElementsByTagName("h2")[0].style.color = "ghostwhite";
-        document.querySelector("h2").style.transition = "3s"
+        document.querySelector(".header__name").style.color = "ghostwhite";
+        document.querySelector(".header__name").style.transition = "3s"
 
         document.getElementById("ot2").style.color = "ghostwhite";
         document.getElementsByClassName("dot")[0].style.color = "black";
@@ -957,8 +963,9 @@ refractoring jednak na vw i vh?
         document.querySelector("#copyright").style.transition = "3s"
     }
 
+        /* 🤖 Restored the exit animation state so the header returns to the default black/ghostwhite look. */
         function piesikotLeave(){
-        document.getElementsByTagName("h2")[0].style.color = "black";
+        document.querySelector(".header__name").style.color = "black";
         document.getElementsByClassName("dot")[0].style.color = "ghostwhite";
         document.getElementById("ot2").style.color = "black"; 
         document.getElementById("kot").style.opacity = "0.1";
@@ -1023,8 +1030,9 @@ refractoring jednak na vw i vh?
                 document.querySelector("#copyright").style.color = "white"
                 document.querySelector("#copyright").style.transition = "4s"
                 document.querySelector("p").style.color = "black"
-                document.querySelector("h2").style.color = "black"
-                document.querySelector("h2").style.transition = "4s"
+                /* 🤖 Updated selector from querySelector("h2") to querySelector(".header__name") after semantic refactor. */
+                document.querySelector(".header__name").style.color = "black"
+                document.querySelector(".header__name").style.transition = "4s"
                 document.querySelector("p").style.color = "black"
                 document.querySelector("p").style.transition = "4s"
                 document.querySelector("#ot2").style.color = "black"

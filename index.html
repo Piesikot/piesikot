@@ -412,6 +412,31 @@ display: inline-block;
     color: black;
 }
 
+/* 🤖 Styling for header__github-name link: black color, animated underline on hover (consistent with nav). */
+.header__github-name a {
+    color: black;
+    text-decoration: none;
+    position: relative;
+}
+
+.header__github-name a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: black;
+    transform: scaleX(0);
+    transform-origin: bottom;
+    transition: transform 0.7s ease;
+}
+
+.header__github-name a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom;
+}
+
 /* Koty */
 #text-cat{
         color: black;
@@ -782,7 +807,7 @@ refractoring jednak na vw i vh?
             <!-- 🤖 Replaced h2 with span for semantic correctness: Emil is a personal name, not a section heading. -->
             <span class="header__name">Emil</span>
             <span class="header__surname">
-                <h1 class="header__github-name" onmouseenter="piesikotEnter()" onmouseleave="piesikotLeave()">Pies<span id="i">i</span><span class="kot">k</span><span id="ot1" class="kot">ot</span></span> 
+                <h1 class="header__github-name"><a href="https://github.com/piesikot" target="_blank" onmouseenter="piesikotEnter()" onmouseleave="piesikotLeave()">Pies<span id="i">i</span><span class="kot">k</span><span id="ot1" class="kot">ot</span></a>
                 </h1>
             <p class="header__description"><span id="ot2">ot</span><span class="dot" aria-hidden="true">.</span >co</span>
             </p>

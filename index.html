@@ -733,7 +733,7 @@ refractoring jednak na vw i vh?
 
         <nav id="nav-topbar">
             <!-- 🤖 The old mouse handlers are no longer needed because the arrow rotation is now handled by CSS hover states only. -->
-            <div id="nav-cats"> 
+            <div id="nav-cats" aria-hidden="true"> 
                 <div class="cats-dropdown">
                   <!-- 🤖 I kept the original markup but aligned the arrow to the shared nav-lang CSS pattern. -->
                   <button class="cats-dropbtn">Change Cat </button><img id="cat-arrow" class="nav-arrow" src="src/south.svg" alt="">
@@ -784,14 +784,14 @@ refractoring jednak na vw i vh?
             <span class="header__surname">
                 <h1 class="header__github-name" onmouseenter="piesikotEnter()" onmouseleave="piesikotLeave()">Pies<span id="i">i</span><span class="kot">k</span><span id="ot1" class="kot">ot</span></span> 
                 </h1>
-            <p class="header__description"><span id="ot2">ot</span><span class="dot">.</span >co</span>
+            <p class="header__description"><span id="ot2">ot</span><span class="dot" aria-hidden="true">.</span >co</span>
             </p>
         </header>
 
         
 
         <main>
-            <span class="hint" ><label class="hint__label"> ⓘ Hint</label> <span class="hint__text"> - you can pet the dog, using your finger or cursor.</span> </span>
+            <span class="hint" aria-hidden="true"><label class="hint__label"> ⓘ Hint</label> <span class="hint__text"> - you can pet the dog, using your finger or cursor.</span> </span>
             <div class="logo" onmouseenter="piesikotEnter()" onmouseleave="piesikotLeave()" onmouseenter="dogEnter()" onmouseleave="dogLeave()">
             
                 <img id="dog" src="src/e-Pies.svg" alt="e-Pies Logo">
@@ -802,12 +802,12 @@ refractoring jednak na vw i vh?
                  <!-- class="hint__text--pet-proposition" -->
 
             </div>
-            <div id="kot" onmouseenter="piesikotEnter()" onmouseleave="piesikotLeave()">
+            <div id="kot" aria-hidden="true" onmouseenter="piesikotEnter()" onmouseleave="piesikotLeave()">
                 <div id="cat">
                     <span id="text-cat">/ᐠ..ᐟ\</span>
             </div>
         </main>
-        <footer onmouseenter="piesikotEnter()" onmouseleave="piesikotLeave()"> 
+        <footer aria-hidden="true" onmouseenter="piesikotEnter()" onmouseleave="piesikotLeave()"> 
                 <span id="copyright">Just cat made from text.</span>
         </footer>
     </div>

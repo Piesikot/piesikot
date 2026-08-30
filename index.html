@@ -724,7 +724,8 @@ refractoring jednak na vw i vh?
         </div>
 
         <nav id="nav-topbar">
-            <div id="nav-cats" onmouseenter="navcatsEnter()" onmouseleave="navcatsLeave()"> 
+            <!-- 🤖 The old mouse handlers are no longer needed because the arrow rotation is now handled by CSS hover states only. -->
+            <div id="nav-cats"> 
                 <div class="cats-dropdown">
                   <!-- 🤖 I kept the original markup but aligned the arrow to the shared nav-lang CSS pattern. -->
                   <button class="cats-dropbtn">Change Cat </button><img id="cat-arrow" class="nav-arrow" src="src/south.svg" alt="">
@@ -748,7 +749,8 @@ refractoring jednak na vw i vh?
                 </button><img id="lang-arrow-right" class="lang-arrow" src="src/south.svg" alt="">
             </div>
 
-        <div id="nav-projects" onmouseenter="navcprojectsEnter()" onmouseleave="navprojectsLeave()" >
+        <!-- 🤖 The old mouse handlers are no longer needed because the arrow rotation is now handled by CSS hover states only. -->
+        <div id="nav-projects">
             <div class="projects-dropdown">
                 <!-- 🤖 I switched this arrow to the same transform-based animation style as nav-lang. -->
                 <img id="projects-arrow" class="nav-arrow" src="src/south.svg" alt=""><button class="projects-dropbtn"> Projects

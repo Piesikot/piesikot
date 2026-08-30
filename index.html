@@ -266,6 +266,8 @@
     text-decoration: none;
 }
 
+/* 🤖 Legacy arrow styles kept as a commented reference for comparison with the new refactor. */
+/*
 #cat-arrow, #projects-arrow{
     width: 3em; 
     margin-bottom: -9px;
@@ -276,6 +278,35 @@
     rotate: 90deg;
 }
 
+#projects-arrow{
+    rotate: 270deg;
+}
+*/
+
+/* 🤖 Unified arrow behavior: this matches the nav-lang approach using transform rotation instead of mixing rotate + inline JS. */
+.nav-arrow {
+    width: 3em;
+    margin-bottom: -9px;
+    transition: transform 0.7s ease, rotate 0.7s ease;
+}
+
+#nav-cats .nav-arrow {
+    rotate: 90deg;
+    transform-origin: center;
+}
+
+#nav-projects .nav-arrow {
+    rotate: 270deg;
+    transform-origin: center;
+}
+
+#nav-cats:hover .nav-arrow {
+    transform: rotate(0.8turn);
+}
+
+#nav-projects:hover .nav-arrow {
+    transform: rotate(-0.8turn);
+}
 
 #lang-arrow-left{
     rotate: 270deg;
@@ -299,10 +330,6 @@
 
 #nav-lang:hover #lang-arrow-right {
     transform: rotate(0.8turn);
-}
-
-#projects-arrow{
-    rotate: 270deg;
 }
 
 /* Nie wiem, czemu nie jestem w stanie tego ustawić na buttonie, i musiałem zrobić nowego diva. */
@@ -611,6 +638,7 @@ display: inline-block;
 
         #copyright {
                 /* display: none; */
+                font-size: 1.5vw;
             }
         
         h1{
@@ -698,7 +726,8 @@ refractoring jednak na vw i vh?
         <nav id="nav-topbar">
             <div id="nav-cats" onmouseenter="navcatsEnter()" onmouseleave="navcatsLeave()"> 
                 <div class="cats-dropdown">
-                  <button class="cats-dropbtn">Change Cat </button><img id="cat-arrow" src="src/south.svg" alt="">
+                  <!-- 🤖 I kept the original markup but aligned the arrow to the shared nav-lang CSS pattern. -->
+                  <button class="cats-dropbtn">Change Cat </button><img id="cat-arrow" class="nav-arrow" src="src/south.svg" alt="">
                   
                   <div id="cat-dropbtn-underline"></div>
                   <div class="cats-dropdown-content" >
@@ -721,7 +750,8 @@ refractoring jednak na vw i vh?
 
         <div id="nav-projects" onmouseenter="navcprojectsEnter()" onmouseleave="navprojectsLeave()" >
             <div class="projects-dropdown">
-                <img id="projects-arrow" src="src/south.svg" alt=""><button class="projects-dropbtn"> Projects
+                <!-- 🤖 I switched this arrow to the same transform-based animation style as nav-lang. -->
+                <img id="projects-arrow" class="nav-arrow" src="src/south.svg" alt=""><button class="projects-dropbtn"> Projects
                 </button>
                 <div id="projects-dropbtn-underline"></div>
                 <div class="projects-dropdown-content">
@@ -891,6 +921,8 @@ refractoring jednak na vw i vh?
         document.querySelector("#copyright").style.transition = "3s";
     }
 
+    /* 🤖 Legacy arrow JS kept as a commented reference; the CSS-only hover rotation is now the active implementation. */
+    /*
     function navcatsEnter() {
         document.getElementById("cat-arrow").style.transform = "rotate(0.80turn)";
     }
@@ -906,6 +938,7 @@ refractoring jednak na vw i vh?
     function navprojectsLeave(){
         document.getElementById("projects-arrow").style.transform = "rotate(0turn)";
     }
+    */
 
         function piesikotEnter(){
         document.getElementsByTagName("h2")[0].style.color = "ghostwhite";

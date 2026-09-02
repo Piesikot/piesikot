@@ -142,26 +142,28 @@
             color: black;
         }
 
-        img{
+        /* ??? */
+        /* img{
             font-size: 10px;
-        }
+        } */
 
-        #dog{
+        .logo__img{
             position: absolute;
             left: 10px;
             bottom: 0;
+            /* height: 286px; */
         } 
-        /* 🟠  trzeba dobrze umiejscowyć, bo przypuszczalnie coliduje z copyright. */
-        /* Może nad  logiem? */
-        /*  a drugie ⓘ nad kotem!  */
-        /* 🟠🟠 teraz chyba nawet jest przypuszczalnie dobrze, ALE kot się wyłania jak hint jest aktywny, trzeba to zmienić ASAP!!! */
+        /* 🟠 do dalszych testów, czy nie koliduje z copyright. */
+        /* hint nad  logiem? Na wąskin vh może być problematyczne, ale teraz i tak jest problematyczne już w ten sposóbv */
+        /* a drugie ⓘ zrobić nad kotem!  */
+
         .hint{
 
             /* transform: translateY(-50%); */
 
             position: absolute;
             width: 50vw;
-             left: 0;
+            left: 0;
             top: 57.5px;
             margin-left: 18vw;
 
@@ -525,9 +527,7 @@ display: inline-block;
             font-size:200%;
         }
 
-        #dog{
-            width: 20%;
-        }
+  
 
         #text-cat{
             font-size: 2em;
@@ -579,7 +579,7 @@ display: inline-block;
             font-size:100%;
         }
 
-        #dog{
+        .logo__img{
             width: 20%;
         }
 
@@ -629,7 +629,7 @@ display: inline-block;
             font-size:100%;
         }
 
-        #dog{
+        .logo__img{
             width: 20%;
         }
 
@@ -689,7 +689,7 @@ display: inline-block;
             font-size:85%;
         }
 
-        #dog{
+        .logo__img{
             width: 20%;
         }
 
@@ -735,7 +735,7 @@ refractoring jednak na vw i vh?
 }
 
 @media only screen and (max-height: 350px) {
-    #dog{
+    .logo__img{
         width: 25vh;
     }
 }
@@ -813,13 +813,12 @@ refractoring jednak na vw i vh?
             </p>
         </header>
 
-        
-
         <main>
             <span class="hint" aria-hidden="true"><label class="hint__label"> ⓘ Hint</label> <span class="hint__text"> - you can pet the dog, using your finger or cursor.</span> </span>
-            <div class="logo" onmouseenter="piesikotEnter()" onmouseleave="piesikotLeave()" onmouseenter="dogEnter()" onmouseleave="dogLeave()">
+
+            <div class="logo" onmouseenter="piesikotEnter()" onmouseleave="piesikotLeave()" onmouseenter="logoEnter()" onmouseleave="logoLeave()">
             
-                <img id="dog" src="src/e-Pies.svg" alt="e-Pies Logo">
+                <img class="logo__img" src="src/e-Pies.svg" alt="e-Pies Logo">
                 
 
                 <!-- POTEM ZROBIĆ FUNKCJĘ GŁASKANIA w jakiś sposób -->

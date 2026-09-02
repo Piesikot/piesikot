@@ -158,30 +158,23 @@
         /* a drugie ⓘ zrobić nad kotem!  */
 
         .hint{
-
             /* transform: translateY(-50%); */
 
             position: absolute;
-            width: 50vw;
-            left: 0;
-            top: 57.5px;
-            margin-left: 18vw;
-
             font-size: 1em;
             color: black;
-            /* position: fixed; */
-           
-            width: 100%;
-            padding: 5px;
-            text-align: center;
-            max-width: 60vw;
-            
-            /* opacity: 0.1; */
+            opacity: 0.75;
             transition: 3s;
 
-            opacity: 0.75;
-            /* color: lightslategray; */
-        }
+            /* left: 10px; */
+            /* bottom: 0; */
+            /* height: 310px; */
+
+            /* 🟠Usawić height .cats-dropbtn? */
+            /* top: 1.5em; */
+            top: 160px;
+            max-width: 200px;
+            }
   
         .hint__text {
             opacity: 1;
@@ -817,23 +810,18 @@ refractoring jednak na vw i vh?
             <span class="hint" aria-hidden="true"><label class="hint__label"> ⓘ Hint</label> <span class="hint__text"> - you can pet the dog, using your finger or cursor.</span> </span>
 
             <div class="logo" onmouseenter="piesikotEnter()" onmouseleave="piesikotLeave()" onmouseenter="logoEnter()" onmouseleave="logoLeave()">
-            
-                <img class="logo__img" src="src/e-Pies.svg" alt="e-Pies Logo">
-                
-
+                <img class="logo__img" src="src/e-Pies.svg" alt="e-Pies logo przedstawiające psa">
                 <!-- POTEM ZROBIĆ FUNKCJĘ GŁASKANIA w jakiś sposób -->
                 <!-- class="hint__text--petting" -->
                  <!-- class="hint__text--pet-proposition" -->
-
             </div>
+            <!-- 🔴 Do zamiany id na klasę -->
+            <span id="copyright" aria-hidden="true" onmouseenter="piesikotEnter()" onmouseleave="piesikotLeave()">Just cat made from text.</span>
             <div id="kot" aria-hidden="true" onmouseenter="piesikotEnter()" onmouseleave="piesikotLeave()">
                 <div id="cat">
                     <span id="text-cat">/ᐠ..ᐟ\</span>
             </div>
         </main>
-        <footer aria-hidden="true" onmouseenter="piesikotEnter()" onmouseleave="piesikotLeave()"> 
-                <span id="copyright">Just cat made from text.</span>
-        </footer>
     </div>
     <audio id="myAudio">
         <source src="src/nyanaudio.mp3" type="audio/mpeg">

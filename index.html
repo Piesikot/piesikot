@@ -14,7 +14,7 @@
     body, html{
         overflow: hidden;
     }
-    #container{
+    #box{
         display:flex; 
         flex-direction:column;
         overflow-x: hidden;
@@ -62,7 +62,7 @@
         height: 2px;
         background: rgb(0, 0, 0);
         transform: scaleX(1);
-        transform-origin: center;
+        /* transform-origin: center; */
         transition: transform 0.35s ease;
     }
 
@@ -89,6 +89,10 @@
         width: fit-content;
         height: fit-content;
         z-index: 100;
+    }
+    .main{
+        display: flex;
+
     }
     header{
         padding: 1em;
@@ -295,12 +299,12 @@
 
 #nav-cats .nav-arrow {
     rotate: 90deg;
-    transform-origin: center;
+    /* transform-origin: center; */
 }
 
 #nav-projects .nav-arrow {
     rotate: 270deg;
-    transform-origin: center;
+    /* transform-origin: center; */
 }
 
 #nav-cats:hover .nav-arrow {
@@ -313,7 +317,7 @@
 
 #lang-arrow-left{
     rotate: 270deg;
-    transform-origin: center;
+    /* transform-origin: center; */
 }
 #lang-arrow-right{
     rotate: 90deg;
@@ -741,7 +745,7 @@ refractoring jednak na vw i vh?
 </style>
 
 <body>
-    <div id="container">
+    <div id="box">
 
         <div id="persian-background">
             <video width="100%" preload="auto" loop autoplay muted>
@@ -806,21 +810,22 @@ refractoring jednak na vw i vh?
             </p>
         </header>
 
-        <main>
-            <span class="hint" aria-hidden="true"><label class="hint__label"> ⓘ Hint</label> <span class="hint__text"> - you can pet the dog, using your finger or cursor.</span> </span>
-
+        <main class="main">
+            <div class="logo-box"></div>
+            <span class="hint hint__dog" aria-hidden="true"><label class="hint__label"> ⓘ Hint</label> <span class="hint__text"> - you can pet the dog, using your finger or cursor.</span> </span>
             <div class="logo" onmouseenter="piesikotEnter()" onmouseleave="piesikotLeave()" onmouseenter="logoEnter()" onmouseleave="logoLeave()">
                 <img class="logo__img" src="src/e-Pies.svg" alt="e-Pies logo przedstawiające psa">
                 <!-- POTEM ZROBIĆ FUNKCJĘ GŁASKANIA w jakiś sposób -->
                 <!-- class="hint__text--petting" -->
                  <!-- class="hint__text--pet-proposition" -->
             </div>
+
             <!-- 🔴 Do zamiany id na klasę -->
             <span id="copyright" aria-hidden="true" onmouseenter="piesikotEnter()" onmouseleave="piesikotLeave()">Just cat made from text.</span>
             <div id="kot" aria-hidden="true" onmouseenter="piesikotEnter()" onmouseleave="piesikotLeave()">
                 <div id="cat">
                     <span id="text-cat">/ᐠ..ᐟ\</span>
-            </div>
+            </div> 
         </main>
     </div>
     <audio id="myAudio">

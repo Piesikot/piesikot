@@ -15,10 +15,12 @@
         overflow: hidden;
     }
     #box{
-        display:flex; 
-        flex-direction:column;
         overflow-x: hidden;
         font-family: 'Montserrat';
+
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
     }
     #nav-topbar{
         display: flex;
@@ -90,22 +92,29 @@
         height: fit-content;
         z-index: 100;
     }
-    .main{
-        display: flex;
-
-    }
-    header{
-        padding: 1em;
+    .header{
+        /* padding: 1em; */
+        
         position: absolute;
-        top: 45%;
-        left: 55%;
+        top: 50%;
+        left: 60%;
         margin-right: -50%;
-        transform: translate(-50%, -50%)
-    }
+        transform: translate(-50%, -50%);
+
+        /* display: flex; */
+        /* justify-content: center; */
+        /* align-items: center; */
+
+        /* width: 20%; */
+
+        /* border: dashed 3px black; */
+        }
+
         /* 🤖 Changed from h2 to .header__name class for better semantic HTML; the name "Emil" is personal branding, not a section heading. */
         h1, .header__name, p{
             /* font-family: Arial, Helvetica, sans-serif; */
         }
+
         h1{
             font-size: 120px;
             margin-top: -20px;
@@ -150,21 +159,38 @@
         /* img{
             font-size: 10px;
         } */
+.main{
+    margin-top: auto;
+    /* width: 100%; */
+}
+        .bottom{
+            display: flex;
+            justify-content:space-between;
 
+            align-items:flex-end;
+        }
+        .logo-box{
+            display: flex;
+            flex-direction: column;
+            /* justify-content: center; */
+        }
+        .logo{
+            display: block;
+            width: fit-content;
+            line-height: 0;
+        }
         .logo__img{
-            position: absolute;
-            left: 10px;
-            bottom: 0;
-            /* height: 286px; */
+            /* height: fit-content; */
+            display: block;
+            /* width:  30vw; */
+            height: 400px;
+            /* height: 20vh; */
         } 
-        /* 🟠 do dalszych testów, czy nie koliduje z copyright. */
-        /* hint nad  logiem? Na wąskin vh może być problematyczne, ale teraz i tak jest problematyczne już w ten sposóbv */
-        /* a drugie ⓘ zrobić nad kotem!  */
 
         .hint{
             /* transform: translateY(-50%); */
 
-            position: absolute;
+            /* position: absolute; */
             font-size: 1em;
             color: black;
             opacity: 0.75;
@@ -178,11 +204,13 @@
             /* top: 1.5em; */
             top: 160px;
             max-width: 200px;
+            text-align: center;
             }
   
         .hint__text {
             opacity: 1;
             transition: 3s;
+            /* text-align: center; */
         }
 
         .hint__text--hidden {
@@ -197,26 +225,27 @@
             font-family: Arial, Helvetica, sans-serif;
             position:relative;
         } */
+        
+        #copyright{ 
+            color: black;
+            /* position: fixed; */
+            /* left: 0; */
+            /* bottom: 0; */
+            /* width: 100%; */
+            /* padding: 5px; */
+            /* text-align: center; */
+            /* max-width: 60vw; */
+            /* margin-left: 20vw; */
+            opacity: 0.1;
+            transition: 3s;
+        }
         #kot{
-            position: absolute;
-            right: 20px;
-            bottom: 0;
+            /* position: absolute; */
+            /* right: 20px; */
+            /* bottom: 0; */
             opacity: 0.1;
             transition: 3s;
             font-family: Arial, Helvetica, sans-serif;
-        }
-        #copyright{ 
-            color: black;
-            position: fixed;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            padding: 5px;
-            text-align: center;
-            max-width: 60vw;
-            margin-left: 20vw;
-            opacity: 0.1;
-            transition: 3s;
         }
 
 .cats-dropdown .cats-dropbtn, .projects-dropdown .projects-dropbtn  {
@@ -437,6 +466,7 @@ display: inline-block;
 }
 
 /* Koty */
+/* 🔴 wielkości i paddingi do refaktoryzacji */
 #text-cat{
         color: black;
         font-size: 50px;       
@@ -455,20 +485,21 @@ display: inline-block;
     }
 
     #nyan{
-        margin-right: -20px;
+        /* margin-right: 20px; */
         width: 200px;
-        float: left;
-    }
-    #persian{
-        margin-right: -20px;
-        width: 15%;
         float: right;
     }
-    #persian-background video{
-        /* display: none; */
+    #persian{
+        /* margin-right: -20px; */
+        width: 15vw;
+        /* float: right; */
+    }
+    .persian-background video{
         opacity: 0;
         /* teraz działa ale pewnie zżera zasoby komputera, kiedy wyświetla się niewidoczne cały czas - do sprawdzenie w dev tools*/
         /* następnie mogę spróbować zostawić w display none, i zrobić, żeby display:block się włączało dopiero przy wybierniu kota */
+        /* ponadto 🐛 bugguje głaskanie pieska przy jego dużym rozmiarze */
+        display: none;
 
         position: absolute;
         top: 50%;
@@ -568,7 +599,7 @@ display: inline-block;
             margin-left: -44px;
         }
 
-.header__name{
+        .header__name{
             font-size: 150%;
         }
 
@@ -747,7 +778,7 @@ refractoring jednak na vw i vh?
 <body>
     <div id="box">
 
-        <div id="persian-background">
+        <div class="persian-background">
             <video width="100%" preload="auto" loop autoplay muted>
                 <source src='src/IRAN_Ultrawide.mp4' type='video/mp4' />
             </video>       
@@ -811,22 +842,28 @@ refractoring jednak na vw i vh?
         </header>
 
         <main class="main">
-            <div class="logo-box"></div>
-            <span class="hint hint__dog" aria-hidden="true"><label class="hint__label"> ⓘ Hint</label> <span class="hint__text"> - you can pet the dog, using your finger or cursor.</span> </span>
-            <div class="logo" onmouseenter="piesikotEnter()" onmouseleave="piesikotLeave()" onmouseenter="logoEnter()" onmouseleave="logoLeave()">
-                <img class="logo__img" src="src/e-Pies.svg" alt="e-Pies logo przedstawiające psa">
-                <!-- POTEM ZROBIĆ FUNKCJĘ GŁASKANIA w jakiś sposób -->
-                <!-- class="hint__text--petting" -->
-                 <!-- class="hint__text--pet-proposition" -->
-            </div>
+            <div class="bottom">
+                <div class="logo-box">
+                    <span class="hint hint__dog" aria-hidden="true"><label class="hint__label"> ⓘ Hint</label> <span class="hint__text"> - you can pet the dog, using your finger or cursor.</span> </span>
+                    <div class="logo">
+                        <img class="logo__img" src="src/e-Pies.svg" alt="e-Pies logo przedstawiające psa">
+                        <!-- POTEM ZROBIĆ FUNKCJĘ GŁASKANIA w jakiś sposób -->
+                        <!-- class="hint__text--petting" -->
+                        <!-- class="hint__text--pet-proposition" -->
+                    </div>
+                </div>
+            
 
-            <!-- 🔴 Do zamiany id na klasę -->
-            <span id="copyright" aria-hidden="true" onmouseenter="piesikotEnter()" onmouseleave="piesikotLeave()">Just cat made from text.</span>
-            <div id="kot" aria-hidden="true" onmouseenter="piesikotEnter()" onmouseleave="piesikotLeave()">
-                <div id="cat">
-                    <span id="text-cat">/ᐠ..ᐟ\</span>
+                <!-- 🔴 Do zamiany id na klasę -->
+                <span id="copyright" aria-hidden="true" onmouseenter="piesikotEnter()" onmouseleave="piesikotLeave()">Just cat made from text.</span>
+                <div id="kot" aria-hidden="true" onmouseenter="piesikotEnter()" onmouseleave="piesikotLeave()">
+                    <div id="cat">
+                        <span id="text-cat">/ᐠ..ᐟ\</span>
+                </div>
+
             </div> 
         </main>
+
     </div>
     <audio id="myAudio">
         <source src="src/nyanaudio.mp3" type="audio/mpeg">
@@ -855,7 +892,10 @@ refractoring jednak na vw i vh?
             }
 
         document.querySelector("#copyright").style.transition = "3s"
+
         nyanInAction = false
+        document.querySelector(".persian-background video").style.display = "none";
+
     }    
 
     let select_invertocat = document.getElementById("invertocat");
@@ -873,6 +913,8 @@ refractoring jednak na vw i vh?
                 document.querySelector("#copyright").style.transition = "3s"
                 //alert("Invertocat is GitHub logo used here only as social button to inform that this project integrates with GitHub." );
                 nyanInAction = false
+                document.querySelector(".persian-background video").style.display = "none";
+
     }
 
     let select_bongo_cat = document.getElementById("bongo_cat");
@@ -896,6 +938,9 @@ refractoring jednak na vw i vh?
         nyanInAction = false;
         //alert("Bongo Cat created by DitzyFlama"  )
         ///https://bongo.cat/
+
+        document.querySelector(".persian-background video").style.display = "none";
+
     } 
 
     // let select_disneys_stitch = document.getElementById("disneys_stitch");
@@ -926,9 +971,9 @@ refractoring jednak na vw i vh?
 
     let select_persian_cat = document.getElementById("persian_cat");   
 
-
-
     select_persian_cat.onclick = function persian_cat() {
+        document.querySelector(".persian-background video").style.display = "block";
+
         document.querySelector("#cat").innerHTML = `<img id="persian" src="src/Persian_Lion.png" alt="Persian Lion and Sun" onmouseenter="persiancatEnter()" onmouseleave="persiancatLeave()">` ;
 
         document.querySelector("#copyright").textContent = "The Persian Lion and Sun symbol is the emblem of free Iran.";
@@ -968,6 +1013,11 @@ refractoring jednak na vw i vh?
         document.getElementById("projects-arrow").style.transform = "rotate(0turn)";
     }
     */
+        const logo = document.querySelector(".logo");
+
+        logo.addEventListener("pointerenter", piesikotEnter);
+        logo.addEventListener("pointerleave", piesikotLeave);
+        
 
         /* 🤖 Restored the previous hover behavior for the header while keeping the semantic .header__name selector. */
         function piesikotEnter(){
@@ -1064,7 +1114,10 @@ refractoring jednak na vw i vh?
                             function playAudio() {
                             audio.play();
                             }
-                            playAudio(); 
+                            playAudio()
+                             
+            document.querySelector(".persian-background video").style.display = "none";
+
             }
         // }
 //do dopracowania, żeby resetował się czas odtwarzania
@@ -1107,9 +1160,9 @@ refractoring jednak na vw i vh?
             document.querySelector("header").style.transition = "5s"
             document.querySelector("header").style.opacity = "0";
 
-            document.querySelector("#persian-background video").style.transition = "60s"
-            // document.querySelector("#persian-background video").style.display = "block";
-            document.querySelector("#persian-background video").style.opacity = "1";
+            document.querySelector(".persian-background video").style.transition = "60s"
+            // document.querySelector(".persian-background video").style.display = "block";
+            document.querySelector(".persian-background video").style.opacity = "1";
 
             // document.querySelector("body").style.background = "black"
             // document.querySelector("body").style.transition = "4s"
@@ -1137,9 +1190,9 @@ refractoring jednak na vw i vh?
             document.querySelector("header").style.transition = "15s"
             document.querySelector("header").style.opacity = "1";
 
-            document.querySelector("#persian-background video").style.transition = "15s"
-            // document.querySelector("#persian-background video").style.display = "block";
-            document.querySelector("#persian-background video").style.opacity = "0";
+            document.querySelector(".persian-background video").style.transition = "15s"
+            // document.querySelector(".persian-background video").style.display = "block";
+            document.querySelector(".persian-background video").style.opacity = "0";
 
             var audio = document.getElementById("persianAudio");
                            function playAudio() {

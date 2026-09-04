@@ -7,14 +7,17 @@
     <title>Pies i kot</title>
 </head>
 <style> 
-        @font-face {
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
+
+    @font-face {
         font-family: 'Montserrat';
         src: url('./fonts/Oswald/Oswald-VariableFont_wght.ttf') format('woff2')
-        }
+    }
 
     body, html{
         overflow: hidden;
-
         margin: 0;
     }
     #box{

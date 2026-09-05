@@ -17,16 +17,25 @@
     }
 
     body, html{
-        overflow: hidden;
+        /* overflow: hidden; */
         margin: 0;
+
+        overflow-x: hidden;
+        overflow-y: auto;
     }
     #box{
-        overflow-x: hidden;
+        /* overflow-x: hidden; */
         font-family: 'Montserrat';
 
         min-height: 100vh;
         display: flex;
         flex-direction: column;
+
+        /* ⓘ jednostki viewportu z fallbackiem: */
+        /* dvh lepiej uwzględnia pasek adresu i klawiaturę na telefonie. Starszy browser użyje wcześniejszego 100vh. */
+        min-height: 100vh;
+        min-height: 100dvh;
+      
     }
     #nav-topbar{
         display: flex;
@@ -99,35 +108,25 @@
         z-index: 100;
     }
     .header{
-        /* padding: 1em; */
-        
         position: absolute;
-        top: 50%;
+        top: 35%;
         left: 60%;
-        margin-right: -50%;
         transform: translate(-50%, -50%);
 
         /* display: flex; */
         /* justify-content: center; */
         /* align-items: center; */
 
-        /* width: 20%; */
-
-        /* border: dashed 3px black; */
-        }
-
-        /* 🤖 Changed from h2 to .header__name class for better semantic HTML; the name "Emil" is personal branding, not a section heading. */
-        h1, .header__name, p{
-            /* font-family: Arial, Helvetica, sans-serif; */
+        border: dashed 3px black;
         }
 
         h1{
-            font-size: 120px;
-            margin-top: -20px;
-            margin-left: -30px;
+            font-size: 3.5rem
+            /* margin-top: -20px; */
+            /* margin-left: -30px; */
         }
         .header__name{
-            font-size: 70px;
+            font-size: 2rem;
             transition: 3s;
             margin-left: -60px;
             display: block;
@@ -165,32 +164,81 @@
         /* img{
             font-size: 10px;
         } */
+
+/* 🤖 Styling for header__github-name link: black color, animated underline on hover (consistent with nav). */
+    .header__github-name a {
+    color: black;
+    text-decoration: none;
+    position: relative;
+    }
+
+    /* animacja podkreślenia Piesikot */
+    .header__github-name a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: black;
+        transform: scaleX(0);
+        transform-origin: bottom;
+        transition: transform 0.7s ease;
+    }
+    .header__github-name a:hover::after {
+        transform: scaleX(1);
+        transform-origin: bottom;
+    }
+
+/* 🔴🛠 REFAKTORYZACJA MAIN 🛠🔴 */
+ 
+/* ⓘ margin-top: auto wypycha element w dół, bo auto‑margin rozszerza się, aby zająć całą wolną przestrzeń */
 .main{
     margin-top: auto;
     /* width: 100%; */
     /* bottom: auto; */
+
+/* ⓘ żeby pozwolić elementom flex się kurczyć */
+    min-height: 0;
+
+    display: flex;
+    justify-content:space-between;
+    align-items:flex-end;
+
+/* ⓘ żeby pozwolić elementom flexa się kurczyć */
+    min-width: 0;  
+    
+    padding:0 0.25em;
+
+    border: 3px dashed blue;
 }
-        .bottom{
-            display: flex;
-            justify-content:space-between;
-            align-items:flex-end;
-        }
-        .logo-box{
-            display: flex;
-            flex-direction: column;
-            /* justify-content: center; */
-        }
-        .logo{
-            display: block;
-            width: fit-content;
-            line-height: 0;
-        }
-        .logo__img{
-            /* height: fit-content; */
-            display: block;
-            /* width:  30vw; */
-            height: 400px;
-            /* height: 20vh; */
+
+.bottombar{
+    /* display: flex; */
+    /* justify-content:space-between; */
+    /* align-items:flex-end; */
+    /* ⓘ żeby pozwolić elementom flexa się kurczyć */
+    /* min-width: 0;    */
+    /* padding:0 0.25em; */
+    }
+.logo-box{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    }
+.logo{
+/* ⓘ line-height: 0 usuwa wysokość linii tekstu, dzięki czemu logo nie ma żadnych niechcianych pionowych odstępów i zachowuje się jak czysty element graficzny. Jedna z najlepszych technik do precyzyjnego wyrównywania logo, ikon i SVG.*/
+    /* Logo jako flex-item → line-height: 0 niepotrzebne */
+    /* line-height: 0; */
+    }
+.logo__img{
+    display: block;
+    /* width: 6rem; */
+    /* width: 20vw; */
+    /* max-width: 31rem; */
+    height: auto;
+
+    width: clamp(5rem, 18vw + 3rem, 31rem);
         } 
 
         .hint{
@@ -234,26 +282,34 @@
         
         #copyright{ 
             color: black;
-            /* position: fixed; */
-            /* left: 0; */
-            /* bottom: 0; */
-            /* width: 100%; */
+            width: 100%;
             /* padding: 5px; */
-            /* text-align: center; */
+            text-align: center;
             /* max-width: 60vw; */
             /* margin-left: 20vw; */
             opacity: 0.1;
             transition: 3s;
+
+             font-size: clamp(0.3em, 0.8vw + 0.5em, 12em);
+             /* white-space: nowrap; */
+
+             /* font-size: 1em; */
         }
         #kot{
             /* position: absolute; */
             /* right: 20px; */
             /* bottom: 0; */
+
             opacity: 0.1;
             transition: 3s;
-            font-family: Arial, Helvetica, sans-serif;
-        }
+            font-family: Arial, Helvetica, sans-serif;            
+            /* font-size: 1px; */
 
+            padding: 0.25em;
+        }   
+  
+
+/* 🟡 PRZENIEŚĆ NA GÓRĘ */
 .cats-dropdown .cats-dropbtn, .projects-dropdown .projects-dropbtn  {
   font-size: 1em;  
   border: none;
@@ -444,40 +500,27 @@ display: inline-block;
 .github-link {
     text-decoration: none;
     color: black;
+    
 }
 
-/* 🤖 Styling for header__github-name link: black color, animated underline on hover (consistent with nav). */
-.header__github-name a {
-    color: black;
-    text-decoration: none;
-    position: relative;
-}
-
-.header__github-name a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: black;
-    transform: scaleX(0);
-    transform-origin: bottom;
-    transition: transform 0.7s ease;
-}
-
-.header__github-name a:hover::after {
-    transform: scaleX(1);
-    transform-origin: bottom;
-}
 
 /* Koty */
 /* 🔴 wielkości i paddingi do refaktoryzacji */
 #text-cat{
-        color: black;
-        font-size: 50px;       
-    }
+            color: black;
+            /* font-size: 1.5rem; */
+            font-size: clamp(1.5rem, 2vw + 0.5rem, 6rem);
+            
+        /* ⓘ aby teks się nie łamał */
+            white-space: nowrap;
 
+            /* z tym się łmie */
+        /* white-space: normal; */
+ 
+    }
+#inverto{
+    width: 20px;
+}
     #bongo{
         width: 200px;
         float:right;
@@ -491,9 +534,9 @@ display: inline-block;
     }
 
     #nyan{
-        /* margin-right: 20px; */
-        width: 200px;
-        float: right;
+        /* margin-right: -20px; */
+        /* width: 200px; */
+        /* float: right; */
     }
     #persian{
         /* margin-right: -20px; */
@@ -515,9 +558,72 @@ display: inline-block;
         width: 100vw;
         height: 60vh;
     }
+
+/*  Na tel tylko z posiion absolute nie ucina loga, ale cały bottom się rozjechał, i co teraz? ustawiać jeszcze raz pod absolute? */
+     /* RWD @media only screen and (max-width: 760px)  */
+
+    @media only screen and (max-width: 760px) {
+
+        .main{
+            /* margin-top: 0; */
+            /* margin-bottom: 0; */
+        }
+        .logo{
+            /* position: absolute; */
+            /* bottom: 0; */
+
+            /* margin-top: 0 A; */
+
+        }
+        .logo__img{
+            /* width: clamp(5rem, 1vw + 0.5rem, 7rem); */
+            /* width: 100PX; */
+
+            /* display: block;
+    width: 20vw;
+    max-width: 31rem;
+    height: auto; */
+
+        /* display: block;
+    width: 6rem;
+    width: 20vw;
+    max-width: 31rem;
+    height: auto; */
+        }
+        #copyright{
+            /* border: solid 3px red; */
+            /* font-size: 16px; */
+
+        }
+        #text-cat{
+            /* font-size: 16px; */
+            /* float: right; */
+        } 
+        .bottom{ 
+            /* display: flex; */
+            /* justify-content: center; */
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Poprawić navbar na duze ekrany */
 
 /* min-width / big-screens */
+/* 
 
 @media only screen and (min-width: 1600px) {
     nav{
@@ -539,7 +645,7 @@ display: inline-block;
 }
 
 /* max-width */
-
+/* 
 @media only screen and (max-width: 1024px) {
     .cats-dropdown-content, .projects-dropdown-content {
         height: 150px;
@@ -552,8 +658,10 @@ display: inline-block;
             margin-bottom: 30px;
             margin-left: -44px;
         }
+
         /* 🤖 Responsive font-size for .header__name (previously h2) on tablet screens. */
-        .header__name{
+       
+        /* .header__name{
             font-size: 300%;
         }
 
@@ -584,10 +692,10 @@ display: inline-block;
         #nyan{
             width: 100px;
         }
-    }
+    } */ 
 
 /* max-width / mobile */
-
+/* 
 @media only screen and (max-width: 760px) {
     .cats-dropdown-content, .projects-dropdown-content {
         height: 150px;
@@ -595,7 +703,6 @@ display: inline-block;
     }
 
         #copyright {
-                /* display: none; */
             }
         
         h1{
@@ -638,14 +745,14 @@ display: inline-block;
         #nyan{
             width: 100px;
         }
-    }
+    } */
 
+/* /* 
 @media only screen and (max-width: 480px) {
 .cats-dropdown .cats-dropbtn, .projects-dropdown .projects-dropbtn {
         border-bottom: none;
     }
         #copyright {
-                /* display: none; */
             }
         
         h1{
@@ -688,9 +795,9 @@ display: inline-block;
         #nyan{
             width: 60px;
         }
-    }
-
-@media only screen and (max-width: 350px) {
+    } */
+ /* */
+/* @media only screen and (max-width: 350px) {
 
     #nav-cats, #nav-projects{
         font-size: 60%;
@@ -704,7 +811,6 @@ display: inline-block;
     }
 
         #copyright {
-                /* display: none; */
                 font-size: 1.5vw;
             }
         
@@ -713,8 +819,8 @@ display: inline-block;
             margin-top: -10px;
             margin-bottom: 30px;
             margin-left: -44px;
-        }
-
+        } */
+/* 
 .header__name{
             font-size: 110%;
         }
@@ -748,7 +854,7 @@ display: inline-block;
         #nyan{
             width: 60px;
         }
-    }
+    } */ 
 
 /* 
 h2, h1 i p na telefonie są za małe
@@ -756,7 +862,7 @@ refractoring jednak na vw i vh?
 */
 
 /* max-height */
-
+/* 
 @media only screen and (max-height: 200px) {
     .cats-dropdown-content, .projects-dropdown-content {
         height: 300px;
@@ -766,8 +872,8 @@ refractoring jednak na vw i vh?
     .cats-dropdown .cats-dropbtn, .projects-dropdown .projects-dropbtn {
         border-bottom: none;
     }
-}
-
+} */
+/* 
 @media only screen and (max-height: 350px) {
     .logo__img{
         width: 25vh;
@@ -778,7 +884,7 @@ refractoring jednak na vw i vh?
     .cats-dropdown-content, .projects-dropdown-content {
         height: fit-content;
     }
-} 
+}  */
 </style>
 
 <body>
@@ -848,7 +954,7 @@ refractoring jednak na vw i vh?
         </header>
 
         <main class="main">
-            <div class="bottom">
+            <!-- <div class="bottombar"> -->
                 <div class="logo-box">
                     <span class="hint hint__dog" aria-hidden="true"><label class="hint__label"> ⓘ Hint</label> <span class="hint__text"> - you can pet the dog, using your finger or cursor.</span> </span>
                     <div class="logo">
@@ -867,7 +973,7 @@ refractoring jednak na vw i vh?
                         <span id="text-cat">/ᐠ..ᐟ\</span>
                 </div>
 
-            </div> 
+            <!-- </div>  -->
         </main>
 
     </div>

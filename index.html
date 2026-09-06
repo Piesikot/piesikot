@@ -41,25 +41,25 @@
     
     .nav-lang-btn{
         position: relative;
-        min-width:50px;
-        /* flex-wrap: wrap; */
         font-size: 0.8em;
+
+        min-width:50px;
         border: none;
         outline: none;
         color: rgb(31, 0, 0);
         background: transparent;
         /* padding: 12px 12px; */
-        /* font-weight: 600; */
-        /* letter-spacing: 0.02em; */
         cursor: pointer;
         transition: color 0.3s ease;
-        /* background-color: inherit; */
-        /* font-family: inherit; */
-        /* margin: 0; */
-        /* margin-top:10px; */
+        font-family: inherit;
 
-        /* border: solid purple 3px; */
-        padding: 10px 10px;
+        /* padding: 10px 10px; */
+
+        /* font-weight: 600; */
+
+        margin-top: 0;
+        padding-top: 0;
+        padding-bottom: 8px;
     }
 
     /* 🤖 Restored the exact original underline appearance to keep the visual layout unchanged. */
@@ -69,11 +69,14 @@
         left: 12px;
         right: 12px;
         bottom: 6px;
-        height: 2px;
         background: rgb(0, 0, 0);
         transform: scaleX(1);
         /* transform-origin: center; */
         transition: transform 0.35s ease;
+
+        height: 1.5px;
+
+        
     }
 
     .nav-lang-btn:hover {
@@ -84,16 +87,12 @@
         transform: scaleX(0.0);
     }
 
-
     #nav-topbar{
         display: flex;
         justify-content: center;
-        /* align-items: center; */
-
-        /* margin-left: 20px ; */
-        /* margin-top: 10px; */
         
-        /* Do przemyślenia refaktoryzacja całego nav-to p. Obecnie bez position:absolute na nav-projects i nav-cats przestaje działać podkreślenie. */
+        /* Do przemyślenia refaktoryzacja całego nav-to p. 
+        Obecnie bez position:absolute na nav-projects i nav-cats przestaje działać podkreślenie. */
 
         /* border: dashed 2px red; */
         /* background: red; */
@@ -106,6 +105,7 @@
         width: fit-content;
         height: fit-content;
         z-index: 100;
+        
     }
     #nav-projects{
         position: absolute;
@@ -198,13 +198,10 @@
         transform-origin: bottom;
     }
 
-/* 🔴🛠 REFAKTORYZACJA MAIN 🛠🔴 */
  
-/* ⓘ margin-top: auto wypycha element w dół, bo auto‑margin rozszerza się, aby zająć całą wolną przestrzeń */
 .main{
+ /* ⓘ margin-top: auto wypycha element w dół, bo auto‑margin rozszerza się, aby zająć całą wolną przestrzeń */
     margin-top: auto;
-    /* width: 100%; */
-    /* bottom: auto; */
 
 /* ⓘ żeby pozwolić elementom flex się kurczyć */
     min-height: 0;
@@ -221,14 +218,6 @@
     /* border: 3px dashed blue; */
 }
 
-.bottombar{
-    /* display: flex; */
-    /* justify-content:space-between; */
-    /* align-items:flex-end; */
-    /* ⓘ żeby pozwolić elementom flexa się kurczyć */
-    /* min-width: 0;    */
-    /* padding:0 0.25em; */
-    }
 .logo-box{
     display: flex;
     flex-direction: column;
@@ -236,8 +225,9 @@
     }
 .logo{
 /* ⓘ line-height: 0 usuwa wysokość linii tekstu, dzięki czemu logo nie ma żadnych niechcianych pionowych odstępów i zachowuje się jak czysty element graficzny. Jedna z najlepszych technik do precyzyjnego wyrównywania logo, ikon i SVG.*/
-    /* Logo jako flex-item → line-height: 0 niepotrzebne */
     /* line-height: 0; */
+
+    /* Logo jako flex-item → line-height: 0 niepotrzebne */
     }
 .logo__img{
     display: block;
@@ -308,24 +298,40 @@
         }   
   
 
-/* 🟡 PRZENIEŚĆ NA GÓRĘ */
+/* 🟡 UPORZĄDKOWAĆ JAKOŚ */
 .cats-dropdown .cats-dropbtn, .projects-dropdown .projects-dropbtn  {
-  /* font-size: 0.75em;   */
+  /* font-size: 0.75em; */
   border: none;
   outline: none;
   color: black;
-  padding: 12px 12px;
+  /* padding: 12px 12px; */
   background-color: inherit;
   font-family: inherit;
+
   margin: 0;
 
-/* 📌 Projects----------------------------------- */
+  /* font-weight: 600; */
+  
+  /* padding: 3px 3px; */
+
+    padding-top: 0;
+    padding-right: 8px;
+    padding-bottom: 6px;
+    padding-left: 8px;
 }
+.cats-dropdown .cats-dropbtn{
+    font-size: 0.9em;
+}
+/* 📌 Projects----------------------------------- */
 .projects-dropdown .projects-dropbtn, .projects-dropdown-content li{
       font-size: 1.5em;  
 }
+.projects-dropdown-content li{
+    /* margin-right: -50px; */
+}
 #projects-arrow{
-    margin-bottom: -4px;
+    width: 1.7em;
+    margin-bottom: -3px;
 }
 
 
@@ -376,36 +382,28 @@
     text-decoration: none;
 }
 
-/* 🤖 Legacy arrow styles kept as a commented reference for comparison with the new refactor. */
-/*
-#cat-arrow, #projects-arrow{
-    width: 3em; 
-    margin-bottom: -9px;
-    transition:0.7s;
-}
- 
-#cat-arrow{
-    rotate: 90deg;
-}
-
-#projects-arrow{
-    rotate: 270deg;
-}
-*/
+/* 🟡 UPORZĄDKOWAĆ JAKOŚ */
 
 /* 🤖 Unified arrow behavior: this matches the nav-lang approach using transform rotation instead of mixing rotate + inline JS. */
 .nav-arrow {
-    width: 1.5em;
-    margin-bottom: -7.5px;
+    /* nie tyczy się lang arrow, przemyśleć refaktoryzacje nav elementów */
+
     transition: transform 0.7s ease, rotate 0.7s ease;
 
-    margin-left: -9px;
-    margin-right: -9px;
+    /* Change Cat arrow */
+    margin-left: -2px;
+
+    /* Projects arrow */
+    margin-right: -2px;
+
+    /* ale bałagan tu jest... */
 }
 
 #nav-cats .nav-arrow {
     rotate: 90deg;
     /* transform-origin: center; */
+    width: 1.5em;
+    margin-bottom: -7.5px;
 }
 
 #nav-projects .nav-arrow {
@@ -431,13 +429,14 @@
 }
 
 .lang-arrow{
-    width: 1.5em; 
-    margin-bottom: -9px;
+    width: 1em; 
     transition: transform 0.7s ease, rotate 0.7s ease;
     /* transform-origin: center; */
 
-    margin-left: -9px;
-    margin-right: -9px;
+    margin-left: -10px;
+    margin-right: -10px;
+    margin-bottom: -3px;
+
 }
 
 #nav-lang:hover #lang-arrow-left {
@@ -969,26 +968,19 @@ refractoring jednak na vw i vh?
         </header>
 
         <main class="main">
-            <!-- <div class="bottombar"> -->
                 <div class="logo-box">
                     <span class="hint hint__dog" aria-hidden="true"><label class="hint__label"> ⓘ Hint</label> <span class="hint__text"> - you can pet the dog, using your finger or cursor.</span> </span>
                     <div class="logo">
                         <img class="logo__img" src="src/e-Pies.svg" alt="e-Pies logo przedstawiające psa">
-                        <!-- POTEM ZROBIĆ FUNKCJĘ GŁASKANIA w jakiś sposób -->
-                        <!-- class="hint__text--petting" -->
-                        <!-- class="hint__text--pet-proposition" -->
                     </div>
                 </div>
-            
 
-                <!-- 🔴 Do zamiany id na klasę -->
+                <!-- 🟡 Do zamiany id na klasę -->
                 <span id="copyright" aria-hidden="true" onmouseenter="piesikotEnter()" onmouseleave="piesikotLeave()">Just cat made from text.</span>
                 <div id="kot" aria-hidden="true" onmouseenter="piesikotEnter()" onmouseleave="piesikotLeave()">
                     <div id="cat">
                         <span id="text-cat">/ᐠ..ᐟ\</span>
-                </div>
-
-            <!-- </div>  -->
+                    </div>
         </main>
 
     </div>

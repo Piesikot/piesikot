@@ -250,18 +250,14 @@
         } 
 
         .hint{
-            /* transform: translateY(-50%); */
-
-            /* position: absolute; */
             font-size: 1em;
             color: black;
             opacity: 0.75;
             transition: 3s;
-
-         
-            /* top: 160px; */
             max-width: 200px;
             text-align: center;
+
+            margin-top: 0.25em;
             }
   
         .hint__text {
@@ -1225,7 +1221,6 @@ refractoring jednak na vw i vh?
             //  document.querySelector("body").style.cursor = "url('/src/nyancat--cursor.gif'), auto"
             //  body.querySelector("#nyan").style.display = "none";
 
-            //     //aha, dziękuję sztuczna inteligncjo za przypomienie o zmiennych lokalnych i globalnych :D
             //     } else {    
                 document.querySelector("body").style.background = "black"
                 document.querySelector("body").style.transition = "4s"
@@ -1249,22 +1244,6 @@ refractoring jednak na vw i vh?
             document.querySelector(".persian-background video").style.display = "none";
 
             }
-        // }
-//do dopracowania, żeby resetował się czas odtwarzania
-
-// function nyanStart() {
-//     nyanInAction = true
-//     }
-//             if (nyanInAction == true) {
-//                 document.querySelector("body").style.transition = "0s"
-//                 document.querySelector("#copyright").style.transition = "0s"
-//                 document.querySelector("h2").style.transition = "0s"
-//                 document.querySelector("p").style.transition = "0s"
-                
-//                 document.querySelector(".kot").style.transition = "0s"
-//                 document.querySelector(".kot").style.color = "black"         
-//             };
-
 
         function nyancatLeave(){
             
@@ -1280,7 +1259,6 @@ refractoring jednak na vw i vh?
                            playAudio();
 
         }
-    
         
         function persiancatEnter(){
             persianRevolution = true;

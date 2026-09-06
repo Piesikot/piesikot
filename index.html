@@ -1144,7 +1144,37 @@ refractoring jednak na vw i vh?
 
         logo.addEventListener("pointerenter", piesikotEnter);
         logo.addEventListener("pointerleave", piesikotLeave);
+        logo.addEventListener("touchstart", piesikotEnter, { passive: false });
         
+        logo.addEventListener("touchend", piesikotLeave, { passive: false });
+        
+        // Blokowanie wszystkich akcji przeglądarki na mobile
+        logo.addEventListener("touchstart", e => {
+        e.preventDefault();
+        e.stopPropagation();
+        }, { passive: false });
+
+        logo.addEventListener("touchmove", e => {
+        e.preventDefault();
+        e.stopPropagation();
+        }, { passive: false });
+
+        logo.addEventListener("touchend", e => {
+        e.preventDefault();
+        e.stopPropagation();
+        }, { passive: false });
+
+        // Blokowanie długiego przytrzymania (menu kontekstowe)
+        logo.addEventListener("contextmenu", e => {
+        e.preventDefault();
+        });
+
+        // Blokowanie zaznaczania
+        logo.style.userSelect = "none";
+        logo.style.webkitUserSelect = "none";
+        logo.style.touchAction = "none";
+
+
 
         /* 🤖 Restored the previous hover behavior for the header while keeping the semantic .header__name selector. */
         function piesikotEnter(){

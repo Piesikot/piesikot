@@ -1,4 +1,4 @@
-# piesikot - Pies i kot ...co?
+# Piesikot - Pies i kot ...co?
 
 ## _Emil Piesik_ ot co!
 

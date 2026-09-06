@@ -903,7 +903,7 @@ refractoring jednak na vw i vh?
     }
 }  */
 </style>
-
+ 
 <body>
     <div id="box">
 
@@ -917,40 +917,37 @@ refractoring jednak na vw i vh?
             <!-- 🤖 The old mouse handlers are no longer needed because the arrow rotation is now handled by CSS hover states only. -->
             <div id="nav-cats" aria-hidden="true"> 
                 <div class="cats-dropdown">
-                  <!-- 🤖 I kept the original markup but aligned the arrow to the shared nav-lang CSS pattern. -->
-                  <button class="cats-dropbtn">Change Cat</button><img id="cat-arrow" class="nav-arrow" src="src/south.svg" alt="">
-                  
-                  <div id="cat-dropbtn-underline"></div>
-                  <div class="cats-dropdown-content" >
-                    <li id="text_cat" class="cat-underline">Text cat</li>
-                    <li id="bongo_cat" class="cat-underline">Bongo Cat</li>
-                    <!-- <li id="disneys_stitch" class="cat-underline">Disney's Stitch</li> -->
-                    <li id="nyan_cat" class="cat-underline">Nyan Cat</li>
-                    <li id="persian_cat" class="cat-underline">Persian Cat</li>
-                    <li id="invertocat" class="cat-underline">Invertocat</li>
-                </div> 
-              </div>
+                    <!-- 🤖 I kept the original markup but aligned the arrow to the shared nav-lang CSS pattern. -->
+                    <button class="cats-dropbtn">Change Cat</button><img id="cat-arrow" class="nav-arrow" src="src/south.svg" alt="">
+                    <div id="cat-dropbtn-underline"></div>
+                        <div class="cats-dropdown-content" >
+                            <li id="text_cat" class="cat-underline">Text cat</li>
+                            <li id="bongo_cat" class="cat-underline">Bongo Cat</li>
+                            <li id="disneys_stitch" class="cat-underline">Disney's Stitch</li>
+                            <li id="nyan_cat" class="cat-underline">Nyan Cat</li>
+                            <li id="persian_cat" class="cat-underline">Persian Cat</li>
+                            <li id="invertocat" class="cat-underline">Invertocat</li>
+                        </div> 
+                </div>
             </div>
-        
             <div id="nav-lang">
                 <img id="lang-arrow-left" class="lang-arrow" src="src/south.svg" alt=""><button class="nav-lang-btn" onclick="langChangeToPl()">Polski</button><img id="lang-arrow-right" class="lang-arrow" src="src/south.svg" alt="">
             </div>
-        
-        <!-- 🤖 The old mouse handlers are no longer needed because the arrow rotation is now handled by CSS hover states only. -->
-        <div id="nav-projects">
+            <!-- 🤖 The old mouse handlers are no longer needed because the arrow rotation is now handled by CSS hover states only. -->
+            <div id="nav-projects">
             <div class="projects-dropdown">
                 <!-- 🤖 I switched this arrow to the same transform-based animation style as nav-lang. -->
                 <img id="projects-arrow" class="nav-arrow" src="src/south.svg" alt=""><button class="projects-dropbtn"> Projects
                 </button>
                 <div id="projects-dropbtn-underline"></div>
-                <div class="projects-dropdown-content">
-                    <a href="todolist/index.html"><li id="todolist" class="project-underline">To do list</li></a>
-                    <a href="https://www.racism.wtf"><li id="racism" class="project-underline">Racism</li></a>
-                    <a href="https://piesikodpokolen.pl"><li id="piesikodpokolen" class="project-underline">Dog Farm</li></a>
-                    <!-- <a href="   "><li id="   " class="   </li></a> -->
-              </div> 
+                    <div class="projects-dropdown-content">
+                        <a href="todolist/index.html"><li id="todolist" class="project-underline">To do list</li></a>
+                        <a href="https://www.racism.wtf"><li id="racism" class="project-underline">Racism</li></a>
+                        <a href="https://piesikodpokolen.pl"><li id="piesikodpokolen" class="project-underline">Dog Farm</li></a>
+                        <!-- <a href="   "><li id="   " class="   </li></a> -->
+                    </div> 
+                </div>
             </div>
-        </div>
         </nav>
         <!--
         <iframe src="todolist/todolist.html " title="whatever" frameBorder="0" style="margin-top: 50px;">
@@ -1062,16 +1059,16 @@ refractoring jednak na vw i vh?
 
     } 
 
-    // let select_disneys_stitch = document.getElementById("disneys_stitch");
-    // select_disneys_stitch.onclick = function disneys_stitch() {
-    //     document.querySelector("#cat").innerHTML = `<img id="stitch" src="src/stitch.gif" alt="Disney's Stitch" onmouseenter="piesikotEnter()" onmouseleave="piesikotLeave()" onclick="stitchClick()">` ;
-    //     document.querySelector("#copyright").textContent = "Stitch is a character in Disney's Lilo & Stitch cartoon.";
-    //     document.querySelector("#copyright").style.transition = "3s"
-    //     nyanInAction = false;
-    //     //gif created by leidianenunes
-    //     //https://giphy.com/stickers/lilo-stitch-disney-leidianenunes-3o6Zt481isNVuQI1l6   
-    //     //alert("Stitch is a character in Disney's Lilo & Stitch cartoon." );
-    // } 
+    let select_disneys_stitch = document.getElementById("disneys_stitch");
+    select_disneys_stitch.onclick = function disneys_stitch() {
+        document.querySelector("#cat").innerHTML = `<img id="stitch" src="src/stitch.gif" alt="Disney's Stitch" onmouseenter="piesikotEnter()" onmouseleave="piesikotLeave()" onclick="stitchClick()">` ;
+        document.querySelector("#copyright").textContent = "Stitch is a character in Disney's Lilo & Stitch cartoon.";
+        document.querySelector("#copyright").style.transition = "3s"
+        nyanInAction = false;
+        //gif created by leidianenunes
+        //https://giphy.com/stickers/lilo-stitch-disney-leidianenunes-3o6Zt481isNVuQI1l6   
+        //alert("Stitch is a character in Disney's Lilo & Stitch cartoon." );
+    } 
 
     let select_nyan_cat = document.getElementById("nyan_cat");
     select_nyan_cat.onclick = function nyan_cat() {

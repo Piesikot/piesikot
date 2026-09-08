@@ -39,7 +39,7 @@
       
     }
     
-    .nav-lang-btn{
+    .nav-lang-button{
         position: relative;
         font-size: 0.8em;
 
@@ -64,7 +64,7 @@
     }
 
     /* 🤖 Restored the exact original underline appearance to keep the visual layout unchanged. */
-    .nav-lang-btn::after {
+    .nav-lang-button::after {
         content: '';
         position: absolute;
         left: 12px;
@@ -79,11 +79,11 @@
 
     }
 
-    .nav-lang-btn:hover {
+    .nav-lang-button:hover {
         /* color: #d00; */
     }
 
-    .nav-lang-btn:hover::after {
+    .nav-lang-button:hover::after {
         transform: scaleX(0.0);
     }
 
@@ -99,13 +99,13 @@
     }
 
     #nav-cats{
-        position: absolute;
+        /* position: absolute;
         top: 0px;
         left: 0px;
         width: fit-content;
         height: fit-content;
-        z-index: 100;        
-    }
+        z-index: 100;    */
+        }
     #nav-projects{
         position: absolute;
         top: 0px;
@@ -297,8 +297,114 @@
         }   
   
 
-/* 🟡 UPORZĄDKOWAĆ JAKOŚ */
-.cats-dropdown .cats-dropbtn, .projects-dropdown .projects-dropbtn  {
+
+
+.nav-cats{
+      position: absolute;
+        top: 0px;
+        left: 0px;
+        width: fit-content;
+        height: fit-content;
+        z-index: 100;   
+}
+
+
+
+/* nie jestem w stanie tego ustawić na buttonie, i musiałem zrobić nowego diva. */
+/* ⓘ nie byłem w stanie tego ustawić na buttonie, bo podkreślenie jest rozwijającym się divem */
+.nav-cats__button-underline{
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #000;
+  transform: scaleX(1);
+  transform-origin: top left;
+  transition: transform 0.3s ease;
+}
+
+.nav-cats:hover .nav-cats__button-underline {
+  transform: scaleX(0);
+  transform-origin: top left;
+}
+
+
+    /* 🛠  ↑   🛠  */
+/*  🟠🟠 🟠 🟠 🟠 🟠 🟠🟠🟠🟠🟠🟠🟠🟠🟠🟠🟠🟠🟠🟠🟠🟠🟠🟠🟠 🟠 🟠 🟠 🟠   */
+/* UADJE SIĘ PORZĄDKOWAĆ I REFKAKTORYZOWAĆ, SKOŃCZUŁEM GDZIEŃ NA cat-dropbtn-underline  */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 🤖 Unified arrow behavior: this matches the nav-lang approach using transform rotation instead of mixing rotate + inline JS. */
+.nav-arrow {
+    /* nie tyczy się lang arrow, przemyśleć refaktoryzacje nav elementów */
+
+/* position: absolute; */
+    /* to działa tylko z PROJECT */
+    transition: transform 0.7s ease, rotate 0.7s ease;
+
+    /* Change Cat arrow */
+    margin-left: 2px;
+    /* margin-top: -100px; */
+
+    /* Projects arrow */
+    /* margin-right: -2px; */
+
+    /* ale bałagan tu jest... */
+    /* padding: 0 10px; */
+
+    margin-top: -4px;
+}
+
+.nav-cats .nav-arrow {
+    rotate: 90deg;
+    /* transform-origin: center; */
+    width: 1.5em;
+    margin-bottom: -7px;
+}
+.nav-cats:hover .nav-arrow {
+    transform: rotate(0.8turn);
+}
+
+/* ⓘ reset <ul> do neutralnego stanu, żeby nie zaburzał działania dropdown */
+.nav-cats__dropdown-content {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-cats:hover .nav-cats__dropdown-content, .projects-dropdown:hover .projects-dropdown-content  {
+  display: block;
+}
+
+
+
+/* 📌 NAV CATS I PROJECTS */
+/* 🟠 Potem rozważyć zmniejszenie jeszcze dla mobile  */
+/* 🟡 UPORZĄDKOWAĆ JAKOŚ, przydałby się refactoring do flex */
+.nav-cats .nav-cats__button, .projects-dropdown .projects-dropbtn  {
   /* font-size: 0.75em; */
   border: none;
   outline: none;
@@ -317,13 +423,26 @@
     padding-right: 8px;
     padding-bottom: 8px;
     padding-left: 8px;
+
+    /* width: 4.5em; */
+    /* max-width: 900px; */
 }
-.cats-dropdown .cats-dropbtn{
+.nav-cats .nav-cats__button{
     font-size: 0.9em;
+    min-width: 75px;
+    /* ^ ⓘ z tym po zmienia języka nav jest względnie stabilny */
+    
+    display: inline-flex;
+    /* align-items: center; */
 }
-/* 📌 Projects----------------------------------- */
+ .projects-dropdown .projects-dropbtn{
+    font-size: 1.5em;  
+    min-width: 88px;
+    /* ^ ⓘ z tym po zmienia języka nav jest względnie stabilny */
+ }
 .projects-dropdown .projects-dropbtn, .projects-dropdown-content li{
-      font-size: 1.5em;  
+    font-size: 1.5em;  
+    /* min-width: 50px; */
 }
 .projects-dropdown-content li{
     /* margin-right: -50px; */
@@ -335,7 +454,7 @@
 
 
 
-.cats-dropdown-content, .projects-dropdown-content  {
+.nav-cats__dropdown-content, .projects-dropdown-content  {
   display: none;
   position: absolute;
   background-color: #f9f9f9;
@@ -348,7 +467,7 @@
     /* width: 100%; */
 }
 
-.cats-dropdown-content li, .projects-dropdown-content li  {
+.nav-cats__dropdown-content li, .projects-dropdown-content li  {
   float: none;
   color: black;
   padding: 12px 16px;
@@ -358,9 +477,6 @@
   cursor: pointer;
 }
 
-.cats-dropdown:hover .cats-dropdown-content, .projects-dropdown:hover .projects-dropdown-content  {
-  display: block;
-}
 
 /* .projects-dropdown {
   float: right;
@@ -372,7 +488,7 @@
   /* margin-left: -50px;    */
 }
 
-.cats-dropdown-content, .projects-dropdown-content {
+.nav-cats__dropdown-content, .projects-dropdown-content {
     background-color: rgba(255, 255, 255, 0.85);
     color: rgba(0, 0, 0, 0.85);
 }
@@ -381,38 +497,20 @@
     text-decoration: none;
 }
 
-/* 🟡 UPORZĄDKOWAĆ JAKOŚ */
 
-/* 🤖 Unified arrow behavior: this matches the nav-lang approach using transform rotation instead of mixing rotate + inline JS. */
-.nav-arrow {
-    /* nie tyczy się lang arrow, przemyśleć refaktoryzacje nav elementów */
 
-    transition: transform 0.7s ease, rotate 0.7s ease;
 
-    /* Change Cat arrow */
-    margin-left: -2px;
-
-    /* Projects arrow */
-    margin-right: -2px;
-
-    /* ale bałagan tu jest... */
-}
-
-#nav-cats .nav-arrow {
-    rotate: 90deg;
-    /* transform-origin: center; */
-    width: 1.5em;
-    margin-bottom: -7px;
-}
 
 #nav-projects .nav-arrow {
     rotate: 270deg;
     /* transform-origin: center; */
 }
 
-#nav-cats:hover .nav-arrow {
-    transform: rotate(0.8turn);
-}
+
+
+
+
+
 
 #nav-projects:hover .nav-arrow {
     transform: rotate(-0.8turn);
@@ -448,25 +546,6 @@
     transform: rotate(1turn);
 }
 
-/* Nie wiem, czemu nie jestem w stanie tego ustawić na buttonie, i musiałem zrobić nowego diva. */
-#cat-dropbtn-underline{
-  position: absolute;
-  display: block;
-  width: 100%;
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color: #000;
-  transform: scaleX(1);
-  transform-origin: top left;
-  transition: transform 0.3s ease;
-}
-
-#nav-cats:hover #cat-dropbtn-underline {
-  transform: scaleX(0);
-  transform-origin: top left;
-}
-
 #projects-dropbtn-underline{
   position: absolute;
   display: block;
@@ -491,13 +570,13 @@ display: inline-block;
   color: black;
 }
 
-.cat-underline, .project-underline {
+.nav-cats__item, .project-underline {
   display: inline-block;
   position: relative;
   color: black;
 }
 
-.cat-underline:after, .project-underline::after {
+.nav-cats__item:after, .project-underline::after {
   content: '';
   position: absolute;
   width: 100%;
@@ -510,7 +589,7 @@ display: inline-block;
   transition: transform 0.7s ease;
 }
 
-.cat-underline:hover:after, .project-underline:hover::after {
+.nav-cats__item:hover:after, .project-underline:hover::after {
   transform: scaleX(1);
   transform-origin: bottom;
 }
@@ -879,24 +958,24 @@ refractoring jednak na vw i vh?
         </div>
 
         <nav id="nav-topbar">
-            <!-- 🤖 The old mouse handlers are no longer needed because the arrow rotation is now handled by CSS hover states only. -->
-            <div id="nav-cats" aria-hidden="true"> 
-                <div class="cats-dropdown">
-                    <!-- 🤖 I kept the original markup but aligned the arrow to the shared nav-lang CSS pattern. -->
-                    <button class="cats-dropbtn">Change Cat</button><img id="cat-arrow" class="nav-arrow" src="src/south.svg" alt="">
-                    <div id="cat-dropbtn-underline"></div>
-                        <div class="cats-dropdown-content" >
-                            <li id="text_cat" class="cat-underline">Text cat</li>
-                            <li id="bongo_cat" class="cat-underline">Bongo Cat</li>
-                            <li id="disneys_stitch" class="cat-underline">Disney's Stitch</li>
-                            <li id="nyan_cat" class="cat-underline">Nyan Cat</li>
-                            <li id="persian_cat" class="cat-underline">Persian Cat</li>
-                            <li id="invertocat" class="cat-underline">Invertocat</li>
-                        </div> 
-                </div>
+            <div class="nav-cats" aria-hidden="true">
+                <button class="nav-cats__button">Change Cat<div class="nav-cats__button-underline"></div></button> <img class="nav-cats__button-arrow nav-arrow" src="src/south.svg"> <!-- ⓘ nie ma sensu dodawać alt do strzałki, jeśli element ma aria-hidden="true" — to  zalecenie dostępnościowe (WCAG + ARIA Authoring Practices). -->    
+                <ul class="nav-cats__dropdown-content" >
+                    <li id="text_cat" class="nav-cats__item js-hook-text-cat">Text cat</li>
+                    <li id="bongo_cat" class="nav-cats__item js-hook-bongo-cat">Bongo Cat</li>
+                    <li id="disneys_stitch" class="nav-cats__item  js-hook-disneys_stitch">Disney's Stitch</li>
+                    <li id="nyan_cat" class="nav-cats__item js-hook-nyan-cat">Nyan Cat</li>
+                    <li id="persian_cat" class="nav-cats__item js-hook-persian-cat">Persian Cat</li>
+                    <li id="invertocat" class="nav-cats__item js-hook-invertocat">Invertocat</li>
+                </ul> 
             </div>
+
             <div id="nav-lang">
-                <img id="lang-arrow-left" class="nav-arrow lang-arrow" src="src/south.svg" alt=""><button class="nav-lang-btn" onclick="langChangeToPl()">Polski</button><img id="lang-arrow-right" class="nav-arrow lang-arrow" src="src/south.svg" alt="">
+                <img id="lang-arrow-left" class="nav-arrow lang-arrow" src="src/south.svg">
+                    <button class="nav-lang-button" onclick="langChangeToPl()">Polski</button>
+                <img id="lang-arrow-right" class="nav-arrow lang-arrow" src="src/south.svg">
+
+                
             </div>
             <!-- 🤖 The old mouse handlers are no longer needed because the arrow rotation is now handled by CSS hover states only. -->
             <div id="nav-projects">
@@ -1132,6 +1211,9 @@ refractoring jednak na vw i vh?
 
         /* 🤖 Restored the previous hover behavior for the header while keeping the semantic .header__name selector. */
         function piesikotEnter(){
+        document.querySelector(".nav-cats").style.color = "black";
+        document.querySelector(".nav-cats").style.transition = "3s"
+
         document.querySelector(".header__name").style.color = "ghostwhite";
         document.querySelector(".header__name").style.transition = "3s"
 
@@ -1299,7 +1381,7 @@ refractoring jednak na vw i vh?
         // ⚠ 📌Lang changes must be implemented in two places! 📌 ⚠ 
 
         //Spolszczenie
-        let catsDropbtn = document.querySelector(".cats-dropbtn");
+        let catsDropbtn = document.querySelector(".nav-cats__button");
         
         let projectsDropbtn = document.querySelector(".projects-dropbtn");
         let toDoProject = document.querySelector("#todolist");
@@ -1311,7 +1393,7 @@ refractoring jednak na vw i vh?
 
 
         function langChangeToPl() {
-            languageButton.innerHTML = '<img id="lang-arrow-left" class="nav-arrow lang-arrow" src="src/south.svg" alt=""><button class="nav-lang-btn" onclick="langChangeToEn()">English</button><img id="lang-arrow-right" class="nav-arrow lang-arrow" src="src/south.svg" alt="">';
+            languageButton.innerHTML = '<img id="lang-arrow-left" class="nav-arrow lang-arrow" src="src/south.svg" alt=""><button class="nav-lang-button" onclick="langChangeToEn()">English</button><img id="lang-arrow-right" class="nav-arrow lang-arrow" src="src/south.svg" alt="">';
 
             language = "pl";
             
@@ -1357,7 +1439,7 @@ refractoring jednak na vw i vh?
         function langChangeToEn() {
             // languageButton.innerHTML = '<img id="lang-arrow-left" class="lang-arrow" src="src/south.svg" alt=""><button class="nav-lang-btn" onclick="langChangeToPl()">Polski</button><img id="lang-arrow-right" class="lang-arrow" src="src/south.svg" alt="">';
 
-            languageButton.innerHTML = '<img id="lang-arrow-left" class="nav-arrow lang-arrow" src="src/south.svg" alt=""><button class="nav-lang-btn" onclick="langChangeToPl()">Polski</button><img id="lang-arrow-right" class="nav-arrow lang-arrow" src="src/south.svg" alt="">';
+            languageButton.innerHTML = '<img id="lang-arrow-left" class="nav-arrow lang-arrow" src="src/south.svg" alt=""><button class="nav-lang-button" onclick="langChangeToPl()">Polski</button><img id="lang-arrow-right" class="nav-arrow lang-arrow" src="src/south.svg" alt="">';
 
             language = "en";
             

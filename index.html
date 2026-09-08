@@ -132,20 +132,32 @@ transition: transform 0.7s ease, rotate 0.7s ease;
 }
 
 /* ⓘ reset <ul> do neutralnego stanu, żeby nie zaburzał działania dropdown */
-.nav-cats__dropdown-content {
+.nav-cats__dropdown-content, .nav-projects__dropdown-content {
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
 .nav-cats:hover .nav-cats__dropdown-content{
-      margin-top: 2em;
+      /* margin-top: 2em; */
 }
-.nav-cats:hover .nav-cats__dropdown-content, .projects-dropdown:hover .projects-dropdown-content  {
+
+
+
+
+
+
+
+
+
+
+
+
+.nav-cats:hover .nav-cats__dropdown-content, .nav-projects:hover .nav-projects__dropdown-content  {
   display: block;
 
-  /* 🟠 czy jest lepsze rozwiązanie? */
-  /* margin-top: 2em; */
+  /* 🟠 czy jest sensowne rozwiązanie? */
+  margin-top: 2em;
 }
 
 
@@ -162,23 +174,37 @@ transition: transform 0.7s ease, rotate 0.7s ease;
 
 #nav-projects{
     /* position: absolute; */
-    top: 0px;
+
+    /* top: 0px;
     right: 0px;
     width: fit-content;
     height: fit-content;
     z-index: 100;
 
     position: relative;
-    display: flex;
+    display: flex; */
     }
 
-    .projects-dropbtn{
+    .nav-projects{
+       top: 0px;
+        right: 0px;
+        width: fit-content;
+        height: fit-content;
+        z-index: 100;
+
+        position: relative;
+        display: flex; 
+    }
+
+    .nav-projects__button{
         position: relative;
     display: inline-flex;
 
     }
 
-.nav-cats .nav-cats__button, .projects-dropdown .projects-dropbtn  {
+
+
+.nav-cats .nav-cats__button, .nav-projects .nav-projects__button  {
   /* font-size: 0.75em; */
   border: none;
   outline: none;
@@ -209,27 +235,27 @@ transition: transform 0.7s ease, rotate 0.7s ease;
     display: inline-flex;
     /* align-items: center; */
 }
- .projects-dropdown .projects-dropbtn{
+ .nav-projects .nav-projects__button{
     font-size: 1.5em;  
     min-width: 88px;
     /* ^ ⓘ z tym po zmienia języka nav jest względnie stabilny */
 
  }
-.projects-dropdown .projects-dropbtn, .projects-dropdown-content li{
+.nav-projects .nav-projects__button, .nav-projects__dropdown-content li{
     font-size: 1.5em;  
     /* min-width: 50px; */
 }
-.projects-dropdown-content li{
+.nav-projects__dropdown-content li{
     /* margin-right: -50px; */
 }
-#projects-arrow{
+.nav-projects__button-arrow{
     width: 1.7em;
     margin-bottom: -3px;
 }
 
 
 
-.nav-cats__dropdown-content, .projects-dropdown-content  {
+.nav-cats__dropdown-content, .nav-projects__dropdown-content  {
   display: none;
   position: absolute;
   background-color: #f9f9f9;
@@ -242,7 +268,7 @@ transition: transform 0.7s ease, rotate 0.7s ease;
     /* width: 100%; */
 }
 
-.nav-cats__dropdown-content li, .projects-dropdown-content li  {
+.nav-cats__dropdown-content li, .nav-projects__dropdown-content li  {
   float: none;
   color: black;
   padding: 12px 16px;
@@ -253,36 +279,27 @@ transition: transform 0.7s ease, rotate 0.7s ease;
 }
 
 
-/* .projects-dropdown {
-  float: right;
-  overflow: hidden; 
-} */
 
-.projects-dropdown-content{
-  /* text-align: center; */
-  /* margin-left: -50px;    */
-}
-
-.nav-cats__dropdown-content, .projects-dropdown-content {
+.nav-cats__dropdown-content, .nav-projects__dropdown-content {
     background-color: rgba(255, 255, 255, 0.85);
     color: rgba(0, 0, 0, 0.85);
     
 }
 
-.projects-dropdown a {
+.nav-projects a {
     text-decoration: none;
 }
 
 
 
-#nav-projects .nav-arrow {
+.nav-projects .nav-arrow {
     rotate: 270deg;
     /* transform-origin: center; */
 }
 
 
 
-#nav-projects:hover .nav-arrow {
+.nav-projects:hover .nav-arrow {
     transform: rotate(-0.8turn);
 }
 
@@ -302,9 +319,9 @@ transition: transform 0.7s ease, rotate 0.7s ease;
     /* transition: transform 0.7s ease, rotate 0.7s ease; */
 
     /* transform-origin: center; */
-    margin-left: -6px;
-    margin-right: -6px;
-    margin-bottom: -3px;
+    /* margin-left: -6px; */
+    /* margin-right: -6px; */
+    margin-bottom: -1px;
     /* position: relative; */
 }
 
@@ -316,7 +333,7 @@ transition: transform 0.7s ease, rotate 0.7s ease;
     transform: rotate(1turn);
 }
 
-#projects-dropbtn-underline{
+.nav-projects__button-underline{
   position: absolute;
   display: block;
   width: 100%;
@@ -332,24 +349,25 @@ transition: transform 0.7s ease, rotate 0.7s ease;
     inset: auto 0 0;
 }
 
-#nav-projects:hover #projects-dropbtn-underline {
+.nav-projects:hover .nav-projects__button-underline {
     transform: scaleX(0);
   transform-origin: top right;
 } 
 
-.project-underline{
+.nav-projects__item {
 display: inline-block;
   position: relative;
   color: black;
 }
 
-.nav-cats__item, .project-underline {
+.nav-cats__item, .nav-projects__item  {
   display: inline-block;
   position: relative;
   color: black;
 }
 
-.nav-cats__item:after, .project-underline::after {
+/* Spacja oznacza pseudo-element potomka... - tyle, że bez spacji nie działa... */
+.nav-cats__item:after, .nav-projects__item ::after {
   content: '';
   position: absolute;
   width: 100%;
@@ -362,7 +380,7 @@ display: inline-block;
   transition: transform 0.7s ease;
 }
 
-.nav-cats__item:hover:after, .project-underline:hover::after {
+.nav-cats__item:hover:after, .nav-projects__item :hover::after {
   transform: scaleX(1);
   transform-origin: bottom;
 }
@@ -373,6 +391,7 @@ display: inline-block;
 .nav-lang{
     
 }
+
 
     .nav-lang__button{
         position: relative;
@@ -421,6 +440,7 @@ display: inline-block;
     .nav-lang__button:hover::after {
         transform: scaleX(0.0);
     }
+
 
 
 
@@ -990,38 +1010,32 @@ refractoring jednak na vw i vh?
                     <li id="invertocat" class="nav-cats__item js-hook-invertocat">Invertocat</li>
                 </ul> 
             </div>
-
             <div class="nav-lang">
                 <button class="nav-lang__button" onclick="langChangeToPl()">
                     <img class="nav-lang__arrow nav-arrow nav-lang__arrow--left" src="src/south.svg" aria-hidden="true">
                         <span class="nav-lang__button-text">Polski</span>
+                        <!-- 🔴 tutaj nie ma underline, trzeba dowiedzieć się, która metoda lepsza i zastosować ją wszędzie,  -->
                     <img class="nav-lang__arrow nav-arrow nav-lang__arrow--right" src="src/south.svg" aria-hidden="true">
                 </button>
             </div>
 
             <!-- Pl -->
-            <!-- <div class="nav-lang"><button class="nav-lang__button" onclick="langChangeToEn()"><img class="nav-lang__arrow nav-arrow nav-lang__arrow--left" src="src/south.svg" aria-hidden="true"><span class="nav-lang__button-text">English</span><img class="nav-lang__arrow nav-arrow nav-lang__arrow--right" src="src/south.svg" aria-hidden="true"></button></div> -->
-
             <!-- En -->
-             <!-- <div class="nav-lang"><button class="nav-lang__button" onclick="langChangeToPl()"><img class="nav-lang__arrow nav-arrow nav-lang__arrow--left" src="src/south.svg" aria-hidden="true"><span class="nav-lang__button-text">Polski</span><img class="nav-lang__arrow nav-arrow nav-lang__arrow--right" src="src/south.svg" aria-hidden="true"></button></div> -->
-
-
-            <!-- 🤖 The old mouse handlers are no longer needed because the arrow rotation is now handled by CSS hover states only. -->
-            <div id="nav-projects">
-            <div class="projects-dropdown">
-                <!-- 🤖 I switched this arrow to the same transform-based animation style as nav-lang. -->
-                <img id="projects-arrow" class="nav-arrow" src="src/south.svg" alt=""><button class="projects-dropbtn"> Projects
+            
+            <div class="nav-projects">
+                <button class="nav-projects__button">
+                    <img class="nav-projects__button-arrow nav-arrow" src="src/south.svg" aria-hidden="true">
+                    <span class="nav-projects__button-text">Projects</span> 
+                    <div class="nav-projects__button-underline"></div>
                 </button>
-                <div id="projects-dropbtn-underline"></div>
-                    <div class="projects-dropdown-content">
-                        <a href="todolist/index.html"><li id="todolist" class="project-underline">To do list</li></a>
-                        <a href="https://www.racism.wtf"><li id="racism" class="project-underline">Racism</li></a>
-                        <a href="https://piesikodpokolen.pl"><li id="piesikodpokolen" class="project-underline">Dog Farm</li></a>
-                        <!-- <a href="   "><li id="   " class="   </li></a> -->
-                    </div> 
-                </div>
+                <ul class="nav-projects__dropdown-content">
+                    <li id="todolist" class="nav-projects__item js-hook-todolist"><a href="todolist/index.html">To do list</a></li>
+                    <li id="racism" class="nav-projects__item js-hoos-racism"><a href="https://www.racism.wtf">Racism</a></li>
+                    <li id="piesikodpokolen" class="nav-projects__item js-hook-piesikodpokolen"><a href="https://piesikodpokolen.pl">Dog Farm</a></li>
+                </ul> 
             </div>
         </nav>
+        
         <!--
         <iframe src="todolist/todolist.html " title="whatever" frameBorder="0" style="margin-top: 50px;">
         </iframe>
@@ -1409,16 +1423,14 @@ refractoring jednak na vw i vh?
 
         // ⚠ 📌Lang changes must be implemented in two places! 📌 ⚠ 
 
-        //catsDropbtn
-        //navCatsButton
-
         //Spolszczenie
         let navCatsButton = document.querySelector(".nav-cats__button-text");
-        
-        let projectsDropbtn = document.querySelector(".projects-dropbtn");
-        let toDoProject = document.querySelector("#todolist");
-        let racismProject = document.querySelector("#racism");
-        let dogFarmProject = document.querySelector("#piesikodpokolen")
+
+        let navProjectsButton = document.querySelector(".nav-projects__button-text");
+
+        let toDoProject = document.querySelector("#todolist a");
+        let racismProject = document.querySelector("#racism a");
+        let dogFarmProject = document.querySelector("#piesikodpokolen a")
 
         let hintLabel = document.querySelector(".hint__label");
         let hintText = document.querySelector(".hint__text");
@@ -1440,7 +1452,7 @@ refractoring jednak na vw i vh?
             select_nyan_cat.textContent = "Kot Nyan";
             select_persian_cat.textContent = "Perski Kot"; 
 
-            projectsDropbtn.textContent = "Projekty";
+            navProjectsButton.textContent = "Projekty";
             toDoProject.textContent = "Lista zadań";
             racismProject.textContent = "Szowinizm";
             dogFarmProject.textContent = "Psia Farma";
@@ -1485,7 +1497,7 @@ refractoring jednak na vw i vh?
             select_nyan_cat.textContent = "Nyan Cat";
             select_persian_cat.textContent = "Persian Cat"; 
 
-            projectsDropbtn.textContent = "Projects";
+            navProjectsButton.textContent = "Projects";
             toDoProject.textContent = "To do list";
             racismProject.textContent = "Racism";
             dogFarmProject.textContent = "Dog Farm";

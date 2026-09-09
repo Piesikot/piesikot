@@ -56,12 +56,15 @@
         left: 0px;
         width: fit-content;
         height: fit-content;
-        z-index: 100;   
+        z-index: 100;
+        
+        position: relative;
 }
 
 .nav-cats__button {
     position: relative;
-    display: inline-flex;
+    /* display: inline-flex; */
+    /* display: block; */
 }
 
 /* nie jestem w stanie tego ustawić na buttonie, i musiałem zrobić nowego diva. */
@@ -122,7 +125,7 @@
 
 /* position: absolute; */
 
-/* Bez tego nie obracają się strzałki nav-cats i nav-project */
+/* Bez tego nie obracają się ŻADNE STRZAŁKI. Co ten Copilot nawyczyniał... */
 transition: transform 0.7s ease, rotate 0.7s ease;
 
     /* Change Cat arrow */
@@ -149,33 +152,21 @@ transition: transform 0.7s ease, rotate 0.7s ease;
     transform: rotate(0.8turn);
 }
 
+
+
+
+
+
 /* ⓘ reset <ul> do neutralnego stanu, żeby nie zaburzał działania dropdown */
 .nav-cats__dropdown, .nav-projects__dropdown {
     list-style: none;
     margin: 0;
     padding: 0;
+    position: absolute;
+    top: 100%;
 }
-
-.nav-cats:hover .nav-cats__dropdown{
-      /* margin-top: 2em; */
-}
-
-
-
-
-
-
-
-
-
-
-
-
 .nav-cats:hover .nav-cats__dropdown, .nav-projects:hover .nav-projects__dropdown  {
   display: block;
-
-  /* 🟠 czy jest sensowne rozwiązanie? */
-  margin-top: 2em;
 }
 
 
@@ -259,17 +250,6 @@ transition: transform 0.7s ease, rotate 0.7s ease;
     /* ^ ⓘ z tym po zmienia języka nav jest względnie stabilny */
 
  }
-.nav-projects .nav-projects__button, .nav-projects__dropdown li{
-    font-size: 1.5em;  
-    /* min-width: 50px; */
-}
-.nav-projects__dropdown li{
-    /* margin-right: -50px; */
-}
-.nav-projects__button-arrow{
-    width: 1.7em;
-    margin-bottom: -3px;
-}
 
 
 
@@ -282,10 +262,10 @@ transition: transform 0.7s ease, rotate 0.7s ease;
   z-index: 1;
   /* font-size: 1em; */
   font-size: 0.9em;
-
     /* width: 100%; */
+  background-color: rgba(255, 255, 255, 0.85);
+  color: rgba(0, 0, 0, 0.85); 
 }
-
 .nav-cats__dropdown li, .nav-projects__dropdown li  {
   float: none;
   color: black;
@@ -295,18 +275,19 @@ transition: transform 0.7s ease, rotate 0.7s ease;
   text-align: center;
   cursor: pointer;
 }
-
-
-
-.nav-cats__dropdown, .nav-projects__dropdown {
-    background-color: rgba(255, 255, 255, 0.85);
-    color: rgba(0, 0, 0, 0.85);
-    
-}
-
 .nav-projects a {
     text-decoration: none;
+    color: black;
 }
+.nav-projects .nav-projects__button, .nav-projects__dropdown li{
+    font-size: 1.5em;  
+    /* min-width: 50px; */
+}
+
+.nav-projects__dropdown{
+    right: 0;
+}
+
 
 
 
@@ -346,7 +327,6 @@ transition: transform 0.7s ease, rotate 0.7s ease;
 
 
 
-
 /*  STARY UNDERLINE   */
 /* .nav-projects__button-underline{
   position: absolute;
@@ -366,6 +346,13 @@ transition: transform 0.7s ease, rotate 0.7s ease;
     transform: scaleX(0);
   transform-origin: top right;
 }  */
+
+
+
+.nav-projects__button-arrow{
+    width: 1.7em;
+    margin-bottom: -3px;
+}
 
 
 .nav-projects__button::after {

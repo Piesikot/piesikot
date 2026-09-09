@@ -66,7 +66,8 @@
 
 /* nie jestem w stanie tego ustawić na buttonie, i musiałem zrobić nowego diva. */
 /* ⓘ nie byłem w stanie tego ustawić na buttonie, bo podkreślenie jest rozwijającym się divem */
-.nav-cats__button-underline{
+/* STARY UNDERLINE   */
+/* .nav-cats__button-underline{
   position: absolute;
   display: block;
   width: 100%;
@@ -77,14 +78,31 @@
   transform: scaleX(1);
   transform-origin: top left;
   transition: transform 0.3s ease;
-  
   inset: auto 0 0;
 }
-
 .nav-cats:hover .nav-cats__button-underline {
   transform: scaleX(0);
   transform-origin: top left;
-}
+} */
+
+
+
+    .nav-cats__button::after {
+        content: '';
+        position: absolute;
+        left: -5px;
+        right: 5px;
+        bottom: 0px;
+        background: rgb(0, 0, 0);
+        transform: scaleX(1);
+        transform-origin: top left;
+        transition: transform 0.35s ease;
+        height: 2px;
+    }
+
+   .nav-cats:hover .nav-cats__button::after {
+        transform: scaleX(0.0);
+    }
 
 
     /* 🛠  ↑   🛠  */
@@ -296,13 +314,9 @@ transition: transform 0.7s ease, rotate 0.7s ease;
     rotate: 270deg;
     /* transform-origin: center; */
 }
-
-
-
 .nav-projects:hover .nav-arrow {
     transform: rotate(-0.8turn);
 }
-
 .nav-lang__arrow--left{
     rotate: 270deg;
     /* transform-origin: center; */
@@ -311,7 +325,6 @@ transition: transform 0.7s ease, rotate 0.7s ease;
     rotate: 90deg;
     /* transform-origin: center; */
 }
-
 .nav-lang__arrow{
     width: 1em; 
 
@@ -324,16 +337,18 @@ transition: transform 0.7s ease, rotate 0.7s ease;
     margin-bottom: -1px;
     /* position: relative; */
 }
-
 .nav-lang:hover .nav-lang__arrow--left {
     transform: rotate(1turn);
 }
-
 .nav-lang:hover .nav-lang__arrow--right {
     transform: rotate(1turn);
 }
 
-.nav-projects__button-underline{
+
+
+
+/*  STARY UNDERLINE   */
+/* .nav-projects__button-underline{
   position: absolute;
   display: block;
   width: 100%;
@@ -344,15 +359,34 @@ transition: transform 0.7s ease, rotate 0.7s ease;
   transform: scaleX(1);
   transform-origin: top left;
   transition: transform 0.3s ease;
-
   position: absolute;
     inset: auto 0 0;
 }
-
 .nav-projects:hover .nav-projects__button-underline {
     transform: scaleX(0);
   transform-origin: top right;
-} 
+}  */
+
+
+.nav-projects__button::after {
+        content: '';
+        position: absolute;
+        left: 5px;
+        right: -5px;
+        bottom: 0px;
+        background: rgb(0, 0, 0);
+        transform: scaleX(1);
+        transform-origin: top right;
+        transition: transform 0.35s ease;
+        height: 3px;
+    }
+   .nav-projects:hover .nav-projects__button::after {
+        transform: scaleX(0.0);
+    }
+
+
+
+
 
 .nav-projects__item {
 display: inline-block;
@@ -431,10 +465,6 @@ display: inline-block;
 
         height: 1px;
 
-    }
-
-    .nav-lang__button:hover {
-        /* color: #d00; */
     }
 
     .nav-lang__button:hover::after {
@@ -998,7 +1028,7 @@ refractoring jednak na vw i vh?
             <div class="nav-cats" aria-hidden="true">
                 <button class="nav-cats__button">
                     <span class="nav-cats__button-text">Change Cat</span> 
-                    <div class="nav-cats__button-underline"></div> 
+                    <!-- <div class="nav-cats__button-underline"></div>  -->
                     <img class="nav-cats__button-arrow nav-arrow" src="src/south.svg">
                 </button> <!-- ⓘ nie ma sensu dodawać alt do strzałki, jeśli element ma aria-hidden="true" — to  zalecenie dostępnościowe (WCAG + ARIA Authoring Practices). -->    
                 <ul class="nav-cats__dropdown-content" >
@@ -1026,7 +1056,7 @@ refractoring jednak na vw i vh?
                 <button class="nav-projects__button">
                     <img class="nav-projects__button-arrow nav-arrow" src="src/south.svg" aria-hidden="true">
                     <span class="nav-projects__button-text">Projects</span> 
-                    <div class="nav-projects__button-underline"></div>
+                    <!-- <div class="nav-projects__button-underline"></div> -->
                 </button>
                 <ul class="nav-projects__dropdown-content">
                     <li id="todolist" class="nav-projects__item js-hook-todolist"><a href="todolist/index.html">To do list</a></li>

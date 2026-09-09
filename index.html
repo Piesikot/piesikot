@@ -75,7 +75,9 @@
         position: relative;
 }
 
-
+.nav-cats .nav-cats__button{
+    font-size: 0.9em;
+    }
 
 
     .nav-cats__button::after {
@@ -101,15 +103,10 @@
 
 
 
-/* 🤖 Unified arrow behavior: this matches the nav-lang approach using transform rotation instead of mixing rotate + inline JS. */
-.nav-arrow {
-
-/* Bez tego nie obracają się ŻADNE STRZAŁKI. Co ten Copilot nawyczyniał... */
-transition: transform 0.7s ease, rotate 0.7s ease;
-}
 .nav-cats .nav-arrow {
     rotate: 90deg;
     width: 1.5em;
+    margin-bottom: -3px;
 }
 .nav-cats:hover .nav-arrow {
     transform: rotate(0.8turn);
@@ -132,11 +129,62 @@ transition: transform 0.7s ease, rotate 0.7s ease;
 
 
 
+    .nav-lang__button{
+        position: relative;
+        font-size: 0.8em;
+        min-width:50px;
+        border: none;
+        outline: none;
+        color: rgb(31, 0, 0);
+        background: transparent;
+        cursor: pointer;
+        transition: color 0.3s ease;
+        font-family: inherit;
 
+        /* padding-bottom: 2px; */
+    }
 
-/* 📌 NAV CATS I PROJECTS */
-/* 🟠 Potem rozważyć zmniejszenie jeszcze dla mobile  */
-/* 🟡 UPORZĄDKOWAĆ JAKOŚ, przydałby się refactoring do flex */
+    .nav-lang__arrow--left{
+        rotate: 270deg;
+    }
+    .nav-lang__arrow--right{
+        rotate: 90deg;
+    }
+    .nav-lang__arrow{
+        width: 1em; 
+
+        margin-bottom: -1px;
+
+        /* margin-bottom: -1px; */
+    }
+    .nav-lang:hover .nav-lang__arrow--left {
+        transform: rotate(1turn);
+    }
+    .nav-lang:hover .nav-lang__arrow--right {
+        transform: rotate(1turn);
+    }
+
+    /* 🤖 Restored the exact original underline appearance to keep the visual layout unchanged. */
+    .nav-lang__button::after {
+        content: '';
+        position: absolute;
+        left: 5px;
+        right: 5px;
+        bottom: 0px;
+        background: rgb(0, 0, 0);
+        transform: scaleX(1);
+        transition: transform 0.35s ease;
+        height: 1px;
+    }
+
+    .nav-lang__button:hover::after {
+        transform: scaleX(0.0);
+    }
+
+    /* 🤖 Unified arrow behavior: this matches the nav-lang approach using transform rotation instead of mixing rotate + inline JS. */
+    .nav-arrow {
+    transition: transform 0.7s ease, rotate 0.7s ease;
+    }
 
 
     .nav-projects{
@@ -145,7 +193,6 @@ transition: transform 0.7s ease, rotate 0.7s ease;
         width: fit-content;
         height: fit-content;
         z-index: 100;
-
         position: relative;
         display: flex; 
     }
@@ -154,33 +201,12 @@ transition: transform 0.7s ease, rotate 0.7s ease;
 
 
 
-.nav-cats .nav-cats__button{
-    font-size: 0.9em;
-    min-width: 75px;
-    /* ^ ⓘ z tym po zmienia języka nav jest względnie stabilny */
-    
-    display: inline-flex;
-    /* align-items: center; */
-}
- .nav-projects .nav-projects__button{
-    font-size: 1.5em;  
-    min-width: 88px;
-    /* ^ ⓘ z tym po zmienia języka nav jest względnie stabilny */
-
- }
-
-
-
 .nav-cats__dropdown, .nav-projects__dropdown  {
   display: none;
   position: absolute;
   background-color: #f9f9f9;
-  /* min-width: 160px; */
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
-  /* font-size: 1em; */
-  font-size: 0.9em;
-    /* width: 100%; */
   background-color: rgba(255, 255, 255, 0.85);
   color: rgba(0, 0, 0, 0.85); 
 }
@@ -199,79 +225,22 @@ transition: transform 0.7s ease, rotate 0.7s ease;
 }
 .nav-projects .nav-projects__button, .nav-projects__dropdown li{
     font-size: 1.5em;  
-    /* min-width: 50px; */
 }
-
 .nav-projects__dropdown{
     right: 0;
 }
 
-
-
-
 .nav-projects .nav-arrow {
     rotate: 270deg;
-    /* transform-origin: center; */
 }
 .nav-projects:hover .nav-arrow {
     transform: rotate(-0.8turn);
 }
-.nav-lang__arrow--left{
-    rotate: 270deg;
-    /* transform-origin: center; */
-}
-.nav-lang__arrow--right{
-    rotate: 90deg;
-    /* transform-origin: center; */
-}
-.nav-lang__arrow{
-    width: 1em; 
-
-    /* ciekawe, że bez tego też działa */
-    /* transition: transform 0.7s ease, rotate 0.7s ease; */
-
-    /* transform-origin: center; */
-    /* margin-left: -6px; */
-    /* margin-right: -6px; */
-    margin-bottom: -1px;
-    /* position: relative; */
-}
-.nav-lang:hover .nav-lang__arrow--left {
-    transform: rotate(1turn);
-}
-.nav-lang:hover .nav-lang__arrow--right {
-    transform: rotate(1turn);
-}
-
-
-
-/*  STARY UNDERLINE   */
-/* .nav-projects__button-underline{
-  position: absolute;
-  display: block;
-  width: 100%;
-  height: 3px;
-  bottom: 0;
-  left: 0;
-  background-color: #000;
-  transform: scaleX(1);
-  transform-origin: top left;
-  transition: transform 0.3s ease;
-  position: absolute;
-    inset: auto 0 0;
-}
-.nav-projects:hover .nav-projects__button-underline {
-    transform: scaleX(0);
-  transform-origin: top right;
-}  */
-
-
 
 .nav-projects__button-arrow{
     width: 1.7em;
-    margin-bottom: -3px;
+    margin-top: -2px;
 }
-
 
 .nav-projects__button::after {
         content: '';
@@ -324,56 +293,6 @@ display: inline-block;
   transform-origin: bottom;
 }
     
-
-
-
-.nav-lang{
-    
-}
-
-
-    .nav-lang__button{
-        position: relative;
-        font-size: 0.8em;
-
-        min-width:50px;
-        border: none;
-        outline: none;
-        color: rgb(31, 0, 0);
-        background: transparent;
-        /* padding: 12px 12px; */
-        cursor: pointer;
-        transition: color 0.3s ease;
-        font-family: inherit;
-
-        /* padding: 10px 10px; */
-
-        /* font-weight: 600; */
-
-        margin-top: 0;
-        padding-top: 0;
-
-        padding-bottom: 2px;
-    }
-
-    /* 🤖 Restored the exact original underline appearance to keep the visual layout unchanged. */
-    .nav-lang__button::after {
-        content: '';
-        position: absolute;
-        left: 5px;
-        right: 5px;
-        bottom: 0px;
-        background: rgb(0, 0, 0);
-        transform: scaleX(1);
-        /* transform-origin: center; */
-        transition: transform 0.35s ease;
-        height: 1px;
-    }
-
-    .nav-lang__button:hover::after {
-        transform: scaleX(0.0);
-    }
-
 
 
 
@@ -931,10 +850,9 @@ refractoring jednak na vw i vh?
             <div class="nav-cats" aria-hidden="true">
                 <button class="nav-cats__button">
                     <span class="nav-cats__button-text">Change Cat</span> 
-                    <!-- <div class="nav-cats__button-underline"></div>  -->
                     <img class="nav-cats__button-arrow nav-arrow" src="src/south.svg">
                 </button> <!-- ⓘ nie ma sensu dodawać alt do strzałki, jeśli element ma aria-hidden="true" — to  zalecenie dostępnościowe (WCAG + ARIA Authoring Practices). -->    
-                <ul class="nav-cats__dropdown" >
+                <ul class="nav-cats__dropdown">
                     <li id="text_cat" class="nav-cats__item js-hook-text-cat">Text cat</li>
                     <li id="bongo_cat" class="nav-cats__item js-hook-bongo-cat">Bongo Cat</li>
                     <li id="disneys_stitch" class="nav-cats__item  js-hook-disneys_stitch">Disney's Stitch</li>
@@ -944,23 +862,14 @@ refractoring jednak na vw i vh?
                 </ul> 
             </div>
             <div class="nav-lang">
-                <button class="nav-lang__button" onclick="langChangeToPl()">
-                    <img class="nav-lang__arrow nav-arrow nav-lang__arrow--left" src="src/south.svg" aria-hidden="true">
-                        <span class="nav-lang__button-text">Polski</span>
-                        <!-- 🔴 tutaj nie ma underline, trzeba dowiedzieć się, która metoda lepsza i zastosować ją wszędzie,  -->
-                    <img class="nav-lang__arrow nav-arrow nav-lang__arrow--right" src="src/south.svg" aria-hidden="true">
-                </button>
+                <button class="nav-lang__button" onclick="langChangeToPl()"><img class="nav-lang__arrow nav-arrow nav-lang__arrow--left" src="src/south.svg" aria-hidden="true"><span class="nav-lang__button-text">Polski</span><img class="nav-lang__arrow nav-arrow nav-lang__arrow--right" src="src/south.svg" aria-hidden="true"></button>
             </div>
 
             <!-- Pl -->
             <!-- En -->
             
             <div class="nav-projects">
-                <button class="nav-projects__button">
-                    <img class="nav-projects__button-arrow nav-arrow" src="src/south.svg" aria-hidden="true">
-                    <span class="nav-projects__button-text">Projects</span> 
-                    <!-- <div class="nav-projects__button-underline"></div> -->
-                </button>
+                <button class="nav-projects__button"><img class="nav-projects__button-arrow nav-arrow" src="src/south.svg" aria-hidden="true"><span class="nav-projects__button-text">Projects</span></button>
                 <ul class="nav-projects__dropdown">
                     <li id="todolist" class="nav-projects__item js-hook-todolist"><a href="todolist/index.html">To do list</a></li>
                     <li id="racism" class="nav-projects__item js-hoos-racism"><a href="https://www.racism.wtf">Racism</a></li>
@@ -1131,24 +1040,6 @@ refractoring jednak na vw i vh?
         document.querySelector("#copyright").style.transition = "3s";
     }
 
-    /* 🤖 Legacy arrow JS kept as a commented reference; the CSS-only hover rotation is now the active implementation. */
-    /*
-    function navcatsEnter() {
-        document.getElementById("cat-arrow").style.transform = "rotate(0.80turn)";
-    }
-
-    function navcatsLeave(){
-        document.getElementById("cat-arrow").style.transform = "rotate(0turn)";
-    }
-
-    function navcprojectsEnter() {
-        document.getElementById("projects-arrow").style.transform = "rotate(-0.80turn)";
-    }
-
-    function navprojectsLeave(){
-        document.getElementById("projects-arrow").style.transform = "rotate(0turn)";
-    }
-    */
         const logo = document.querySelector(".logo");
 
         logo.addEventListener("pointerenter", piesikotEnter);

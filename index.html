@@ -150,13 +150,13 @@ transition: transform 0.7s ease, rotate 0.7s ease;
 }
 
 /* ⓘ reset <ul> do neutralnego stanu, żeby nie zaburzał działania dropdown */
-.nav-cats__dropdown-content, .nav-projects__dropdown-content {
+.nav-cats__dropdown, .nav-projects__dropdown {
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-.nav-cats:hover .nav-cats__dropdown-content{
+.nav-cats:hover .nav-cats__dropdown{
       /* margin-top: 2em; */
 }
 
@@ -171,7 +171,7 @@ transition: transform 0.7s ease, rotate 0.7s ease;
 
 
 
-.nav-cats:hover .nav-cats__dropdown-content, .nav-projects:hover .nav-projects__dropdown-content  {
+.nav-cats:hover .nav-cats__dropdown, .nav-projects:hover .nav-projects__dropdown  {
   display: block;
 
   /* 🟠 czy jest sensowne rozwiązanie? */
@@ -259,11 +259,11 @@ transition: transform 0.7s ease, rotate 0.7s ease;
     /* ^ ⓘ z tym po zmienia języka nav jest względnie stabilny */
 
  }
-.nav-projects .nav-projects__button, .nav-projects__dropdown-content li{
+.nav-projects .nav-projects__button, .nav-projects__dropdown li{
     font-size: 1.5em;  
     /* min-width: 50px; */
 }
-.nav-projects__dropdown-content li{
+.nav-projects__dropdown li{
     /* margin-right: -50px; */
 }
 .nav-projects__button-arrow{
@@ -273,7 +273,7 @@ transition: transform 0.7s ease, rotate 0.7s ease;
 
 
 
-.nav-cats__dropdown-content, .nav-projects__dropdown-content  {
+.nav-cats__dropdown, .nav-projects__dropdown  {
   display: none;
   position: absolute;
   background-color: #f9f9f9;
@@ -286,7 +286,7 @@ transition: transform 0.7s ease, rotate 0.7s ease;
     /* width: 100%; */
 }
 
-.nav-cats__dropdown-content li, .nav-projects__dropdown-content li  {
+.nav-cats__dropdown li, .nav-projects__dropdown li  {
   float: none;
   color: black;
   padding: 12px 16px;
@@ -298,7 +298,7 @@ transition: transform 0.7s ease, rotate 0.7s ease;
 
 
 
-.nav-cats__dropdown-content, .nav-projects__dropdown-content {
+.nav-cats__dropdown, .nav-projects__dropdown {
     background-color: rgba(255, 255, 255, 0.85);
     color: rgba(0, 0, 0, 0.85);
     
@@ -455,16 +455,14 @@ display: inline-block;
     .nav-lang__button::after {
         content: '';
         position: absolute;
-        left: 12px;
-        right: 12px;
+        left: 5px;
+        right: 5px;
         bottom: 0px;
         background: rgb(0, 0, 0);
         transform: scaleX(1);
         /* transform-origin: center; */
         transition: transform 0.35s ease;
-
         height: 1px;
-
     }
 
     .nav-lang__button:hover::after {
@@ -1031,7 +1029,7 @@ refractoring jednak na vw i vh?
                     <!-- <div class="nav-cats__button-underline"></div>  -->
                     <img class="nav-cats__button-arrow nav-arrow" src="src/south.svg">
                 </button> <!-- ⓘ nie ma sensu dodawać alt do strzałki, jeśli element ma aria-hidden="true" — to  zalecenie dostępnościowe (WCAG + ARIA Authoring Practices). -->    
-                <ul class="nav-cats__dropdown-content" >
+                <ul class="nav-cats__dropdown" >
                     <li id="text_cat" class="nav-cats__item js-hook-text-cat">Text cat</li>
                     <li id="bongo_cat" class="nav-cats__item js-hook-bongo-cat">Bongo Cat</li>
                     <li id="disneys_stitch" class="nav-cats__item  js-hook-disneys_stitch">Disney's Stitch</li>
@@ -1058,7 +1056,7 @@ refractoring jednak na vw i vh?
                     <span class="nav-projects__button-text">Projects</span> 
                     <!-- <div class="nav-projects__button-underline"></div> -->
                 </button>
-                <ul class="nav-projects__dropdown-content">
+                <ul class="nav-projects__dropdown">
                     <li id="todolist" class="nav-projects__item js-hook-todolist"><a href="todolist/index.html">To do list</a></li>
                     <li id="racism" class="nav-projects__item js-hoos-racism"><a href="https://www.racism.wtf">Racism</a></li>
                     <li id="piesikodpokolen" class="nav-projects__item js-hook-piesikodpokolen"><a href="https://piesikodpokolen.pl">Dog Farm</a></li>

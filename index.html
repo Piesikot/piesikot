@@ -40,53 +40,41 @@
     }
 
 
-/* 🔴 ID do zmiany */
-#nav-topbar{
+.nav-topbar{
         display: flex;
         justify-content:space-between;
-        
-        /* Do przemyślenia refaktoryzacja całego nav-top. 
-        Obecnie bez position:absolute na nav-projects i nav-cats przestaje działać podkreślenie. */
     }
-    
+
+
+
+
+.nav-cats .nav-cats__button, .nav-projects .nav-projects__button  {
+  border: none;
+  outline: none;
+  color: black;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+
+    padding-top: 0;
+    padding-right: 8px;
+    padding-bottom: 8px;
+    padding-left: 8px;
+
+    position: relative;
+    display: inline-flex;
+}
+
 .nav-cats{
     display: flex;
-      /* position: absolute; */
         top: 0px;
         left: 0px;
         width: fit-content;
         height: fit-content;
         z-index: 100;
-        
         position: relative;
 }
 
-.nav-cats__button {
-    position: relative;
-    /* display: inline-flex; */
-    /* display: block; */
-}
-
-/* nie jestem w stanie tego ustawić na buttonie, i musiałem zrobić nowego diva. */
-/* ⓘ nie byłem w stanie tego ustawić na buttonie, bo podkreślenie jest rozwijającym się divem */
-/* STARY UNDERLINE   */
-/* .nav-cats__button-underline{
-  position: absolute;
-  display: block;
-  width: 100%;
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color: #000;
-  transform: scaleX(1);
-  transform-origin: top left;
-  transition: transform 0.3s ease;
-  inset: auto 0 0;
-}
-.nav-cats:hover .nav-cats__button-underline {
-  transform: scaleX(0);
-  transform-origin: top left;
-} */
 
 
 
@@ -108,51 +96,24 @@
     }
 
 
-    /* 🛠  ↑   🛠  */
+    /* 🛠   SPRZĄTAM STRZAŁKI  🛠  */
 /*  🟠🟠 🟠 🟠 🟠 🟠 🟠🟠🟠🟠🟠🟠🟠🟠🟠🟠🟠🟠🟠🟠🟠🟠🟠🟠🟠 🟠 🟠 🟠 🟠   */
-/* UADJE SIĘ PORZĄDKOWAĆ I REFKAKTORYZOWAĆ, SKOŃCZŁEM GDZIEŃ NA cat-dropbtn-underline  */
-
-
-
-
-
 
 
 
 /* 🤖 Unified arrow behavior: this matches the nav-lang approach using transform rotation instead of mixing rotate + inline JS. */
 .nav-arrow {
-    /* nie tyczy się lang arrow, przemyśleć refaktoryzacje nav elementów */
-
-/* position: absolute; */
 
 /* Bez tego nie obracają się ŻADNE STRZAŁKI. Co ten Copilot nawyczyniał... */
 transition: transform 0.7s ease, rotate 0.7s ease;
-
-    /* Change Cat arrow */
-    /* margin-left: 2px; */
-    /* margin-top: -100px; */
-
-    /* Projects arrow */
-    /* margin-right: -2px; */
-
-    /* ale bałagan tu jest... */
-    /* padding: 0 10px; */
-
-    /* margin-top: -40px; */
 }
-
 .nav-cats .nav-arrow {
     rotate: 90deg;
-    /* transform-origin: center; */
     width: 1.5em;
-
-    /* margin-bottom: -5px; */
 }
 .nav-cats:hover .nav-arrow {
     transform: rotate(0.8turn);
 }
-
-
 
 
 
@@ -173,26 +134,10 @@ transition: transform 0.7s ease, rotate 0.7s ease;
 
 
 
-
-
-
-
 /* 📌 NAV CATS I PROJECTS */
 /* 🟠 Potem rozważyć zmniejszenie jeszcze dla mobile  */
 /* 🟡 UPORZĄDKOWAĆ JAKOŚ, przydałby się refactoring do flex */
 
-#nav-projects{
-    /* position: absolute; */
-
-    /* top: 0px;
-    right: 0px;
-    width: fit-content;
-    height: fit-content;
-    z-index: 100;
-
-    position: relative;
-    display: flex; */
-    }
 
     .nav-projects{
        top: 0px;
@@ -205,37 +150,10 @@ transition: transform 0.7s ease, rotate 0.7s ease;
         display: flex; 
     }
 
-    .nav-projects__button{
-        position: relative;
-    display: inline-flex;
-
-    }
 
 
 
-.nav-cats .nav-cats__button, .nav-projects .nav-projects__button  {
-  /* font-size: 0.75em; */
-  border: none;
-  outline: none;
-  color: black;
-  /* padding: 12px 12px; */
-  background-color: inherit;
-  font-family: inherit;
 
-  margin: 0;
-
-  /* font-weight: 600; */
-  
-  /* padding: 3px 3px; */
-
-    padding-top: 0;
-    padding-right: 8px;
-    padding-bottom: 8px;
-    padding-left: 8px;
-
-    /* width: 4.5em; */
-    /* max-width: 900px; */
-}
 .nav-cats .nav-cats__button{
     font-size: 0.9em;
     min-width: 75px;
@@ -1009,7 +927,7 @@ refractoring jednak na vw i vh?
             </video>       
         </div>
 
-        <nav id="nav-topbar">
+        <nav class="nav-topbar">
             <div class="nav-cats" aria-hidden="true">
                 <button class="nav-cats__button">
                     <span class="nav-cats__button-text">Change Cat</span> 

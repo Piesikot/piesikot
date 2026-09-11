@@ -48,22 +48,23 @@
 
 
 
-.nav-cats .nav-cats__button, .nav-projects .nav-projects__button  {
+.nav-cats__button, .nav-lang__button, .nav-projects__button  {
   border: none;
   outline: none;
   color: black;
   background-color: inherit;
   font-family: inherit;
-  margin: 0;
-
-    padding-top: 0;
-    padding-right: 8px;
-    padding-bottom: 8px;
-    padding-left: 8px;
-
-    position: relative;
-    display: inline-flex;
+  
+  position: relative;
+  display: inline-flex;
 }
+
+.nav-cats__button-text, .nav-lang__button-text, .nav-projects__button-text  {
+    /* padding: 0 px; */
+    /* padding-bottom: 0.5em;  */
+    /* margin: ; */
+}
+
 
 .nav-cats{
     display: flex;
@@ -75,12 +76,14 @@
         position: relative;
 }
 
-.nav-cats .nav-cats__button{
+.nav-cats__button{
     font-size: 0.9em;
+    
+    padding-bottom: 0.2em;
     }
 
-
-    .nav-cats__button::after {
+   /* buttons underline */
+    .nav-cats__button::after, .nav-lang__button::after, .nav-projects__button::after{
         content: '';
         position: absolute;
         left: -5px;
@@ -90,7 +93,25 @@
         transform: scaleX(1);
         transform-origin: top left;
         transition: transform 0.35s ease;
+
+        /* margin-bottom: 1.5em; */
+    }
+
+    
+/* nav-cats underline */
+    .nav-cats__button::after {
+        /* content: '';
+        position: absolute;
+        left: -5px;
+        right: 5px;
+        bottom: 0px;
+        background: rgb(0, 0, 0);
+        transform: scaleX(1);
+        transform-origin: top left;
+        transition: transform 0.35s ease; */
+
         height: 2px;
+
     }
 
    .nav-cats:hover .nav-cats__button::after {
@@ -106,7 +127,7 @@
 .nav-cats .nav-arrow {
     rotate: 90deg;
     width: 1.5em;
-    margin-bottom: -3px;
+    /* margin-bottom: -3px; */
 }
 .nav-cats:hover .nav-arrow {
     transform: rotate(0.8turn);
@@ -140,8 +161,6 @@
         cursor: pointer;
         transition: color 0.3s ease;
         font-family: inherit;
-
-        /* padding-bottom: 2px; */
     }
 
     .nav-lang__arrow--left{
@@ -153,9 +172,8 @@
     .nav-lang__arrow{
         width: 1em; 
 
-        margin-bottom: -1px;
-
-        /* margin-bottom: -1px; */
+        margin: 0 3px;
+        
     }
     .nav-lang:hover .nav-lang__arrow--left {
         transform: rotate(1turn);
@@ -166,15 +184,19 @@
 
     /* 🤖 Restored the exact original underline appearance to keep the visual layout unchanged. */
     .nav-lang__button::after {
-        content: '';
+        /* content: '';
         position: absolute;
         left: 5px;
         right: 5px;
         bottom: 0px;
         background: rgb(0, 0, 0);
         transform: scaleX(1);
-        transition: transform 0.35s ease;
+        transition: transform 0.35s ease; */
         height: 1px;
+        
+        left: 5px;
+        right: 5px;
+        
     }
 
     .nav-lang__button:hover::after {
@@ -239,11 +261,11 @@
 
 .nav-projects__button-arrow{
     width: 1.7em;
-    margin-top: -2px;
+    /* margin-top: -2px; */
 }
 
 .nav-projects__button::after {
-        content: '';
+        /* content: '';
         position: absolute;
         left: 5px;
         right: -5px;
@@ -251,8 +273,12 @@
         background: rgb(0, 0, 0);
         transform: scaleX(1);
         transform-origin: top right;
-        transition: transform 0.35s ease;
+        transition: transform 0.35s ease; */
+
         height: 3px;
+        right: 0;
+
+
     }
    .nav-projects:hover .nav-projects__button::after {
         transform: scaleX(0.0);

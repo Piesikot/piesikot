@@ -59,13 +59,6 @@
   display: inline-flex;
 }
 
-.nav-cats__button-text, .nav-lang__button-text, .nav-projects__button-text  {
-    /* padding: 0 px; */
-    /* padding-bottom: 0.5em;  */
-    /* margin: ; */
-}
-
-
 .nav-cats{
     display: flex;
         top: 0px;
@@ -77,11 +70,15 @@
 }
 
 .nav-cats__button{
-    font-size: 0.9em;
-    
-    padding-bottom: 0.2em;
+    /* font-size: 0.9em; */
+    font-size: clamp(0.8em,  1vw + 0.5em, 24em);
+
+    padding-left: 0.3em;
+    padding-bottom: 0.3em;
+    font-weight: 500;
     }
 
+    
    /* buttons underline */
     .nav-cats__button::after, .nav-lang__button::after, .nav-projects__button::after{
         content: '';
@@ -94,7 +91,7 @@
         transform-origin: top left;
         transition: transform 0.35s ease;
 
-        /* margin-bottom: 1.5em; */
+        /* left: 0; */
     }
 
     
@@ -109,9 +106,10 @@
         transform: scaleX(1);
         transform-origin: top left;
         transition: transform 0.35s ease; */
-
-        height: 2px;
-
+        
+        height: 0.15em;
+        
+        transform-origin: top left;
     }
 
    .nav-cats:hover .nav-cats__button::after {
@@ -127,7 +125,7 @@
 .nav-cats .nav-arrow {
     rotate: 90deg;
     width: 1.5em;
-    /* margin-bottom: -3px; */
+    margin-bottom: -2px;
 }
 .nav-cats:hover .nav-arrow {
     transform: rotate(0.8turn);
@@ -151,16 +149,23 @@
 
 
     .nav-lang__button{
-        position: relative;
+        /* position: relative; */
         font-size: 0.8em;
         min-width:50px;
-        border: none;
-        outline: none;
+        /* border: none; */
+        /* outline: none; */
         color: rgb(31, 0, 0);
         background: transparent;
         cursor: pointer;
         transition: color 0.3s ease;
-        font-family: inherit;
+        /* font-family: inherit; */
+
+        font-size: clamp(0.8em,  0.8vw + 0.5em, 20em);
+        font-weight: 500;
+
+        /* padding-left: 0.3em; */
+        padding-bottom: 0.1em;
+
     }
 
     .nav-lang__arrow--left{
@@ -170,10 +175,14 @@
         rotate: 90deg;
     }
     .nav-lang__arrow{
-        width: 1em; 
+        /* width: 1em;  */
+        /* height: auto; */
 
-        margin: 0 3px;
-        
+        /* margin: 0 3px; */
+        margin: 0 0.4em;
+
+        width: clamp(0.8em,  0.8vw + 0.5em, 20em);
+
     }
     .nav-lang:hover .nav-lang__arrow--left {
         transform: rotate(1turn);
@@ -182,7 +191,7 @@
         transform: rotate(1turn);
     }
 
-    /* 🤖 Restored the exact original underline appearance to keep the visual layout unchanged. */
+/* button underline */
     .nav-lang__button::after {
         /* content: '';
         position: absolute;
@@ -192,11 +201,12 @@
         background: rgb(0, 0, 0);
         transform: scaleX(1);
         transition: transform 0.35s ease; */
-        height: 1px;
+
+        height: 0.1em;
         
         left: 5px;
         right: 5px;
-        
+        transform-origin: center;
     }
 
     .nav-lang__button:hover::after {
@@ -245,9 +255,41 @@
     text-decoration: none;
     color: black;
 }
-.nav-projects .nav-projects__button, .nav-projects__dropdown li{
-    font-size: 1.5em;  
+
+.nav-projects__button{
+    font-size: clamp(1.5em,  1.5vw + 1em, 31em);
+    font-weight: 500;
+    padding-right: 0.3em;
+            padding-bottom: 0.1em;
 }
+
+/* button underline */
+.nav-projects__button::after {
+        /* content: '';
+        position: absolute;
+        left: 5px;
+        right: -5px;
+        bottom: 0px;
+        background: rgb(0, 0, 0);
+        transform: scaleX(1);
+        transform-origin: top right;
+        transition: transform 0.35s ease; */
+
+        height: 0.12em;
+
+        left: 5px;
+        right: -5px;
+        /* right: 0; */
+
+        transform-origin: top right;
+    }
+
+.nav-projects .nav-projects__button, .nav-projects__dropdown li{
+    /* font-size: 1.5em;   */
+            font-size: clamp(1.5em,  1.5vw + 1em, 31em);
+
+}
+
 .nav-projects__dropdown{
     right: 0;
 }
@@ -264,27 +306,11 @@
     /* margin-top: -2px; */
 }
 
-.nav-projects__button::after {
-        /* content: '';
-        position: absolute;
-        left: 5px;
-        right: -5px;
-        bottom: 0px;
-        background: rgb(0, 0, 0);
-        transform: scaleX(1);
-        transform-origin: top right;
-        transition: transform 0.35s ease; */
-
-        height: 3px;
-        right: 0;
 
 
-    }
    .nav-projects:hover .nav-projects__button::after {
         transform: scaleX(0.0);
     }
-
-
 
 
 

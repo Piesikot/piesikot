@@ -67,7 +67,7 @@
         height: fit-content;
         z-index: 100;
         position: relative;
-        display: none;
+        /* display: none; */
 }
 
 .nav-cats__button{
@@ -508,7 +508,20 @@ display: inline-block;
 
             margin-top: 0.25em;
             }
-  
+            
+            .hint__icon{
+                /* position: absolute; */
+                /* font-size: 2em; */
+                /* top: */
+            color: rgb(255, 123, 0);
+            /* font-size: 2em; */
+            /* margin-top: -20px; */
+            /* display: inline-block; */
+            }
+        .hint__label{
+            color: rgb(255, 123, 0);
+        }
+
         .hint__text {
             opacity: 1;
             transition: 3s;
@@ -568,6 +581,7 @@ display: inline-block;
 
 
 /* Koty */
+
 /* 🔴 wielkości i paddingi do refaktoryzacji */
 #text-cat{
             color: black;
@@ -972,7 +986,7 @@ refractoring jednak na vw i vh?
 
         <main class="main">
                 <div class="logo-box">
-                    <span class="hint hint__dog" aria-hidden="true"><label class="hint__label"> ⓘ Hint</label> <span class="hint__text"> - you can pet the dog, using your finger or cursor.</span> </span>
+                    <span class="hint hint__dog" aria-hidden="true"><span class="hint__icon"> ⓘ </span><label class="hint__label"> Hint</label> <span class="hint__text"> - you can pet the dog, using your finger or cursor.</span> </span>
                     <div class="logo">
                         <img class="logo__img" src="src/e-Pies.svg" alt="e-Pies logo przedstawiające psa">
                     </div>
@@ -1358,8 +1372,8 @@ refractoring jednak na vw i vh?
             racismProject.textContent = "Szowinizm";
             dogFarmProject.textContent = "Psia Farma";
 
-            hintLabel.textContent = "ⓘ Wskazówka";
-            hintText.textContent = "- możesz pogłaskać pieska, używając palca lub kursora.";
+            hintLabel.textContent = "Wskazówka";
+            hintText.textContent = " - możesz pogłaskać pieska, używając palca lub kursora.";
 
              if (copyRight.textContent === "Just cat made from text.") {
                 copyRight.textContent = "Po prostu kot zrobiony z tekstu."
@@ -1403,8 +1417,8 @@ refractoring jednak na vw i vh?
             racismProject.textContent = "Racism";
             dogFarmProject.textContent = "Dog Farm";
 
-            hintLabel.textContent = "ⓘ Hint";
-            hintText.textContent = " you can pet the dog, using your finger or cursor.";
+            hintLabel.textContent = "Hint";
+            hintText.textContent = " - you can pet the dog, using your finger or cursor.";
 
         //⚠ 📌Wykomentone, żeby uniknąć redundancji, aczkolwiek istnieje możliwość, że bez tego język nie będzie się zmieniał w kazdym miejscu! ⚠
             // if (copyRight.textContent === "Just cat made from text.") {

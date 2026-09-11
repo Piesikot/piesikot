@@ -503,20 +503,17 @@ display: inline-block;
             color: black;
             opacity: 0.75;
             transition: 3s;
-            max-width: 200px;
+            max-width: 20em;
             text-align: center;
 
-            margin-top: 0.25em;
+            display: flex;
+            flex-direction: column;
             }
             
             .hint__icon{
-                /* position: absolute; */
-                /* font-size: 2em; */
-                /* top: */
             color: rgb(255, 123, 0);
-            /* font-size: 2em; */
-            /* margin-top: -20px; */
-            /* display: inline-block; */
+            /* 🟠  zwiększyć ikonkę, czy coś... */
+            font-size: clamp(1.5em,  1.5vw + 1em, 3em);
             }
         .hint__label{
             color: rgb(255, 123, 0);
@@ -986,7 +983,7 @@ refractoring jednak na vw i vh?
 
         <main class="main">
                 <div class="logo-box">
-                    <span class="hint hint__dog" aria-hidden="true"><span class="hint__icon"> ⓘ </span><label class="hint__label"> Hint</label> <span class="hint__text"> - you can pet the dog, using your finger or cursor.</span> </span>
+                    <span class="hint hint__dog" aria-hidden="true"><span class="hint__icon"> ⓘ </span><label class="hint__label"> Hint</label> <span class="hint__text"> You can pet the dog, using your finger or cursor.</span> </span>
                     <div class="logo">
                         <img class="logo__img" src="src/e-Pies.svg" alt="e-Pies logo przedstawiające psa">
                     </div>
@@ -1373,7 +1370,7 @@ refractoring jednak na vw i vh?
             dogFarmProject.textContent = "Psia Farma";
 
             hintLabel.textContent = "Wskazówka";
-            hintText.textContent = " - możesz pogłaskać pieska, używając palca lub kursora.";
+            hintText.textContent = " Możesz pogłaskać pieska, używając palca lub kursora.";
 
              if (copyRight.textContent === "Just cat made from text.") {
                 copyRight.textContent = "Po prostu kot zrobiony z tekstu."
@@ -1418,7 +1415,7 @@ refractoring jednak na vw i vh?
             dogFarmProject.textContent = "Dog Farm";
 
             hintLabel.textContent = "Hint";
-            hintText.textContent = " - you can pet the dog, using your finger or cursor.";
+            hintText.textContent = " You can pet the dog, using your finger or cursor.";
 
         //⚠ 📌Wykomentone, żeby uniknąć redundancji, aczkolwiek istnieje możliwość, że bez tego język nie będzie się zmieniał w kazdym miejscu! ⚠
             // if (copyRight.textContent === "Just cat made from text.") {

@@ -168,13 +168,13 @@
 
     }
 
-    .nav-lang__arrow--left{
+    .nav-lang__button-arrow--left{
         rotate: 270deg;
     }
-    .nav-lang__arrow--right{
+    .nav-lang__button-arrow--right{
         rotate: 90deg;
     }
-    .nav-lang__arrow{
+    .nav-lang__button-arrow{
         /* width: 1em;  */
         /* height: auto; */
 
@@ -184,10 +184,10 @@
         width: clamp(0.8em,  0.8vw + 0.5em, 20em);
 
     }
-    .nav-lang:hover .nav-lang__arrow--left {
+    .nav-lang:hover .nav-lang__button-arrow--left {
         transform: rotate(1turn);
     }
-    .nav-lang:hover .nav-lang__arrow--right {
+    .nav-lang:hover .nav-lang__button-arrow--right {
         transform: rotate(1turn);
     }
 
@@ -914,7 +914,7 @@ refractoring jednak na vw i vh?
                 </ul> 
             </div>
             <div class="nav-lang">
-                <button class="nav-lang__button" onclick="langChangeToPl()"><img class="nav-lang__arrow nav-arrow nav-lang__arrow--left" src="src/south.svg" aria-hidden="true"><span class="nav-lang__button-text">Polski</span><img class="nav-lang__arrow nav-arrow nav-lang__arrow--right" src="src/south.svg" aria-hidden="true"></button>
+                <button class="nav-lang__button" onclick="langChangeToPl()"><img class="nav-lang__button-arrow nav-arrow nav-lang__button-arrow--left" src="src/south.svg" aria-hidden="true"><span class="nav-lang__button-text">Polski</span><img class="nav-lang__button-arrow nav-arrow nav-lang__button-arrow--right" src="src/south.svg" aria-hidden="true"></button>
             </div>
 
             <!-- Pl -->
@@ -1313,7 +1313,7 @@ refractoring jednak na vw i vh?
 
 
         function langChangeToPl() {
-            languageButton.innerHTML = '<div class="nav-lang"><button class="nav-lang__button" onclick="langChangeToEn()"><img class="nav-lang__arrow nav-arrow nav-lang__arrow--left" src="src/south.svg" aria-hidden="true"><span class="nav-lang__button-text">English</span><img class="nav-lang__arrow nav-arrow nav-lang__arrow--right" src="src/south.svg" aria-hidden="true"></button></div>';
+            languageButton.innerHTML = '<div class="nav-lang"><button class="nav-lang__button" onclick="langChangeToEn()"><img class="nav-lang__button-arrow nav-arrow nav-lang__button-arrow--left" src="src/south.svg" aria-hidden="true"><span class="nav-lang__button-text">English</span><img class="nav-lang__button-arrow nav-arrow nav-lang__button-arrow--right" src="src/south.svg" aria-hidden="true"></button></div>';
 
             language = "pl";
             
@@ -1358,7 +1358,7 @@ refractoring jednak na vw i vh?
 
         function langChangeToEn() {
 
-            languageButton.innerHTML = '<div class="nav-lang"><button class="nav-lang__button" onclick="langChangeToPl()"><img class="nav-lang__arrow nav-arrow nav-lang__arrow--left" src="src/south.svg" aria-hidden="true"><span class="nav-lang__button-text">Polski</span><img class="nav-lang__arrow nav-arrow nav-lang__arrow--right" src="src/south.svg" aria-hidden="true"></button></div>';
+            languageButton.innerHTML = '<div class="nav-lang"><button class="nav-lang__button" onclick="langChangeToPl()"><img class="nav-lang__button-arrow nav-arrow nav-lang__button-arrow--left" src="src/south.svg" aria-hidden="true"><span class="nav-lang__button-text">Polski</span><img class="nav-lang__button-arrow nav-arrow nav-lang__button-arrow--right" src="src/south.svg" aria-hidden="true"></button></div>';
 
             language = "en";
             

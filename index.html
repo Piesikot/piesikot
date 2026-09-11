@@ -67,6 +67,7 @@
         height: fit-content;
         z-index: 100;
         position: relative;
+        display: none;
 }
 
 .nav-cats__button{
@@ -122,7 +123,7 @@
 
 
 
-.nav-cats .nav-arrow {
+.nav-cats__button-arrow{
     rotate: 90deg;
     width: 1.5em;
 
@@ -332,6 +333,7 @@ display: inline-block;
 }
 
 /* Spacja oznacza pseudo-element potomka... - tyle, że bez spacji nie działa... */
+/* bo to się odnosi do potomków! */
 .nav-cats__item:after, .nav-projects__item ::after {
   content: '';
   position: absolute;
@@ -343,13 +345,31 @@ display: inline-block;
   background-color: black;
   transform-origin: bottom ;
   transition: transform 0.7s ease;
+
+}
+.nav-cats__item:after{
+     /* height: 2px; */
+        /* height: 0.15em; */
+        /* transform-origin: top left; */
+}
+.nav-projects__item :hover::after{
+    /* height: 0.15em; */
+    /* height: inherit; */
+        /* transform-origin: top left; */
 }
 
-.nav-cats__item:hover:after, .nav-projects__item :hover::after {
+.nav-cats__item:hover:after {
   transform: scaleX(1);
   transform-origin: bottom;
+    /* transform-origin: left; */
+
 }
-    
+
+.nav-projects__item :hover::after{
+  transform: scaleX(1);
+  /* transform-origin: bottom; */
+    /* transform-origin: right; */
+}
 
 
 

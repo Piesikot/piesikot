@@ -245,6 +245,8 @@
   z-index: 1;
   background-color: rgba(255, 255, 255, 0.85);
   color: rgba(0, 0, 0, 0.85); 
+  
+  font-size: clamp(0.8em,  1vw + 0.5em, 24em);;
 }
 .nav-cats__dropdown li, .nav-projects__dropdown li  {
   float: none;
@@ -254,6 +256,9 @@
   display: block ;
   text-align: center;
   cursor: pointer;
+
+    font-size: inherit;
+
 }
 .nav-projects a {
     text-decoration: none;
@@ -577,7 +582,7 @@ display: inline-block;
 }
 
 
-/* Koty */
+/* KOTY */
 
 /* 🔴 wielkości i paddingi do refaktoryzacji */
 #text-cat{
@@ -588,12 +593,12 @@ display: inline-block;
         /* ⓘ aby teks się nie łamał */
             white-space: nowrap;
 
-            /* z tym się łmie */
+        /* z tym (czyli defaultowym ustawieniem) się łamie */
         /* white-space: normal; */
  
     }
 #inverto{
-    width: 20px;
+    /* width: 20px; */
 }
     #bongo{
         width: 200px;
@@ -632,6 +637,22 @@ display: inline-block;
         width: 100vw;
         height: 60vh;
     }
+
+/*  KOTY PO REKAKTORYZACJI, NOWE KLASY */
+.text-cat{
+    color: black;
+    /* font-size: 1.5rem; */
+    font-size: clamp(1.5rem, 2vw + 0.5rem, 6rem);
+            
+    /* ⓘ aby teks się nie łamał */
+    white-space: nowrap;
+
+    /* z tym (czyli defaultowym ustawieniem) się łamie */
+    /* white-space: normal; */
+}
+
+
+
 
     /* 🟡 ewentualnie do zrobienia na koniec */
 /* ⓘ 280 px — fallback dla ekstremalnych urządzeń  */
@@ -941,7 +962,7 @@ refractoring jednak na vw i vh?
                     <img class="nav-cats__button-arrow nav-arrow" src="src/south.svg">
                 </button> <!-- ⓘ nie ma sensu dodawać alt do strzałki, jeśli element ma aria-hidden="true" — to  zalecenie dostępnościowe (WCAG + ARIA Authoring Practices). -->    
                 <ul class="nav-cats__dropdown">
-                    <li id="text_cat" class="nav-cats__item js-hook-text-cat">Text cat</li>
+                    <li id="text_cat" class="text-cat nav-cats__item js-hook-text-cat">Text cat</li>
                     <li id="bongo_cat" class="nav-cats__item js-hook-bongo-cat">Bongo Cat</li>
                     <li id="disneys_stitch" class="nav-cats__item  js-hook-disneys_stitch">Disney's Stitch</li>
                     <li id="nyan_cat" class="nav-cats__item js-hook-nyan-cat">Nyan Cat</li>
@@ -1014,8 +1035,10 @@ refractoring jednak na vw i vh?
 
     let persianRevolution = false;
 
-    let select_text_cat = document.getElementById("text_cat");
-    select_text_cat.onclick = function text_cat() {
+    //let select_text_cat = document.getElementById("text_cat");
+    let selectTextCat = document.querySelector(".text-cat");
+
+    selectTextCat.onclick = function text_cat() {
         document.querySelector("#cat").innerHTML = '<span id="text-cat">/ᐠ..ᐟ\\</span>'
         
         if (language === "en"){
@@ -1359,7 +1382,7 @@ refractoring jednak na vw i vh?
             hintDisappear();
 
             navCatsButton.textContent = "Zmień Kota";
-            select_text_cat.textContent = "Kot z tekstu";
+            selectTextCat.textContent = "Kot z tekstu";
             select_bongo_cat.textContent = "Kot Bongo";
             select_nyan_cat.textContent = "Kot Nyan";
             select_persian_cat.textContent = "Perski Kot"; 
@@ -1404,7 +1427,7 @@ refractoring jednak na vw i vh?
             hintDisappear();
 
             navCatsButton.textContent = "Change Cat";
-            select_text_cat.textContent = "Text Cat";
+            selectTextCat.textContent = "Text Cat";
             select_bongo_cat.textContent = "Bongo Cat";
             select_nyan_cat.textContent = "Nyan Cat";
             select_persian_cat.textContent = "Persian Cat"; 

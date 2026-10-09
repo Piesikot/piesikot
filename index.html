@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en pl ">
+<html lang="en pl">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0"> <!-- Bez tego Disney's Stitch zmienia pozycje na urządzeniach mobilnych-->
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0"> <!-- Bez tego Disney's Stitch zmieniał pozycje na urządzeniach mobilnych-->
     <title>Pies i kot</title>
 </head>
 <style> 
@@ -410,42 +410,50 @@ display: inline-block;
             margin-top: -30px;
         }
 
-        #i{
+        .header__surname-i{
             color: black;   
         }
 
-        #ot1{
+        .ot1, .header__surname-ot{
             color: ghostwhite;   
         }
         
-        .dot{
+        .dot, .header__description-dot{
             transition: 3s;
             color: ghostwhite;
         }
         
-        #ot2{
+        .ot2, .header__description-ot{
             transition: 3s;
-            color: black;
+            /* color: black; */
+            /* color: red; */
         }
 
-        #co{
-            color: black;
+        .co{
+            /* color: black; */
+            /* color: red; */
+            /* CO TU SIĘ STAŁO!? */
         }
+        .header__description-co--en{
+            color: ghostwhite;
+            transition: 3s;
+        }
+
 
         /* ??? */
         /* img{
             font-size: 10px;
         } */
 
-/* 🤖 Styling for header__github-name link: black color, animated underline on hover (consistent with nav). */
-    .header__github-name a {
+/* 🤖 Styling for header__surname-github-name link: black color, animated underline on hover (consistent with nav). */
+    .header__surname-github-name a {
     color: black;
     text-decoration: none;
     position: relative;
     }
 
     /* animacja podkreślenia Piesikot */
-    .header__github-name a::after {
+    .header__surname-github-name a::after {
         content: '';
         position: absolute;
         bottom: 0;
@@ -457,7 +465,7 @@ display: inline-block;
         transform-origin: bottom;
         transition: transform 0.7s ease;
     }
-    .header__github-name a:hover::after {
+    .header__surname-github-name a:hover::after {
         transform: scaleX(1);
         transform-origin: bottom;
     }
@@ -520,7 +528,7 @@ display: inline-block;
             /* 🟠  zwiększyć ikonkę, czy coś... */
             font-size: clamp(1.5em,  1.5vw + 1em, 3em);
             }
-        .hint__label{
+        .hint__label--dog{
             color: rgb(255, 123, 0);
         }
 
@@ -543,7 +551,7 @@ display: inline-block;
             position:relative;
         } */
         
-        #copyright{ 
+        .copyright-box{ 
             color: black;
             width: 100%;
             /* padding: 5px; */
@@ -558,7 +566,7 @@ display: inline-block;
 
              /* font-size: 1em; */
         }
-        #kot{
+        .cat-box{
             /* position: absolute; */
             /* right: 20px; */
             /* bottom: 0; */
@@ -584,50 +592,42 @@ display: inline-block;
 
 /* KOTY */
 
-/* 🔴 wielkości i paddingi do refaktoryzacji */
-#text-cat{
+.cat-box__cat--text-cat{
             color: black;
-            /* font-size: 1.5rem; */
             font-size: clamp(1.5rem, 2vw + 0.5rem, 6rem);
-            
-        /* ⓘ aby teks się nie łamał */
+/* ⓘ aby tekst się nie łamał, bo z ustawienie defaultowym tj.'white-space: normal;' się łamał */
             white-space: nowrap;
-
-        /* z tym (czyli defaultowym ustawieniem) się łamie */
-        /* white-space: normal; */
- 
     }
-#inverto{
-    /* width: 20px; */
+
+
+.cat-box__cat--invertocat{
+
 }
-    #bongo{
-        width: 200px;
-        float:right;
+
+.cat-box__cat-img--bongo-cat{
+        width: clamp(10rem, 5vw + 3rem, 30rem);
         margin-bottom: 10px;
     }
 
-    #stitch{
-        margin-bottom: -14px;
-        margin-right: -100px;
-        overflow: hidden;
+.cat-box__cat-img--disneys-stitch{
+        width: clamp(10rem, 5vw + 3rem, 30rem);
+        border: solid rgba(17, 14, 14, 0.31) 3px;
+    }
+.cat-box__cat-img--nyan-cat{
+        margin-right: -20px;
+        width:clamp(10rem, 5vw + 3rem, 30rem);
     }
 
-    #nyan{
-        /* margin-right: -20px; */
-        /* width: 200px; */
-        /* float: right; */
+.cat-box__cat-img--persian-cat{
+        width: clamp(10rem, 5vw + 3rem, 30rem);
     }
-    #persian{
-        /* margin-right: -20px; */
-        width: 15vw;
-        /* float: right; */
-    }
+
     .persian-background video{
         opacity: 0;
         /* teraz działa ale pewnie zżera zasoby komputera, kiedy wyświetla się niewidoczne cały czas - do sprawdzenie w dev tools*/
         /* następnie mogę spróbować zostawić w display none, i zrobić, żeby display:block się włączało dopiero przy wybierniu kota */
         /* ponadto 🐛 bugguje głaskanie pieska przy jego dużym rozmiarze */
-        display: none;
+        display: block;
 
         position: absolute;
         top: 50%;
@@ -636,23 +636,27 @@ display: inline-block;
 
         width: 100vw;
         height: 60vh;
+
+        z-index: -10;
     }
 
-/*  KOTY PO REKAKTORYZACJI, NOWE KLASY */
-.text-cat{
-    color: black;
-    /* font-size: 1.5rem; */
-    font-size: clamp(1.5rem, 2vw + 0.5rem, 6rem);
-            
-    /* ⓘ aby teks się nie łamał */
-    white-space: nowrap;
 
-    /* z tym (czyli defaultowym ustawieniem) się łamie */
-    /* white-space: normal; */
+
+
+
+/* Reguła CSS ukrywająca wszystkie koty oprócz text‑cat */
+.copyright__text, 
+.cat-box__cat {
+    display: none;
 }
 
+.copyright__text--text-cat {
+    display: block;
+}
 
-
+.cat-box__cat--text-cat {
+    display: block;
+}
 
     /* 🟡 ewentualnie do zrobienia na koniec */
 /* ⓘ 280 px — fallback dla ekstremalnych urządzeń  */
@@ -958,31 +962,58 @@ refractoring jednak na vw i vh?
         <nav class="nav-topbar">
             <div class="nav-cats" aria-hidden="true">
                 <button class="nav-cats__button">
-                    <span class="nav-cats__button-text">Change Cat</span> 
+                    <span lang="en" class="nav-cats__button-text">Change Cat</span> 
+                    <span lang="pl" class="nav-cats__button-text">Zmień Kota</span> 
+
                     <img class="nav-cats__button-arrow nav-arrow" src="src/south.svg">
                 </button> <!-- ⓘ nie ma sensu dodawać alt do strzałki, jeśli element ma aria-hidden="true" — to  zalecenie dostępnościowe (WCAG + ARIA Authoring Practices). -->    
+
                 <ul class="nav-cats__dropdown">
-                    <li id="text_cat" class="text-cat nav-cats__item js-hook-text-cat">Text cat</li>
-                    <li id="bongo_cat" class="nav-cats__item js-hook-bongo-cat">Bongo Cat</li>
-                    <li id="disneys_stitch" class="nav-cats__item  js-hook-disneys_stitch">Disney's Stitch</li>
-                    <li id="nyan_cat" class="nav-cats__item js-hook-nyan-cat">Nyan Cat</li>
-                    <li id="persian_cat" class="nav-cats__item js-hook-persian-cat">Persian Cat</li>
-                    <li id="invertocat" class="nav-cats__item js-hook-invertocat">Invertocat</li>
+                    <li  lang="en" class="nav-cats__item js-hook-select-text-cat">Text cat</li>
+                    <li  lang="pl" class="nav-cats__item js-hook-select-text-cat">Kot z tekstu</li>
+
+                    <li lang="en" class="nav-cats__item js-hook-select-bongo-cat">Bongo Cat</li>
+                    <li lang="pl" class="nav-cats__item js-hook-select-bongo-cat">Kot Bongo</li>
+
+                    <li lang="en" class="nav-cats__item js-hook-select-disneys-stitch">Disney's Stitch</li>
+                    <li lang="pl" class="nav-cats__item js-hook-select-disneys-stitch">Stitch Disneya</li>
+
+                    <li lang="en" class="nav-cats__item js-hook-select-nyan-cat">Nyan Cat</li>
+                    <li lang="pl" class="nav-cats__item js-hook-select-nyan-cat">Kot Nyan</li>
+
+                    <li lang="en"  class="nav-cats__item js-hook-select-persian-cat">Persian Cat</li>
+                    <li lang="pl"  class="nav-cats__item js-hook-select-persian-cat">Perski Kot</li>
+
+                    <li lang="en pl" class="invertocat nav-cats__item js-hook-select-invertocat">Invertocat</li>
+                    <!-- <li lang="pl" class="invertocat nav-cats__item js-hook-select-invertocat">Invertocat</li> -->
                 </ul> 
             </div>
             <div class="nav-lang">
-                <button class="nav-lang__button" onclick="langChangeToPl()"><img class="nav-lang__button-arrow nav-arrow nav-lang__button-arrow--left" src="src/south.svg" aria-hidden="true"><span class="nav-lang__button-text">Polski</span><img class="nav-lang__button-arrow nav-arrow nav-lang__button-arrow--right" src="src/south.svg" aria-hidden="true"></button>
+                <button class="nav-lang__button">
+                    <img class="nav-lang__button-arrow nav-arrow nav-lang__button-arrow--left" src="src/south.svg" aria-hidden="true">
+                        <span lang="en" class="nav-lang__button-text">Polski</span>
+                        <span lang="pl" class="nav-lang__button-text">English</span>
+                    <img class="nav-lang__button-arrow nav-arrow nav-lang__button-arrow--right" src="src/south.svg" aria-hidden="true">
+                </button>
             </div>
 
             <!-- Pl -->
             <!-- En -->
             
             <div class="nav-projects">
-                <button class="nav-projects__button"><img class="nav-projects__button-arrow nav-arrow" src="src/south.svg" aria-hidden="true"><span class="nav-projects__button-text">Projects</span></button>
+                <button class="nav-projects__button"><img class="nav-projects__button-arrow nav-arrow" src="src/south.svg" aria-hidden="true">
+                    <span lang="en" class="nav-projects__button-text">Projects</span>
+                    <span lang="pl" class="nav-projects__button-text">Projekty</span>
+                </button>
                 <ul class="nav-projects__dropdown">
-                    <li id="todolist" class="nav-projects__item js-hook-todolist"><a href="todolist/index.html">To do list</a></li>
-                    <li id="racism" class="nav-projects__item js-hoos-racism"><a href="https://www.racism.wtf">Racism</a></li>
-                    <li id="piesikodpokolen" class="nav-projects__item js-hook-piesikodpokolen"><a href="https://piesikodpokolen.pl">Dog Farm</a></li>
+                    <li lang="en" class="nav-projects__item js-hook-todolist"><a href="todolist/index.html">To do list</a></li>
+                    <li lang="pl" class="nav-projects__item js-hook-todolist"><a href="todolist/index.html">Lista do zrobienia</a></li>
+
+                    <li lang="en" class="nav-projects__item js-hook-racism"><a href="https://www.racism.wtf">Racism</a></li>
+                    <li lang="pl" class="nav-projects__item js-hook-racism"><a href="https://www.racism.wtf">Szowinizm</a></li>
+
+                    <li lang="en" class="nav-projects__item js-hook-piesikodpokolen"><a href="https://piesikodpokolen.pl">Dog Farm</a></li>
+                    <li lang="pl" class="nav-projects__item js-hook-piesikodpokolen"><a href="https://piesikodpokolen.pl">Psia Farma</a></li>
                 </ul> 
             </div>
         </nav>
@@ -996,26 +1027,154 @@ refractoring jednak na vw i vh?
             <!-- 🤖 Replaced h2 with span for semantic correctness: Emil is a personal name, not a section heading. -->
             <span class="header__name">Emil</span>
             <span class="header__surname">
-                <h1 class="header__github-name"><a href="https://github.com/piesikot" target="_blank" onmouseenter="piesikotEnter()" onmouseleave="piesikotLeave()">Pies<span id="i">i</span><span class="kot">k</span><span id="ot1" class="kot">ot</span></a>
+                <h1 class="header__surname-github-name"><a href="https://github.com/piesikot" target="_blank" onmouseenter="piesikotEnter()" onmouseleave="piesikotLeave()">Pies<span class="header__surname-i">i</span><span class="header__surname-k">k</span><span class="ot1 header__surname-ot">ot</span></a>
                 </h1>
-            <p class="header__description"><span id="ot2">ot</span><span class="dot" aria-hidden="true">.</span >co</span>
-            </p>
+                <p lang="pl" class="header__description header__description--pl">
+                    <span class="ot2 header__description-ot header__description-ot--pl">ot</span><span class="dot header__description-dot header__description-dot--pl" aria-hidden="true">.</span><span class="co header__description-co--pl">co</span>
+                </p>
+                <p lang="en" class="header__description header__description--en">
+                    <span class="ot2 header__description-ot header__description-ot--en"> </span><span class="dot header__description-dot header__description-dot--en" aria-hidden="true">.</span><span class="co header__description-co--en">co</span>
+                </p>
+            
         </header>
 
         <main class="main">
                 <div class="logo-box">
-                    <span class="hint hint__dog" aria-hidden="true"><span class="hint__icon"> ⓘ </span><label class="hint__label"> Hint</label> <span class="hint__text"> You can pet the dog, using your finger or cursor.</span> </span>
+                    <div class="hint-box--dog">
+                        <span class="hint hint--dog" aria-hidden="true"><span class="hint__icon"> ⓘ </span>
+                        <label lang="en"class="hint__label hint__label--dog">Hint</label><span lang="en" class="hint__text">You can pet the dog, using your finger or cursor.</span> 
+                        <label lang="pl" class="hint__label hint__label--dog">Wskazówka</label><span lang="pl" class="hint__text hint__text--dog">Możesz pogłaskać psa, używając palca lub kursora.</span> </span>
+                    </div>
+
                     <div class="logo">
                         <img class="logo__img" src="src/e-Pies.svg" alt="e-Pies logo przedstawiające psa">
                     </div>
                 </div>
 
-                <!-- 🟡 Do zamiany id na klasę -->
-                <span id="copyright" aria-hidden="true" onmouseenter="piesikotEnter()" onmouseleave="piesikotLeave()">Just cat made from text.</span>
-                <div id="kot" aria-hidden="true" onmouseenter="piesikotEnter()" onmouseleave="piesikotLeave()">
-                    <div id="cat">
-                        <span id="text-cat">/ᐠ..ᐟ\</span>
+                <span id="copyright" class="copyright-box" aria-hidden="true" onmouseenter="piesikotEnter()" onmouseleave="piesikotLeave()">
+
+                    <span class="copyright__text copyright__text--text-cat" lang="en">
+                        Just cat made from text.
+                    </span>
+                    <span class="copyright__text copyright__text--text-cat" lang="pl">
+                        Po prostu kot zrobiony z tekstu.
+                    </span>
+                    
+                    <span class="copyright__text copyright__text--invertocat" lang="en">
+                        <a href="https://github.com/piesikot" target="_blank" class="github-link">
+                            Invertocat is GitHub's logo used here only as a social button to indicate that this project integrates with GitHub.
+                        </a>
+                    </span>
+
+                    <span class="copyright__text copyright__text--invertocat" lang="pl">
+                        <a href="https://github.com/piesikot" target="_blank" class="github-link">
+                            Invertocat jest logiem GitHuba użytym tutaj tylko jako przycisk społecznościowy informujący, że projekt jest zintegrowany z GitHubem.
+                        </a>
+                    </span> 
+
+                    <span class="copyright__text copyright__text--bongo-cat" lang="en">
+                        <a href="https://bongo.cat/" target="_blank" class="link">
+                            Bongo Cat created by DitzyFlama.
+                        </a>
+                    </span>
+                    
+                    <span class="copyright__text copyright__text--bongo-cat" lang="pl">
+                        <a href="https://bongo.cat/" target="_blank" class="link">
+                            Bongo Cat został stworzony przez DitzyFlama.
+                        </a>
+                    </span> 
+
+                    <span class="copyright__text copyright__text--disneys-stitch" lang="pl">
+                        Stitch jest postacią z kreskówki „Lilo & Stitch” stworzonej przez Disney.
+                    </span>
+
+                    <span class="copyright__text copyright__text--disneys-stitch" lang="en">
+                            Stitch is a character from Disney's “Lilo & Stitch” cartoon.
+                    </span>
+
+                    <span class="copyright__text copyright__text--nyan-cat" lang="en">
+                        <a href="https://www.nyan.cat" target="_blank" class="link">
+                            Nyan Cat created by PRguitarman.
+                        </a>
+                    </span>
+
+                    <span class="copyright__text copyright__text--nyan-cat" lang="pl">
+                        <a href="https://www.nyan.cat" target="_blank" class="link">
+                            Nyan Cat został stworzony przez PRguitarmana.
+                        </a>
+                    </span>
+
+                    <span class="copyright__text copyright__text--persian-cat" lang="en">
+                        The Persian Lion and Sun symbol is the emblem of free Iran.
+                    </span>
+                    
+                    <span class="copyright__text copyright__text--persian-cat" lang="pl">
+                        Symbol Perskiego Lwa i Słońca to emblemat wolnego Iranu.
+                    </span> 
+
+                </span>
+
+                <div id="kot" class="cat-box" aria-hidden="true" onmouseenter="piesikotEnter()" onmouseleave="piesikotLeave()">
+                    <!-- <div id="cat"> -->
+
+                    <!-- 🔴 pododawać wszystkie koty i zmienić mechanizm zmiany z innerHTML na display:block -->
+
+                    <span id="text-cat" class="cat-box__cat cat-box__cat--text-cat">/ᐠ..ᐟ\</span>
+                        
+                    <div class="cat-box__cat cat-box__cat--invertocat">
+                        <a href="https://github.com/piesikot" class="github-link" target="_blank">
+                            <img  class="cat-box__cat-img cat-box__cat-img--invertocat" src="src/Invertocat.png" alt="GitHub Logo">
+                        </a>
                     </div>
+
+                    <div class="cat-box__cat cat-box__cat--bongo-cat">
+                        <img 
+                            class="cat-box__cat-img cat-box__cat-img--bongo-cat"
+                            src="src/bongocat.gif"
+                            alt="Bongo Cat"
+                            onmouseenter="piesikotEnter()"
+                            onmouseleave="piesikotLeave()"
+                            onmousedown="bongocatDown()"
+                            onmouseup="bongocatUp()"
+                            ontouchstart="bongocatDown()"
+                        >
+                    </div>
+
+                    <div class="cat-box__cat cat-box__cat--disneys-stitch">
+                        <img 
+                            class="cat-box__cat-img cat-box__cat-img--disneys-stitch"
+                            src="src/stitch.gif"
+                            alt="Disney's Stitch"
+                            onmouseenter="piesikotEnter()"
+                            onmouseleave="piesikotLeave()"
+                            onclick="stitchClick()"
+                        >
+                    </div>
+
+                    <div class="cat-box__cat cat-box__cat--nyan-cat">
+                        <img 
+                            class="cat-box__cat-img cat-box__cat-img--nyan-cat"
+                            src="src/nyancat.gif"
+                            alt="Nyan Cat"
+                            onmouseenter="nyancatEnter()"
+                            onmouseleave="nyancatLeave()"
+                        >
+                    </div>
+
+                    <div class="cat-box__cat cat-box__cat--persian-cat">
+                        <img 
+                            class="cat-box__cat-img cat-box__cat-img--persian-cat"
+                            src="src/Persian_Lion.png"
+                            alt="Persian Lion and Sun"
+                            onmouseenter="persiancatEnter()"
+                            onmouseleave="persiancatLeave()"
+                        >
+                    </div>
+
+                    <!-- </div> -->
+                </div>
+
+                    
         </main>
 
     </div>
@@ -1027,17 +1186,473 @@ refractoring jednak na vw i vh?
     </audio>
 
 <script>
-    let languageButton = document.querySelector('.nav-lang')
+
+   let languageButton = document.querySelector('.nav-lang')
 
     let language = "en";
-    let copyRight = document.querySelector("#copyright");
-
-
-    let persianRevolution = false;
+    let copyRight = document.querySelector(".copyright-box");
 
     //let select_text_cat = document.getElementById("text_cat");
-    let selectTextCat = document.querySelector(".text-cat");
+    //let selectTextCat = document.querySelector(".js-hook-select-text-cat");
+    const hintDog = document.querySelector(".hint-box--dog");
+    let persianRevolution = false;
 
+
+// const copyrights = document.querySelectorAll('.copyright__text');
+
+// if (language === 'pl') {
+//     copyrights.forEach(el => {
+//         el.style.display = 'none';
+//     });
+// } else {
+//     copyrights.forEach(el => {
+//         el.style.display = 'block';
+//     });
+// }
+
+
+
+//REFAKTYORYZACJA Z WET code („Write Everything Twice”) do  DRY = ("Don’t Repeat Yourself") ✓  
+
+//🤖 ZREFAKTORYZOWANa NOWA LOKALIZACJA I KOTY
+
+// --- JĘZYK: PL jako domyślny ---
+let currentLang = "pl";
+
+// text-cat jest pierwszym wyświetlanym kotem
+let currentCat = "text-cat";
+
+const cats = [
+  "text-cat",
+  "invertocat",
+  "bongo-cat",
+  "disneys-stitch",
+  "nyan-cat",
+  "persian-cat"
+];
+
+// --- ZMIANA JĘZYKA ( 🤖 TAK JAK W POPRZEDNIM KODZIE) ---
+function setLang(lang) {
+  const enElements = document.querySelectorAll('[lang="en"]');
+  const plElements = document.querySelectorAll('[lang="pl"]');
+
+  if (lang === "en") {
+    enElements.forEach(el => {
+      el.style.display = "block";
+    });
+    plElements.forEach(el => {
+      el.style.display = "none";
+    });
+  } else if (lang === "pl") {
+    enElements.forEach(el => {
+      el.style.display = "none";
+    });
+    plElements.forEach(el => {
+      el.style.display = "block";
+    });
+  }
+}
+
+setLang(currentLang);
+
+
+// --- WYŚWIETLANIE WYBRANEGO KOTA (🤖 ZACHOWUJE WCZEŚNIEJSZĄ LOGIKĘ) ---
+function displayCat() {
+  // Ukryj wszystkie copyrighty i koty, które NIE są aktualnym kotem
+  const elements = document.querySelectorAll(
+    `.copyright__text:not(.copyright__text--${currentCat}), ` +
+    `.cat-box__cat:not(.cat-box__cat--${currentCat})`
+  );
+
+  elements.forEach(element => {
+    element.style.display = "none";
+  });
+}
+
+// Pierwsze wywołanie – ukryj inne koty na starcie
+displayCat();
+
+
+// --- WYBÓR KOTA (🤖ZACHOWANA KOLEJNOŚĆ: najpierw pokazanie kota, potem język, potem ukrycie reszty) ---
+function selectCat(catKey) {
+  currentCat = catKey;
+
+  // Pokaż wszystkie elementy dla wybranego kota (EN + PL)
+  document.querySelectorAll(
+    `.copyright__text--${catKey}, .cat-box__cat--${catKey}`
+  ).forEach(element => {
+    element.style.display = "block";
+  });
+
+  // Ustaw język (ukryje nieaktualny język)
+  setLang(currentLang);
+
+  // Ukryj wszystkie inne koty
+  displayCat();
+}
+
+
+// --- PODPINANIE EVENTÓW DO PRZYCISKÓW (🤖 DRY, ALE ZACHOWUJE LOGIKĘ) ---
+cats.forEach(catKey => {
+  document.querySelectorAll(`.js-hook-select-${catKey}`).forEach(btn => {
+    btn.onclick = function () {
+      selectCat(catKey);
+    };
+  });
+});
+
+
+// NOWE KOTY FUNKCJE
+
+const bongoCat = document.querySelector(".cat-box__cat-img--bongo-cat");
+
+bongoCat.addEventListener("mousedown", function (event) {
+    if (event.button === 0) {
+        bongoCat.src = "src/bongocat-lmb.gif";
+    } else if (event.button === 2) {
+        bongoCat.src = "src/bongocat-rmb.gif";
+    }
+});
+
+bongoCat.addEventListener("mouseup", function () {
+    bongoCat.src = "src/bongocat.gif";
+});
+
+bongoCat.addEventListener("contextmenu", function (event) {
+    event.preventDefault();
+});
+
+
+ function stitchClick(){ 
+    document.querySelector(".cat-box__cat-img--disneys-stitch").src = "src/stitch-run.gif";   
+        }
+
+    
+function nyancatEnter(){ document.querySelector("body").style.background = "black"
+                document.querySelector("body").style.transition = "4s"
+                document.querySelector(".copyright-box").style.color = "white"
+                document.querySelector(".copyright-box").style.transition = "4s"
+                document.querySelector("p").style.color = "black"
+
+                document.querySelector(".header__name").style.color = "black"
+                document.querySelector(".header__name").style.transition = "4s"
+                document.querySelector("p").style.color = "black"
+                document.querySelector("p").style.transition = "4s"
+                document.querySelectorAll(".ot2").forEach(element => {
+                    element.style.color = "black";
+                    element.style.transition = "4s";
+                });
+
+                hintDog.querySelectorAll("*").forEach(element => {
+                    element.style.transition = "4s";
+                    element.style.color = "black";
+                });
+                                    
+                const audio = document.getElementById("myAudio");
+                            function playAudio() {
+                            audio.play();
+                            }
+                            playAudio()
+                             
+            //document.querySelector(".persian-background video").style.display = "none";
+
+            }
+
+        function nyancatLeave(){
+            
+            document.querySelector("body").style.background = "white"
+            document.querySelector("body").style.transition = "0s"
+            document.querySelector(".copyright-box").style.color = "black"
+            document.querySelector(".copyright-box").style.transition = "0s"
+
+            const hintDog = document.querySelector(".hint-box--dog");
+
+                hintDog.querySelectorAll("*").forEach(element => {
+                    element.style.color = "";
+                    element.style.transition = "";
+                });
+                
+            var audio = document.getElementById("myAudio");
+                           function playAudio() {
+                           audio.pause();
+                           }
+                           playAudio();
+        }
+
+
+
+        function persiancatEnter(){
+            persianRevolution = true;
+            //document.querySelector("#persian").style.transition = "15s"
+            //document.querySelector("#persian").style.opacity = "0";
+
+            document.querySelector(".header").style.transition = "5s"
+            document.querySelector(".header").style.opacity = "0";
+
+            document.querySelector(".persian-background video").style.transition = "60s";
+            // document.querySelector(".persian-background video").style.display = "block";
+            document.querySelector(".persian-background video").style.opacity = "1";
+
+            // document.querySelector("body").style.background = "black"
+            // document.querySelector("body").style.transition = "4s"
+            // document.querySelector("#copyright").style.color = "white"
+            // document.querySelector("#copyright").style.transition = "4s"
+            // document.querySelector("p").style.color = "black"
+            // document.querySelector("h2").style.color = "black"
+            // document.querySelector("h2").style.transition = "4s"
+            // document.querySelector("p").style.color = "black"
+            // document.querySelector("p").style.transition = "4s"
+            // document.querySelector("#ot2").style.color = "black"
+            // document.querySelector("#ot2").style.transition = "4s"
+                
+            const audio = document.getElementById("persianAudio");
+                           function playAudio() {
+                           audio.play();
+                           }
+                           playAudio();
+        }
+
+        function persiancatLeave(){
+            //document.querySelector("#persian").style.transition = "2s"
+            //document.querySelector("#persian").style.opacity = "1";
+
+            document.querySelector(".header").style.transition = "15s"
+            document.querySelector(".header").style.opacity = "1";
+
+            document.querySelector(".persian-background video").style.transition = "15s"
+            // document.querySelector(".persian-background video").style.display = "block";
+            document.querySelector(".persian-background video").style.opacity = "0";
+
+            var audio = document.getElementById("persianAudio");
+                           function playAudio() {
+                           audio.pause();
+                           }
+                           playAudio();
+        }
+        
+//📌 ✓ dzialająca lokalizacja z racism.wtf i nowe koty działające WET ✓ 📌
+/*
+
+    //Polski jak default
+    let currentLang = 'pl'; 
+      
+    function setLang(lang) {
+        const enElements = document.querySelectorAll('[lang="en"]');
+        const plElements = document.querySelectorAll('[lang="pl"]');
+
+        // [lang="pl"]:not(.copyright__text)
+        // Znajdź elementy z lang="pl", które nie mają klasy .copyright__text.
+
+        // .copyright__text--text-cat[lang="pl"]
+        // Znajdź polski copyright tekstowego kota.
+
+        // const enElements = document.querySelectorAll(
+        //     '[lang="en"]:not(.copyright__text), .copyright__text--text-cat[lang="en"]'
+        // );
+
+        // const plElements = document.querySelectorAll(
+        //     '[lang="pl"]:not(.copyright__text), .copyright__text--text-cat[lang="pl"]'
+        // );
+
+
+        if (lang === 'en') {  
+          enElements.forEach(el => {
+            el.style.display = 'block';
+          });
+          plElements.forEach(el => {
+            el.style.display = 'none';
+          });
+        } else if (lang === 'pl') {
+          enElements.forEach(el => {
+            el.style.display = 'none';
+          });
+          plElements.forEach(el => {
+            el.style.display = 'block';
+          });
+        }
+      }
+
+    setLang(currentLang);
+
+    // let currentCat = "text-cat";
+    let currentCat = "text-cat";
+
+    
+    //znajduje wszystkie elementy .copyright__text, które nie mają klasy poszczególnego kota typu .copyright__text--text-cat, oraz wszystkie elementy cat-box__cat bez, klasy konkretnego .cat-box__cat--text-cat, i je ukrywa, pozostawiając tylko wybranego poszczególnego konkretnego kota
+    function displayCat() {
+        if ( currentCat === "text-cat") {
+            const elements = document.querySelectorAll(
+                ".copyright__text:not(.copyright__text--text-cat), " +
+                ".cat-box__cat:not(.cat-box__cat--text-cat)"
+            );
+
+            elements.forEach(element => {
+                element.style.display = "none";
+            });
+        } else if ( currentCat === "invertocat"){
+            const elements = document.querySelectorAll(
+            ".copyright__text:not(.copyright__text--invertocat), " +
+                ".cat-box__cat:not(.cat-box__cat--invertocat)"
+            );
+            elements.forEach(element => {
+                element.style.display = "none";
+            });
+
+        } else if ( currentCat === "bongo-cat"){
+            const elements = document.querySelectorAll(
+            ".copyright__text:not(.copyright__text--bongo-cat), " +
+                ".cat-box__cat:not(.cat-box__cat--bongo-cat)"
+            );
+            elements.forEach(element => {
+                element.style.display = "none";
+            });
+
+        } else if ( currentCat === "disneys-stitch"){
+            const elements = document.querySelectorAll(
+            ".copyright__text:not(.copyright__text--disneys-stitch), " +
+                ".cat-box__cat:not(.cat-box__cat--disneys-stitch)"
+            );
+            elements.forEach(element => {
+                element.style.display = "none";
+            });
+
+        } else if ( currentCat === "nyan-cat"){
+            const elements = document.querySelectorAll(
+            ".copyright__text:not(.copyright__text--nyan-cat), " +
+                ".cat-box__cat:not(.cat-box__cat--nyan-cat)"
+            );
+            elements.forEach(element => {
+                element.style.display = "none";
+            });
+
+        } else if ( currentCat === "persian-cat"){
+            const elements = document.querySelectorAll(
+            ".copyright__text:not(.copyright__text--persian-cat), " +
+                ".cat-box__cat:not(.cat-box__cat--persian-cat)"
+            );
+            elements.forEach(element => {
+                element.style.display = "none";
+            });
+
+        }
+    }
+
+displayCat();
+
+// ⓘ forEach tutaj jest potrzebne, ponieważ są dwa elementy z tą samą klasą: jeden lang="en" i drugi lang="pl".
+document.querySelectorAll(".js-hook-select-invertocat").forEach(selectInvertocat => {
+selectInvertocat.onclick = function invertocat() {
+    currentCat = "invertocat";
+    // document.querySelectorAll(".copyright__text--invertocat").forEach(el => {
+    //         el.style.display = 'block';
+    //       });
+
+    document.querySelectorAll(
+        ".copyright__text--invertocat, .cat-box__cat--invertocat"
+    ).forEach(element => {
+        element.style.display = "block";
+    });
+    
+    setLang(currentLang);
+    displayCat();
+};
+});
+
+let selectTextCat = document.querySelector(".js-hook-select-text-cat");
+
+document.querySelectorAll(".js-hook-select-text-cat").forEach(selectTextCat => {
+selectTextCat.onclick = function textCat() {
+    currentCat = "text-cat";
+
+    document.querySelectorAll(
+        ".copyright__text--text-cat, .cat-box__cat--text-cat"
+    ).forEach(element => {
+        element.style.display = "block";
+    });
+    
+    setLang(currentLang);
+    displayCat();
+};
+});
+
+let selectBongoCat = document.querySelector(".js-hook-select-bongo-cat");
+document.querySelectorAll(".js-hook-select-bongo-cat").forEach(selectBongoCat => {
+selectBongoCat.onclick = function bongoCat() {
+    currentCat = "bongo-cat";
+
+    document.querySelectorAll(
+        ".copyright__text--bongo-cat, .cat-box__cat--bongo-cat"
+    ).forEach(element => {
+        element.style.display = "block";
+    });
+    
+    setLang(currentLang);
+    displayCat();
+};
+});
+
+let selectDisneysStitch = document.querySelector(".js-hook-select-disneys-stitch");
+document.querySelectorAll(".js-hook-select-disneys-stitch").forEach(selectDisneysStitch => {
+selectDisneysStitch.onclick = function disneysStitch() {
+    currentCat = "disneys-stitch";
+
+    document.querySelectorAll(
+        ".copyright__text--disneys-stitch, .cat-box__cat--disneys-stitch"
+    ).forEach(element => {
+        element.style.display = "block";
+    });
+    
+    setLang(currentLang);
+    displayCat();
+};
+});
+
+let selectNyanCat = document.querySelector(".js-hook-select-nyan-cat");
+document.querySelectorAll(".js-hook-select-nyan-cat").forEach(selectNyanCat => {
+selectNyanCat.onclick = function nyanCat() {
+    currentCat = "nyan-cat";
+
+    document.querySelectorAll(
+        ".copyright__text--nyan-cat, .cat-box__cat--nyan-cat"
+    ).forEach(element => {
+        element.style.display = "block";
+    });
+    
+    setLang(currentLang);
+    displayCat();
+};
+});
+
+let selectPersianCat = document.querySelector(".js-hook-select-persian-cat");
+document.querySelectorAll(".js-hook-select-persian-cat").forEach(selectPersianCat => {
+selectPersianCat.onclick = function persianCat() {
+    currentCat = "persian-cat";
+
+    document.querySelectorAll(
+        ".copyright__text--persian-cat, .cat-box__cat--persian-cat"
+    ).forEach(element => {
+        element.style.display = "block";
+    });
+    
+    setLang(currentLang);
+    displayCat();
+};
+});
+
+//-------------------------------------------------------------------------------------------------------------------
+*/
+
+
+
+
+
+
+
+
+
+
+// STARE KOTY
+/*
     selectTextCat.onclick = function text_cat() {
         document.querySelector("#cat").innerHTML = '<span id="text-cat">/ᐠ..ᐟ\\</span>'
         
@@ -1047,16 +1662,21 @@ refractoring jednak na vw i vh?
             copyRight.textContent = "Po prostu kot zrobiony z tekstu.";
             }
 
-        document.querySelector("#copyright").style.transition = "3s"
+        document.querySelector(".copyright-box").style.transition = "3s"
 
         nyanInAction = false
         document.querySelector(".persian-background video").style.display = "none";
 
     }    
 
-    let select_invertocat = document.getElementById("invertocat");
-    select_invertocat.onclick = function invertocat() {
-                document.querySelector("#cat").innerHTML = '<div id="cat"> <a href="https://github.com/piesikot" class="github-link" target="_blank"><img id="inverto" src="src/Invertocat.png" alt="GitHub Logo"></a></div>'
+    // let select_invertocat = document.getElementById("invertocat");
+    //let selectInvertocat = document.querySelector(".js-hook-select-invertocat");
+
+    selectInvertocat.onclick = function invertocat() {
+                // document.querySelector("#cat").innerHTML = '<div id="cat"> <a href="https://github.com/piesikot" class="github-link" target="_blank"><img id="inverto" src="src/Invertocat.png" alt="GitHub Logo"></a></div>'
+
+                // 🛠 refaktoryzuję nav-cats 🛠
+                document.querySelector(".cat-box").innerHTML = '<div id="cat"> <a href="https://github.com/piesikot" class="github-link" target="_blank"><img id="inverto" src="src/Invertocat.png" alt="GitHub Logo"></a></div>'
 
                 // document.querySelector("#copyright").innerHTML  = '<a href="https://github.com/piesikot" target="_blank" class="github-link"> <span> Invertocat is GitHub logo used here only as social button to inform that this project integrates with GitHub. </span> </a>'
 
@@ -1066,15 +1686,18 @@ refractoring jednak na vw i vh?
                 copyRight.innerHTML  = '<a href="https://github.com/piesikot" target="_blank" class="github-link"> <span> Invertocat jest logiem GitHuba użytym tutaj tylko jako przycisk społecznościowy informujący, że projekt jest zintegrowany z GitHubem. </span> </a>'
                 }
 
-                document.querySelector("#copyright").style.transition = "3s"
+                document.querySelector(".copyright-box").style.transition = "3s"
                 //alert("Invertocat is GitHub logo used here only as social button to inform that this project integrates with GitHub." );
                 nyanInAction = false
                 document.querySelector(".persian-background video").style.display = "none";
 
     }
 
-    let select_bongo_cat = document.getElementById("bongo_cat");
-    select_bongo_cat.onclick = function bongo_cat() {
+
+    //let select_bongo_cat = document.getElementById("bongo_cat");
+    let selectBongoCat = document.querySelector(".js-hook-select-bongo-cat");
+
+    selectBongoCat.onclick = function bongo_cat() {
         document.querySelector("#cat").innerHTML = '<img id="bongo" src="src/bongocat.gif" alt="Bongo Cat" onmouseenter="piesikotEnter()" onmouseleave="piesikotLeave()" onmousedown="bongocatDown()" onmouseup="bongocatUp()" ontouchstart="bongocatDown()">';
 
         // document.querySelector("#copyright").innerHTML =  "<a href='https://bongo.cat/' target='_blank' class='github-link'>Bongo Cat created by DitzyFlama.</a>";
@@ -1090,7 +1713,7 @@ refractoring jednak na vw i vh?
         //document.querySelector("#copyright").innerHTML = "test";
 
 
-        document.querySelector("#copyright").style.transition = "3s";
+        document.querySelector(".copyright-box").style.transition = "3s";
         nyanInAction = false;
         //alert("Bongo Cat created by DitzyFlama"  )
         ///https://bongo.cat/
@@ -1099,19 +1722,23 @@ refractoring jednak na vw i vh?
 
     } 
 
-    let select_disneys_stitch = document.getElementById("disneys_stitch");
-    select_disneys_stitch.onclick = function disneys_stitch() {
+    //let select_disneys_stitch = document.getElementById("disneys_stitch");
+    let selectDisneysStitch = document.querySelector(".js-hook-select-disneys-stitch");
+
+    selectDisneysStitch.onclick = function disneys_stitch() {
         document.querySelector("#cat").innerHTML = `<img id="stitch" src="src/stitch.gif" alt="Disney's Stitch" onmouseenter="piesikotEnter()" onmouseleave="piesikotLeave()" onclick="stitchClick()">` ;
-        document.querySelector("#copyright").textContent = "Stitch is a character in Disney's Lilo & Stitch cartoon.";
-        document.querySelector("#copyright").style.transition = "3s"
+        document.querySelector(".copyright-box").textContent = "Stitch is a character in Disney's Lilo & Stitch cartoon.";
+        document.querySelector(".copyright-box").style.transition = "3s"
         nyanInAction = false;
         //gif created by leidianenunes
         //https://giphy.com/stickers/lilo-stitch-disney-leidianenunes-3o6Zt481isNVuQI1l6   
         //alert("Stitch is a character in Disney's Lilo & Stitch cartoon." );
     } 
 
-    let select_nyan_cat = document.getElementById("nyan_cat");
-    select_nyan_cat.onclick = function nyan_cat() {
+    //let select_nyan_cat = document.getElementById("nyan_cat");
+    let selectNyanCat = document.querySelector(".js-hook-select-nyan-cat");
+
+    selectNyanCat.onclick = function nyan_cat() {
         document.querySelector("#cat").innerHTML = `<img id="nyan" src="src/nyancat.gif" alt="Nyan Cat" onmouseenter="nyancatEnter()" onmouseleave="nyancatLeave()">` ;
 
         // document.querySelector("#copyright").innerHTML = "<a href='https://www.nyan.cat' target='_blank' class='github-link'>Nyan Cat created by PRguitarman.</a>";
@@ -1125,14 +1752,15 @@ refractoring jednak na vw i vh?
                 }
         } 
 
-    let select_persian_cat = document.getElementById("persian_cat");   
+    //let select_persian_cat = document.getElementById("persian_cat");   
+    let selectPersianCat = document.querySelector(".js-hook-select-persian-cat");
 
-    select_persian_cat.onclick = function persian_cat() {
+    selectPersianCat.onclick = function persian_cat() {
         document.querySelector(".persian-background video").style.display = "block";
 
         document.querySelector("#cat").innerHTML = `<img id="persian" src="src/Persian_Lion.png" alt="Persian Lion and Sun" onmouseenter="persiancatEnter()" onmouseleave="persiancatLeave()">` ;
 
-        document.querySelector("#copyright").textContent = "The Persian Lion and Sun symbol is the emblem of free Iran.";
+        document.querySelector(".copyright-box").textContent = "The Persian Lion and Sun symbol is the emblem of free Iran.";
         
          if (language === "en"){
                 copyRight.textContent = "The Persian Lion and Sun symbol is the emblem of free Iran.";
@@ -1143,13 +1771,16 @@ refractoring jednak na vw i vh?
         //  if (language === "en"){
         //         copyRight.innerHTML = innerHTML = "<a href='https://www.nyan.cat' target='_blank' class='github-link'>Nyan Cat created by PRguitarman.</a>";
         //         } else if (language === "pl"){
-        //         copyRight.innerHTML  = "<a href='https://www.nyan.cat' target='_blank' class='github-link'>Nyan Cat utrzworzony przez PRguitarman.</a>";
+        //         copyright-box.innerHTML  = "<a href='https://www.nyan.cat' target='_blank' class='github-link'>Nyan Cat utrzworzony przez PRguitarman.</a>";
         //         }
         // } 
 
-        
-        document.querySelector("#copyright").style.transition = "3s";
+        document.querySelector(".copyright").style.transition = "3s";
     }
+    
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+    */
+
 
         const logo = document.querySelector(".logo");
 
@@ -1184,8 +1815,7 @@ refractoring jednak na vw i vh?
         logo.style.userSelect = "none";
         logo.style.webkitUserSelect = "none";
         logo.style.touchAction = "none";
-
-
+        
 
         /* 🤖 Restored the previous hover behavior for the header while keeping the semantic .header__name selector. */
         function piesikotEnter(){
@@ -1195,40 +1825,72 @@ refractoring jednak na vw i vh?
         document.querySelector(".header__name").style.color = "ghostwhite";
         document.querySelector(".header__name").style.transition = "3s"
 
-        document.getElementById("ot2").style.color = "ghostwhite";
-        document.getElementsByClassName("dot")[0].style.color = "black";
-        document.getElementById("kot").style.opacity = "1.0";          
-        document.getElementById("i").style.transition = "3s";
-        document.getElementById("i").style.margin = "0px 10px 0px 10px";
-        document.getElementById("ot1").style.color = "black";
-        document.getElementById("ot1").style.transition = "3s";
-        document.getElementById("copyright").style.opacity = "1.0"; 
-        document.querySelector("#copyright").style.transition = "3s"
+        document.querySelectorAll(".ot2").forEach(element => element.style.color = "ghostwhite");
+        document.querySelectorAll(".dot").forEach(element => element.style.color = "black");
+
+        
+        // 🛠 refaktoryzuję nav-cats 🛠 
+        //document.getElementById("kot").style.opacity = "1.0";      
+        document.querySelector(".cat-box").style.opacity = "1.0";  
+
+        document.querySelector(".header__surname-i").style.transition = "3s";
+        document.querySelector(".header__surname-i").style.margin = "0px 10px 0px 10px";
+        document.querySelector(".ot1").style.color = "black";
+        document.querySelector(".ot1").style.transition = "3s";
+
+        // 🛠 refaktoryzuję nav-cats 🛠 
+        // document.getElementById("copyright-box").style.opacity = "1.0"; 
+        document.querySelector(".copyright-box").style.opacity = "1.0"; 
+        document.querySelector(".copyright-box").style.transition = "3s"
+
+            // 🛠 refaktoryzuję angielską wersję językową 🛠 
+        //document.querySelectorAll(".ot2").forEach(element => element.style.color = "ghostwhite");
+        //document.querySelector(".header__description-co-en").style.transition = "3s"
+        document.querySelectorAll(".header__description-co--en").forEach(element => element.style.color = "black");
+        
     }
 
         /* 🤖 Restored the exit animation state so the header returns to the default black/ghostwhite look. */
         function piesikotLeave(){
         document.querySelector(".header__name").style.color = "black";
-        document.getElementsByClassName("dot")[0].style.color = "ghostwhite";
-        document.getElementById("ot2").style.color = "black"; 
-        document.getElementById("kot").style.opacity = "0.1";
-        document.getElementById("i").style.margin = "0px 0px 0px 0px";
-        document.getElementById("ot1").style.color = "ghostwhite";
-        document.getElementById("copyright").style.opacity = "0.1";
+        document.querySelectorAll(".dot").forEach(element => element.style.color = "ghostwhite");
+        document.querySelectorAll(".ot2").forEach(element => element.style.color = "black");
+
+        // 🛠 refaktoryzuję nav-cats
+        //document.getElementById("kot").style.opacity = "0.1";
+        document.querySelector(".cat-box").style.opacity = "0.1";
+
+        document.querySelector(".header__surname-i").style.margin = "0px 0px 0px 0px";
+        document.querySelector(".ot1").style.color = "ghostwhite";
+
+        // 🛠 refaktoryzuję nav-cats 🛠
+        //document.getElementById("copyright").style.opacity = "0.1";
+        document.querySelector(".copyright-box").style.opacity = "0.1";
+
+
+        // 🛠 refaktoryzuję angielską wersję językową 🛠 
+        document.querySelectorAll(".header__description-co--en").forEach(element => element.style.color = "ghostwhite");
+        
     }     
 
         function hintDisappear(){
             setTimeout(() => {
-                document.querySelector(".hint__text").classList.add("hint__text--hidden");
+                //document.querySelector(".hint__text").classList.add("hint__text--hidden");
+                document.querySelectorAll(".hint__text").forEach(element => element.classList.add("hint__text--hidden"));
             }, 3000); // Czekaj 3 sekundy przed rozpoczęciem znikania
         }
+
+                //document.querySelectorAll(".hint__text").forEach(element => element.classList.add("hint__text--hidden"));
+
 
         // do ogarnięcia, funcja wiadoości przy głaskaniu.
         // function dogEnter(){
         //     document.querySelector(".hint__text").textContent = "- dasfsafsa";
         // }
 
-   
+
+   //UKRYWAM STARE FUNKCJE KOTÓW
+        /*
 
         function bongocatDown(){ 
             document.getElementById("bongo").src = "src/bongocat-lmb.gif";
@@ -1257,9 +1919,12 @@ refractoring jednak na vw i vh?
             }
         });
 
-        function stitchClick(){ 
+
+    function stitchClick(){ 
             document.getElementById("stitch").src = "src/stitch-run.gif";
         }
+
+
 
         function nyancatEnter(){
             // if (persianRevolution == true) {
@@ -1269,16 +1934,18 @@ refractoring jednak na vw i vh?
             //     } else {    
                 document.querySelector("body").style.background = "black"
                 document.querySelector("body").style.transition = "4s"
-                document.querySelector("#copyright").style.color = "white"
-                document.querySelector("#copyright").style.transition = "4s"
+                document.querySelector(".copyright-box").style.color = "white"
+                document.querySelector(".copyright-box").style.transition = "4s"
                 document.querySelector("p").style.color = "black"
-                /* 🤖 Updated selector from querySelector("h2") to querySelector(".header__name") after semantic refactor. */
+                // 🤖 Updated selector from querySelector("h2") to querySelector(".header__name") after semantic refactor. 
                 document.querySelector(".header__name").style.color = "black"
                 document.querySelector(".header__name").style.transition = "4s"
                 document.querySelector("p").style.color = "black"
                 document.querySelector("p").style.transition = "4s"
-                document.querySelector("#ot2").style.color = "black"
-                document.querySelector("#ot2").style.transition = "4s"
+                document.querySelectorAll(".ot2").forEach(element => {
+                    element.style.color = "black";
+                    element.style.transition = "4s";
+                });
                     
                 const audio = document.getElementById("myAudio");
                             function playAudio() {
@@ -1294,8 +1961,8 @@ refractoring jednak na vw i vh?
             
             document.querySelector("body").style.background = "white"
             document.querySelector("body").style.transition = "0s"
-            document.querySelector("#copyright").style.color = "black"
-            document.querySelector("#copyright").style.transition = "0s"
+            document.querySelector(".copyright-box").style.color = "black"
+            document.querySelector(".copyright-box").style.transition = "0s"
 
             var audio = document.getElementById("myAudio");
                            function playAudio() {
@@ -1305,6 +1972,7 @@ refractoring jednak na vw i vh?
 
         }
         
+
         function persiancatEnter(){
             persianRevolution = true;
             document.querySelector("#persian").style.transition = "15s"
@@ -1353,12 +2021,11 @@ refractoring jednak na vw i vh?
                            }
                            playAudio();
         }
-        
+        */
         hintDisappear();
 
-        // ⚠ 📌Lang changes must be implemented in two places! 📌 ⚠ 
 
-        //Spolszczenie
+        //Spolszczenie,  eee stare?
         let navCatsButton = document.querySelector(".nav-cats__button-text");
 
         let navProjectsButton = document.querySelector(".nav-projects__button-text");
@@ -1367,9 +2034,12 @@ refractoring jednak na vw i vh?
         let racismProject = document.querySelector("#racism a");
         let dogFarmProject = document.querySelector("#piesikodpokolen a")
 
-        let hintLabel = document.querySelector(".hint__label");
-        let hintText = document.querySelector(".hint__text");
+        // 🔴 do poprawy hit dog
+        let hintLabel = document.querySelector(".hint__label--dog");
+        let hintText = document.querySelector(".hint__text--dog");
 
+        //STARE SPOLSZCZENIE
+        /*
 
         function langChangeToPl() {
             languageButton.innerHTML = '<div class="nav-lang"><button class="nav-lang__button" onclick="langChangeToEn()"><img class="nav-lang__button-arrow nav-arrow nav-lang__button-arrow--left" src="src/south.svg" aria-hidden="true"><span class="nav-lang__button-text">English</span><img class="nav-lang__button-arrow nav-arrow nav-lang__button-arrow--right" src="src/south.svg" aria-hidden="true"></button></div>';
@@ -1415,6 +2085,8 @@ refractoring jednak na vw i vh?
                 }
         }
 
+/**
+
         function langChangeToEn() {
 
             languageButton.innerHTML = '<div class="nav-lang"><button class="nav-lang__button" onclick="langChangeToPl()"><img class="nav-lang__button-arrow nav-arrow nav-lang__button-arrow--left" src="src/south.svg" aria-hidden="true"><span class="nav-lang__button-text">Polski</span><img class="nav-lang__button-arrow nav-arrow nav-lang__button-arrow--right" src="src/south.svg" aria-hidden="true"></button></div>';
@@ -1440,6 +2112,10 @@ refractoring jednak na vw i vh?
             hintLabel.textContent = "Hint";
             hintText.textContent = " You can pet the dog, using your finger or cursor.";
 
+
+
+
+
         //⚠ 📌Wykomentone, żeby uniknąć redundancji, aczkolwiek istnieje możliwość, że bez tego język nie będzie się zmieniał w kazdym miejscu! ⚠
             // if (copyRight.textContent === "Just cat made from text.") {
             //     copyRight.textContent = "Po prostu kot zrobiony z tekstu."
@@ -1456,8 +2132,35 @@ refractoring jednak na vw i vh?
             //     }
         }
         
+    */
 
-       
+
+    
+
+    // działający button zmiany języka z racism.wtf
+
+      languageButton.addEventListener('click', () => {
+
+        //żeby wskazówka się wyświetliła po zmianie języka
+        //document.querySelector(".hint__text").classList.remove("hint__text--hidden");
+        document.querySelectorAll(".hint__text").forEach(element => element.classList.remove("hint__text--hidden"));
+
+        hintDisappear();
+
+
+        if (currentLang === 'en') {
+          currentLang = 'pl';
+        } else if (currentLang === 'pl'){
+          currentLang = 'en';
+        }
+
+      setLang(currentLang);
+      displayCat();
+
+        });
+
+    
+
 
 
          

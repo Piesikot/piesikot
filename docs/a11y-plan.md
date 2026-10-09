@@ -6,16 +6,16 @@ Zwiększenie dostępności strony, poprawa czytelności i komfortu użytkowania 
 ## Opis zadań projektu
 
 ### 1. Semantyka i struktura dokumentu
-- [ ] Sprawdzić poprawność użycia nagłówków: `h1`, `h2`, `h3` itd.
+- [] Sprawdzić poprawność użycia nagłówków: `h1`, `h2`, `h3` itd.
 - [ ] Uporządkować znaczenie sekcji strony (`header`, `nav`, `main`, `footer`).
 - [ ] Upewnić się, że listy i linki są semantycznie prawidłowe.
 - [ ] Dodać opisowe nazwy elementów interaktywnych, w tym menu i przyciski zmiany języka.
 
 ### 2. Nawigacja klawiaturowa
 - [ ] Umożliwić przechodzenie po wszystkich interaktywnych elementach przy użyciu klawiatury.
-- [ ] Dodać obsługę `Tab`, `Enter`, `Space` i strzałek w menu rozwijanych.
-- [ ] Ustawić widoczny stan focus dla przycisków, linków i elementów listy.
-- [ ] Upewnić się, że rozwijane menu zamykają się poprawnie po zmianie aktywnego elementu.
+    - [ ] Dodać obsługę `Tab`, `Enter`, `Space` i strzałek w menu rozwijanych.
+    - [ ] Ustawić widoczny stan focus dla przycisków, linków i elementów listy.
+    - [ ] Upewnić się, że rozwijane menu zamykają się poprawnie po zmianie aktywnego elementu.
 
 ### 3. Dostępność wizualna
 - [ ] Dodać style `:focus` i `:focus-visible` do wszystkich aktywnych elementów.

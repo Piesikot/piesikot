@@ -1393,6 +1393,11 @@ function nyancatEnter(){ document.querySelector("body").style.background = "blac
             // document.querySelector(".persian-background video").style.display = "block";
             document.querySelector(".persian-background video").style.opacity = "1";
 
+            hintDog.querySelectorAll("*").forEach(element => {
+                    element.style.transition = "15s";
+                    element.style.opacity = "0";
+                });
+
             // document.querySelector("body").style.background = "black"
             // document.querySelector("body").style.transition = "4s"
             // document.querySelector("#copyright").style.color = "white"
@@ -1422,6 +1427,14 @@ function nyancatEnter(){ document.querySelector("body").style.background = "blac
             document.querySelector(".persian-background video").style.transition = "15s"
             // document.querySelector(".persian-background video").style.display = "block";
             document.querySelector(".persian-background video").style.opacity = "0";
+
+            const hintDog = document.querySelector(".hint-box--dog");
+            hintDog.querySelectorAll("*").forEach(element => {
+                    element.style.color = "";
+                    element.style.transition = "";
+                    element.style.opacity = "";
+
+                });
 
             var audio = document.getElementById("persianAudio");
                            function playAudio() {

@@ -43,6 +43,8 @@
 .nav-topbar{
         display: flex;
         justify-content:space-between;
+        
+        border: solid 3px red;
     }
 
 
@@ -116,10 +118,6 @@
    .nav-cats:hover .nav-cats__button::after {
         transform: scaleX(0.0);
     }
-
-
-    /* 🛠   SPRZĄTAM STRZAŁKI  🛠  */
-/*  🟠🟠 🟠 🟠 🟠 🟠 🟠🟠🟠🟠🟠🟠🟠🟠🟠🟠🟠🟠🟠🟠🟠🟠🟠🟠🟠 🟠 🟠 🟠 🟠   */
 
 
 
@@ -381,33 +379,48 @@ display: inline-block;
 
     .header{
         position: absolute;
-        top: 35%;
-        left: 60%;
+        top: 35vh;
+        left: 60vw;
         transform: translate(-50%, -50%);
 
         /* display: flex; */
         /* justify-content: center; */
         /* align-items: center; */
 
-        /* border: dashed 3px black; */
+        border: dashed 3px black;
+
+        /* display: flex; */
+        /* flex-wrap: wrap; */
+        /* justify-content: center; */
+        /* align-items: center; */
+        /* padding: 0; */
+        /* margin: 0 50vw; */
+
+        /* padding-top: 10vw; */
         }
 
-        h1{
-            font-size: 3.5rem
-            /* margin-top: -20px; */
-            /* margin-left: -30px; */
-        }
         .header__name{
             font-size: 2rem;
             transition: 3s;
-            margin-left: -60px;
-            display: block;
+            /* margin-left: -60px; */
+            /* display: block; */
+
+            /* margin-left: -31px; */
         }
+        
+        .header__surname{
+            /* font-size: 3.5rem; */
+            /* margin-top: -20px; */
+            /* margin-left: -31px; */
+        }
+        
         
         p{
             font-size: 32px;
-            margin-left: -56px;
-            margin-top: -30px;
+            /* margin-left: -56px; */
+            /* margin-top: -30px; */
+            
+            /* margin-left: -31px; */
         }
 
         .header__surname-i{
@@ -487,7 +500,7 @@ display: inline-block;
     
     padding:0 0.25em;
 
-    /* border: 3px dashed blue; */
+    border: 3px dashed blue;
 }
 
 .logo-box{

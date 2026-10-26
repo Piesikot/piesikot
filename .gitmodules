@@ -1,7 +1,3 @@
-[submodule "todo-project"]
-	path = todo-project
-	url = git@github.com:piesikot/todo-project.git
-	branch = main
 [submodule "todolist"]
 	path = todolist
 	url = https://github.com/piesikot/todo-project

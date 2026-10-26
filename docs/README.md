@@ -45,7 +45,16 @@ Strona zawiera interaktywne elementy, np. w postaci tekstowego kota, który ukry
 
 #### O projekcie
 
-Mój pierwszy, bardzo prosty projekt webowy. Aplikacja pozwala użytkownikowi dodawać i usuwać zadania w przejrzystej liście. Projekt jest minimalistyczny, responsywny i dostępny online w wersji live pod tym [tym adresem](https://piesikot.co/todolist.html).
+Mój pierwszy, bardzo prosty projekt webowy. Aplikacja pozwala użytkownikowi dodawać i usuwać zadania w przejrzystej liście. Projekt jest minimalistyczny, responsywny i dostępny online w wersji live pod tym [tym adresem](https://piesikot.co/todolist/index.html).
+
+Projekt jest dołączony jako submoduł `todolist` z repozytorium `todo-project`. Po wypchnięciu zmian do `todo-project` zaktualizuj wskaźnik submodułu w tym repozytorium:
+
+```bash
+git submodule update --remote todolist
+git add .gitmodules todolist
+git commit -m "chore: update todolist submodule"
+git push origin main
+```
 
 #### Technologie
 

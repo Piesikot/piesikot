@@ -44,7 +44,16 @@ The site contains interactive elements, for example, a text-based cat hiding in 
 
 #### About the project
 
-My first, very simple web project. The application allows the user to add and remove tasks in a clean and straightforward list. The project is minimalistic, responsive, and available online in a live version at [this address](https://piesikot.co/todolist.html).
+My first, very simple web project. The application allows the user to add and remove tasks in a clean and straightforward list. The project is minimalistic, responsive, and available online in a live version at [this address](https://piesikot.co/todolist/index.html).
+
+The project is included as the `todolist` submodule from the `todo-project` repository. After pushing changes to `todo-project`, update the submodule pointer in this repository:
+
+```bash
+git submodule update --remote todolist
+git add .gitmodules todolist
+git commit -m "chore: update todolist submodule"
+git push origin main
+```
 
 #### Technologies
 

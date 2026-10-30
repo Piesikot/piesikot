@@ -19,9 +19,7 @@
     }
 
     body, html{
-        /* overflow: hidden; */
         margin: 0;
-
         /* 🤖 The page is intentionally locked to the viewport, matching the original
            full-screen presentation without introducing a scroll bar. */
         overflow: hidden;
@@ -43,65 +41,45 @@
         /* dvh lepiej uwzględnia pasek adresu i klawiaturę na telefonie. Starszy browser użyje wcześniejszego 100vh. */
         /* min-height: 100vh; */
         /* min-height: 100dvh; */
-      
     }
 
-
-.nav-topbar{
+    .nav-topbar{
         display: flex;
         justify-content:space-between;
-        
-        /* border: solid 3px red; */
     }
 
-/* 🤖 Legacy language-centering override kept for review; the active layout
-   uses the canonical flexbox block near the end of the stylesheet. */
-/*
-@media (min-width: 701px) {
-    .nav-topbar {
-        position: relative;
+    .nav-cats__button, .nav-lang__button, .nav-projects__button  {
+    border: none;
+    outline: none;
+    color: black;
+    background-color: inherit;
+    font-family: inherit;
+    position: relative;
+    display: inline-flex;
     }
 
-    .nav-topbar > .nav-lang {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
+    /* 🤖 Unified arrow behavior: this matches the nav-lang approach using transform rotation instead of mixing rotate + inline JS. */
+    .nav-arrow {
+    transition: transform 0.7s ease, rotate 0.7s ease;
     }
-}
-*/
 
 
-.nav-cats__button, .nav-lang__button, .nav-projects__button  {
-  border: none;
-  outline: none;
-  color: black;
-  background-color: inherit;
-  font-family: inherit;
-  
-  position: relative;
-  display: inline-flex;
-}
-
-.nav-cats{
-    display: flex;
+    .nav-cats{
+        display: flex;
         top: 0px;
         left: 0px;
         width: fit-content;
         height: fit-content;
         z-index: 100;
         position: relative;
-        /* display: none; */
-}
+    }
 
 .nav-cats__button{
-    /* font-size: 0.9em; */
     font-size: clamp(0.8em,  1vw + 0.5em, 24em);
-
     padding-left: 0.3em;
     padding-bottom: 0.3em;
     font-weight: 500;
     }
-
     
    /* buttons underline */
     .nav-cats__button::after, .nav-lang__button::after, .nav-projects__button::after{
@@ -114,44 +92,27 @@
         transform: scaleX(1);
         transform-origin: top left;
         transition: transform 0.35s ease;
-
-        /* left: 0; */
     }
-
     
 /* nav-cats underline */
     .nav-cats__button::after {
-        /* content: '';
-        position: absolute;
-        left: -5px;
-        right: 5px;
-        bottom: 0px;
-        background: rgb(0, 0, 0);
-        transform: scaleX(1);
-        transform-origin: top left;
-        transition: transform 0.35s ease; */
-        
         height: 0.15em;
-        
         transform-origin: top left;
     }
 
-   .nav-cats:hover .nav-cats__button::after {
-        transform: scaleX(0.0);
+    .nav-cats:hover .nav-cats__button::after {
+     transform: scaleX(0.0);
     }
 
 .nav-cats__button-arrow{
     rotate: 90deg;
     width: 1.5em;
-
     margin-bottom: -2px;
-
     margin-left: 0.15em;
 }
 .nav-cats:hover .nav-arrow {
     transform: rotate(0.8turn);
 }
-
 
 /* ⓘ reset <ul> do neutralnego stanu, żeby nie zaburzał działania dropdown */
 .nav-cats__dropdown, .nav-projects__dropdown {
@@ -166,25 +127,16 @@
 }
 
     .nav-lang__button{
-        /* position: relative; */
         font-size: 0.8em;
         min-width:50px;
-        /* border: none; */
-        /* outline: none; */
         color: rgb(31, 0, 0);
         background: transparent;
         cursor: pointer;
         transition: color 0.3s ease;
-        /* font-family: inherit; */
-
         font-size: clamp(0.8em,  0.8vw + 0.5em, 20em);
         font-weight: 500;
-
-        /* padding-left: 0.3em; */
         padding-bottom: 0.1em;
-
     }
-
     .nav-lang__button-arrow--left{
         rotate: 270deg;
     }
@@ -192,14 +144,8 @@
         rotate: 90deg;
     }
     .nav-lang__button-arrow{
-        /* width: 1em;  */
-        /* height: auto; */
-
-        /* margin: 0 3px; */
         margin: 0 0.4em;
-
         width: clamp(0.8em,  0.8vw + 0.5em, 20em);
-
     }
     .nav-lang:hover .nav-lang__button-arrow--left {
         transform: rotate(1turn);
@@ -210,17 +156,7 @@
 
 /* button underline */
     .nav-lang__button::after {
-        /* content: '';
-        position: absolute;
-        left: 5px;
-        right: 5px;
-        bottom: 0px;
-        background: rgb(0, 0, 0);
-        transform: scaleX(1);
-        transition: transform 0.35s ease; */
-
         height: 0.1em;
-        
         left: 5px;
         right: 5px;
         transform-origin: center;
@@ -230,10 +166,6 @@
         transform: scaleX(0.0);
     }
 
-    /* 🤖 Unified arrow behavior: this matches the nav-lang approach using transform rotation instead of mixing rotate + inline JS. */
-    .nav-arrow {
-    transition: transform 0.7s ease, rotate 0.7s ease;
-    }
 
 
     .nav-projects{
@@ -271,9 +203,7 @@
   display: block ;
   text-align: center;
   cursor: pointer;
-
-    font-size: inherit;
-
+  font-size: inherit;
 }
 .nav-projects a {
     text-decoration: none;
@@ -284,7 +214,7 @@
     font-size: clamp(1.5em,  1.5vw + 1em, 31em);
     font-weight: 600;
     padding-right: 0.3em;
-            padding-bottom: 0.1em;
+    padding-bottom: 0.1em;
 }
 
 /* 🤖 Slightly reduce only the project button label while preserving the
@@ -295,29 +225,14 @@
 
 /* button underline */
 .nav-projects__button::after {
-        /* content: '';
-        position: absolute;
-        left: 5px;
-        right: -5px;
-        bottom: 0px;
-        background: rgb(0, 0, 0);
-        transform: scaleX(1);
-        transform-origin: top right;
-        transition: transform 0.35s ease; */
-
         height: 0.12em;
-
         left: 5px;
         right: -5px;
-        /* right: 0; */
-
         transform-origin: top right;
     }
 
 .nav-projects .nav-projects__button, .nav-projects__dropdown li{
-    /* font-size: 1.5em;   */
-            font-size: clamp(1.5em,  1.5vw + 1em, 31em);
-
+        font-size: clamp(1.5em,  1.5vw + 1em, 31em);
 }
 
 .nav-projects__dropdown{
@@ -333,9 +248,8 @@
 
 .nav-projects__button-arrow{
     width: 1.7em;
-    /* margin-top: -2px; */
-        margin-right: 0.10em;
-
+    margin-top: -4px;
+    margin-right: 0.10em;
 }
 
 

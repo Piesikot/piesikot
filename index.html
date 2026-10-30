@@ -13,29 +13,36 @@
 
     @font-face {
         font-family: 'Montserrat';
-        src: url('./fonts/Oswald/Oswald-VariableFont_wght.ttf') format('woff2')
+        /* 🤖 The source file is TrueType, so its declared format must match
+           the actual asset type. */
+        src: url('./fonts/Oswald/Oswald-VariableFont_wght.ttf') format('truetype')
     }
 
     body, html{
         /* overflow: hidden; */
         margin: 0;
 
-        overflow-x: hidden;
-        overflow-y: auto;
-        /* overflow: hidden; */
+        /* 🤖 The page is intentionally locked to the viewport, matching the original
+           full-screen presentation without introducing a scroll bar. */
+        overflow: hidden;
     }
     .box{
         /* overflow-x: hidden; */
         font-family: 'Montserrat';
 
-        min-height: 100vh;
+        /* 🤖 Keep the complete composition inside the viewport. */
+        position: relative;
+        height: 100vh;
+        height: 100dvh;
+        min-height: 0;
+        overflow: hidden;
         display: flex;
         flex-direction: column;
 
         /* ⓘ jednostki viewportu z fallbackiem: */
         /* dvh lepiej uwzględnia pasek adresu i klawiaturę na telefonie. Starszy browser użyje wcześniejszego 100vh. */
-        min-height: 100vh;
-        min-height: 100dvh;
+        /* min-height: 100vh; */
+        /* min-height: 100dvh; */
       
     }
 
@@ -47,7 +54,21 @@
         /* border: solid 3px red; */
     }
 
+/* 🤖 Legacy language-centering override kept for review; the active layout
+   uses the canonical flexbox block near the end of the stylesheet. */
+/*
+@media (min-width: 701px) {
+    .nav-topbar {
+        position: relative;
+    }
 
+    .nav-topbar > .nav-lang {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+*/
 
 
 .nav-cats__button, .nav-lang__button, .nav-projects__button  {
@@ -119,8 +140,6 @@
         transform: scaleX(0.0);
     }
 
-
-
 .nav-cats__button-arrow{
     rotate: 90deg;
     width: 1.5em;
@@ -134,8 +153,6 @@
 }
 
 
-
-
 /* ⓘ reset <ul> do neutralnego stanu, żeby nie zaburzał działania dropdown */
 .nav-cats__dropdown, .nav-projects__dropdown {
     list-style: none;
@@ -147,8 +164,6 @@
 .nav-cats:hover .nav-cats__dropdown, .nav-projects:hover .nav-projects__dropdown  {
   display: block;
 }
-
-
 
     .nav-lang__button{
         /* position: relative; */
@@ -232,12 +247,13 @@
     }
 
 
-
-
-
 .nav-cats__dropdown, .nav-projects__dropdown  {
   display: none;
   position: absolute;
+  /* 🤖 Keep the original item size while making an overflowing dropdown
+     independently scrollable inside the viewport. */
+  max-height: 70vh;
+  overflow-y: auto;
   background-color: #f9f9f9;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
@@ -249,7 +265,8 @@
 .nav-cats__dropdown li, .nav-projects__dropdown li  {
   float: none;
   color: black;
-  padding: 12px 16px;
+  /* padding: 12px 16px; */
+  padding: 0.5em;
   text-decoration: none;
   display: block ;
   text-align: center;
@@ -268,6 +285,12 @@
     font-weight: 600;
     padding-right: 0.3em;
             padding-bottom: 0.1em;
+}
+
+/* 🤖 Slightly reduce only the project button label while preserving the
+   button's layout and arrow sizing. */
+.nav-projects__button-text {
+    font-size: 0.85em;
 }
 
 /* button underline */
@@ -323,11 +346,15 @@
 
 
 
+/* 🤖 Legacy duplicate declaration retained for review; the grouped rule below
+   provides the same styles for both dropdown item types. */
+/*
 .nav-projects__item {
 display: inline-block;
   position: relative;
   color: black;
 }
+*/
 
 .nav-cats__item, .nav-projects__item  {
   display: inline-block;
@@ -337,7 +364,8 @@ display: inline-block;
 
 /* Spacja oznacza pseudo-element potomka... - tyle, że bez spacji nie działa... */
 /* bo to się odnosi do potomków! */
-.nav-cats__item:after, .nav-projects__item ::after {
+/* 🤖 Target each dropdown item's own pseudo-element rather than a descendant. */
+.nav-cats__item:after, .nav-projects__item::after {
   content: '';
   position: absolute;
   width: 100%;
@@ -355,7 +383,7 @@ display: inline-block;
         /* height: 0.15em; */
         /* transform-origin: top left; */
 }
-.nav-projects__item :hover::after{
+.nav-projects__item:hover::after{
     /* height: 0.15em; */
     /* height: inherit; */
         /* transform-origin: top left; */
@@ -368,21 +396,23 @@ display: inline-block;
 
 }
 
-.nav-projects__item :hover::after{
+.nav-projects__item:hover::after{
   transform: scaleX(1);
   /* transform-origin: bottom; */
     /* transform-origin: right; */
 }
 
 
-
-
+    /* 🤖 Legacy absolute-positioned header kept for review; replaced by the flex layout below. */
     .header{
-        position: absolute;
-        top: 35vh;
-        left: 60vw;
-        transform: translate(-50%, -50%);
+        /* position: absolute; */
+        /* top: 35vh; */
+        /* left: 60vw; */
+        /* transform: translate(-50%, -50%); */
  
+        /* top: 30vh; */
+        /* left: 60vw; */
+
         /* display: flex; */
         /* justify-content: center; */
         /* align-items: center; */
@@ -415,8 +445,8 @@ display: inline-block;
         }
         
         .header__surname-github-name {
-    margin-left: 30px;
-}
+            margin-left: 30px;
+        }
         p{
             font-size: 32px;
             /* margin-left: -56px; */
@@ -454,21 +484,44 @@ display: inline-block;
             transition: 3s;
         }
 
-
         /* ??? */
         /* img{
             font-size: 10px;
         } */
 
 /* 🤖 Styling for header__surname-github-name link: black color, animated underline on hover (consistent with nav). */
-    .header__surname-github-name a {
+    .header__surname-github-name {
     color: black;
     text-decoration: none;
     position: relative;
+    /* 🤖 Make the link's box match the complete "Piesikot" text so the
+       underline and pointer target cover the whole word. */
+    display: inline-block;
     }
 
-    /* animacja podkreślenia Piesikot */
-    .header__surname-github-name a::after {
+/* 🤖 Legacy descendant selectors kept for review; the class is on the link itself. */
+/*
+.header__surname-github-name ::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: black;
+        transform: scaleX(0);
+        transform-origin: bottom;
+        transition: transform 0.7s ease;
+    }
+    .header__surname-github-name :hover::after {
+        transform: scaleX(1);
+        transform-origin: bottom;
+    }
+    */
+
+    /* 🤖 Target the link's own pseudo-element so hovering over "Pies" activates
+       the underline again. */
+    .header__surname-github-name::after {
         content: '';
         position: absolute;
         bottom: 0;
@@ -480,51 +533,473 @@ display: inline-block;
         transform-origin: bottom;
         transition: transform 0.7s ease;
     }
-    .header__surname-github-name a:hover::after {
+
+    .header__surname-github-name:hover::after,
+    .header__surname-github-name:focus-visible::after {
         transform: scaleX(1);
         transform-origin: bottom;
     }
 
- 
-.main{
- /* ⓘ margin-top: auto wypycha element w dół, bo auto‑margin rozszerza się, aby zająć całą wolną przestrzeń */
-    margin-top: auto;
+    .header{
 
-/* ⓘ żeby pozwolić elementom flex się kurczyć */
+        /* font-size: (10rem, 150rem + 15vw, 30rem); */
+        /* margin-left: -10vw; */
+        /* text-align: center; */
+    }
+ 
+/* 🤖 Legacy .hero layout kept for review; the active definition is in the
+   canonical flexbox block near the end of the stylesheet. */
+/*
+.hero {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: clamp(1rem, 5vw, 6rem);
+    flex: 1 1 auto;
+    min-height: 0;
+    width: 100%;
+    max-width: 90rem;
+    margin-inline: auto;
+    padding: 0 clamp(1rem, 4vw, 4rem);
+}
+*/
+
+/*
+.hero > .logo-box,
+.hero > .header {
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+.hero > .logo-box {
+    // 🤖 Align the entire left group to the viewport edge instead of centering it
+    //    inside its flex column.
+    align-items: flex-start;
+    align-self: flex-end;
+    order: 1;
+    // 🤖 Add the same small left inset on desktop and mobile.
+    //    padding-left: 0.5rem;
+    padding-left: 0.2em;
+    padding-bottom: 0;
+}
+
+.hero > .header {
+    position: static;
+    transform: none;
+    align-self: center;
+    order: 2;
+    text-align: center;
+}
+*/
+
+.header__surname-github-name,
+.header__description,
+.hint__text {
+    overflow-wrap: anywhere;
+}
+
+/* 🤖 Legacy large-screen layout kept for review; replaced by the canonical
+   flexbox rules near the end of the stylesheet. */
+/*
+@media (min-width: 701px) {
+    // 🤖 Reduce the desktop logo so the central content has a wider protected
+    //    area between the left logo and the right cat.
+    .hero > .logo-box .logo__img {
+        width: clamp(5rem, 12vw + 2rem, 20rem);
+    }
+
+    // 🤖 Match the desktop hint width to the logo so the hint stays centered
+    //    directly above it instead of spanning the whole left column.
+    .hero > .logo-box > .hint-box--dog {
+        width: clamp(5rem, 12vw + 2rem, 20rem);
+    }
+
+    .hero > .logo-box > .hint-box--dog .hint {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    // 🤖 The left logo group is anchored to the viewport bottom so the main
+    //    section cannot create a visible gap underneath it.
+    .hero > .logo-box {
+        position: absolute;
+        // left: clamp(1rem, 4vw, 4rem);
+        left: 0;
+        bottom: 0;
+        width: calc(50% - clamp(1rem, 2.5vw, 3rem));
+        z-index: 1;
+    }
+
+    .hero > .header {
+        // 🤖 Center the header against the viewport, matching the centered
+        //    copyright text instead of centering it in the right flex half.
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 50%;
+        margin-left: 0;
+        transform: translate(-50%, -50%);
+        // 🤖 Keep the centered header above the bottom-anchored logo layer so
+        //    the entire "Piesikot" link remains hoverable.
+        z-index: 2;
+    }
+
+    .hero > .logo-box {
+        justify-content: flex-end;
+    }
+
+    .hero > .header {
+        font-size: clamp(1rem, 1vw + 0.75rem, 2rem);
+    }
+
+    .hero > .header .header__name {
+        font-size: clamp(3rem, 5vw, 7rem);
+    }
+
+    .hero > .header .header__surname-github-name {
+        font-size: clamp(4rem, 8vw, 11rem);
+    }
+
+    .hero > .header .header__description {
+        font-size: clamp(2rem, 4vw, 5rem);
+    }
+}
+*/
+
+/*
+.main{
+ // ⓘ margin-top: auto wypycha element w dół, bo auto‑margin rozszerza się, aby zająć całą wolną przestrzeń
+    // 🤖 Legacy auto margin kept for review; the hero now fills the available space.
+    // margin-top: auto;
+    flex: 0 0 auto;
+
+// ⓘ żeby pozwolić elementom flex się kurczyć
     min-height: 0;
 
     display: flex;
     justify-content:space-between;
     align-items:flex-end;
 
-/* ⓘ żeby pozwolić elementom flexa się kurczyć */
+// ⓘ żeby pozwolić elementom flexa się kurczyć
     min-width: 0;  
     
     padding:0 0.25em;
 
-    /* border: 3px dashed blue; */
+    // border: 3px dashed blue;
 }
+*/
 
+/* 🤖 Legacy absolute copyright layout kept for review. */
+/*
+@media (min-width: 701px) {
+    .main {
+        --desktop-logo-width: clamp(5rem, 12vw + 2rem, 20rem);
+        --desktop-cat-width: 10rem;
+        position: relative;
+        width: 100%;
+        padding-left: calc(var(--desktop-logo-width) + 1rem);
+        padding-right: calc(var(--desktop-cat-width) + 1rem);
+    }
+
+    .copyright-box {
+        // 🤖 Constrain long copyright messages to the space between the
+        //    bottom-anchored logo and cat instead of the full viewport width.
+        position: absolute;
+        left: calc(var(--desktop-logo-width) + 1rem);
+        right: calc(var(--desktop-cat-width) + 1rem);
+        bottom: 0;
+        width: auto;
+        transform: none;
+        min-width: 0;
+        margin: 0;
+        text-align: center;
+        overflow-wrap: anywhere;
+    }
+
+    // 🤖 Keep the desktop cat at the right edge after the copyright box is
+    //    removed from the main flex flow.
+    .main > .cat-box {
+        position: absolute;
+        right: 0.2em;
+        bottom: 0;
+        margin: 0;
+    }
+}
+*/
+
+/*
 .logo-box{
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
+    // justify-content: center;
     }
 .logo{
-/* ⓘ line-height: 0 usuwa wysokość linii tekstu, dzięki czemu logo nie ma żadnych niechcianych pionowych odstępów i zachowuje się jak czysty element graficzny. Jedna z najlepszych technik do precyzyjnego wyrównywania logo, ikon i SVG.*/
-    /* line-height: 0; */
+// ⓘ line-height: 0 usuwa wysokość linii tekstu, dzięki czemu logo nie ma żadnych niechcianych pionowych odstępów i zachowuje się jak czysty element graficzny.
+    // line-height: 0;
 
-    /* Logo jako flex-item → 'line-height: 0' niepotrzebne */
+    // Logo jako flex-item → 'line-height: 0' niepotrzebne
     }
 .logo__img{
     display: block;
-    /* width: 6rem; */
-    /* width: 20vw; */
-    /* max-width: 31rem; */
+    // width: 6rem;
+    // width: 20vw;
+    // max-width: 31rem;
     height: auto;
 
     width: clamp(5rem, 18vw + 3rem, 31rem);
+    max-width: 100%;
         } 
+*/
+
+/* 🤖 On narrow screens the header moves above the left-side logo and hint. */
+/* 🤖 Legacy mobile layout is retained for review but disabled; the active
+   mobile rules are in the canonical flexbox block near the end. */
+@media (max-width: 700px) and (min-width: 100000px) {
+    /* 🤖 Keep the selected cat variants at the actual viewport bottom while
+       accounting only for the cat box padding. */
+    .cat-box__cat--text-cat,
+    .cat-box__cat--bongo-cat,
+    .cat-box__cat--invertocat {
+        bottom: -0.2em;
+    }
+
+    /* 🤖 Keep Bongo Cat compact on every phone, including taller devices. */
+    .cat-box__cat-img--bongo-cat {
+        width: clamp(4rem, 22vw, 8rem);
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* 🤖 Center the language control on the same viewport axis as the mobile
+       hero, while leaving the left logo group and bottom controls unchanged. */
+    .nav-topbar {
+        position: relative;
+    }
+
+    .nav-topbar > .nav-lang {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .hero {
+        /* 🤖 Make the mobile hero fill the space below the top bar so its
+           header can be centered vertically in a stable containing block. */
+        position: relative;
+        flex-direction: column;
+        align-items: stretch;
+        /* flex: 0 1 auto; */
+        flex: 1 1 auto;
+        min-height: 0;
+        gap: 1rem;
+        /* 🤖 Keep the mobile hero centered as a full-width section. */
+        width: 100%;
+        margin-inline: auto;
+        /* 🤖 Remove the mobile left inset so the logo starts at the viewport edge. */
+        padding: 0 0.75rem 0 0;
+    }
+
+    .hero > .header,
+    .hero > .logo-box {
+        flex: 0 1 auto;
+    }
+
+    .hero > .header {
+        order: 1;
+        align-self: auto;
+        /* 🤖 Center the compact mobile header on both axes inside the hero. */
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        width: calc(100% - 1.5rem);
+        margin-left: 0;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        text-align: center;
+    }
+
+    .hero > .logo-box {
+        order: 2;
+        /* 🤖 The mobile logo group is anchored to the viewport bottom instead
+           of being squeezed out of the short flex column. */
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: min(100vw, 20em);
+        flex-direction: column;
+        /* 🤖 Keep the mobile logo group flush with the left edge. */
+        align-items: flex-start;
+        align-content: flex-start;
+        justify-content: flex-start;
+        margin-left: 0;
+    }
+
+    /* 🤖 Keep the hint directly above the logo and let its text wrap inside
+       the available mobile width. */
+    .hero > .logo-box > .hint-box--dog {
+        order: 1;
+        /* 🤖 Match the hint width to the logo so its centered content sits
+           directly above the logo instead of drifting to the right. */
+        width: clamp(5rem, 24vw, 8rem);
+        align-self: flex-start;
+        position: static;
+        left: 0;
+        top: auto;
+        margin: 0;
+    }
+
+    .hero > .logo-box > .hint-box--dog .hint {
+        display: flex;
+        font-size: clamp(0.6rem, 2.5vw, 0.9rem);
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        align-items: center;
+        text-align: center;
+        transform: none;
+        white-space: normal;
+        overflow-wrap: anywhere;
+    }
+
+    .hero > .logo-box > .hint-box--dog .hint__icon {
+        font-size: 1.5em;
+    }
+
+    .hero > .logo-box > .hint-box--dog .hint__label,
+    .hero > .logo-box > .hint-box--dog .hint__text {
+        display: block;
+        max-width: 100%;
+        text-align: center;
+        white-space: normal;
+        overflow-wrap: anywhere;
+    }
+
+    .hero > .logo-box > .logo {
+        order: 2;
+        align-self: flex-start;
+        margin-left: 0;
+    }
+
+    .hero > .logo-box > .logo > .logo__img {
+        display: block;
+        width: clamp(5rem, 24vw, 8rem);
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* 🤖 Reduce mobile header dimensions so the hint remains visible directly
+       above the bottom-anchored logo at short viewport heights. */
+    .hero > .header .header__name {
+        font-size: clamp(1.25rem, 7vw, 2rem);
+    }
+
+    .hero > .header .header__surname-github-name {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-size: clamp(1.5rem, 10vw, 2.25rem);
+    }
+
+    .hero > .header .header__description {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-size: clamp(0.8rem, 5vw, 1.2rem);
+    }
+
+    .header__surname-github-name {
+        /* 🤖 Compensate for the low-contrast "ot" ending so the visible
+           "Piesik" portion is optically centered on small screens. */
+        margin-left: 0.35em;
+    }
+
+    /* 🤖 Use a larger, slightly higher mobile header only when the viewport
+       has enough vertical space to keep it clear of the bottom logo group. */
+    @media (min-height: 360px) {
+        .hero > .header {
+            top: 32%;
+        }
+
+        .hero > .header .header__name {
+            font-size: clamp(2.75rem, 11vw, 4.25rem);
+        }
+
+        .hero > .header .header__surname-github-name {
+            font-size: clamp(3.75rem, 20vw, 5.5rem);
+        }
+
+        .hero > .header .header__description {
+            font-size: clamp(1.4rem, 8vw, 2rem);
+        }
+
+        /* 🤖 Give the dog hint more room on taller mobile screens while
+           keeping its text wrapped and directly above the logo. */
+        .hero > .logo-box > .hint-box--dog {
+            width: clamp(8rem, 38vw, 12rem);
+        }
+
+        .hero > .logo-box > .hint-box--dog .hint {
+            font-size: clamp(0.9rem, 4vw, 1.25rem);
+        }
+
+        /* 🤖 Remove the browser's heading margins so Piesikot shares the
+           same center axis as Emil and the description below it. */
+        .hero > .header .header__surname,
+        .hero > .header .header__surname h1 {
+            display: block;
+            margin: 0;
+            text-align: center;
+        }
+
+        .hero > .header .header__surname-github-name {
+            margin-left: 0.35em;
+        }
+    }
+
+    .main {
+        /* 🤖 Keep the copyright strip attached to the viewport bottom on small
+           screens instead of leaving it in the shortened hero flow. */
+        --mobile-logo-width: clamp(5rem, 24vw, 8rem);
+        --mobile-cat-width: 4rem;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100vw;
+        margin-top: 0;
+        flex-wrap: wrap;
+        align-items: center;
+        z-index: 2;
+        justify-content: center;
+        padding: 0 0.25em;
+        padding-left: calc(var(--mobile-logo-width) + 0.5rem);
+        padding-right: calc(var(--mobile-cat-width) + 0.5rem);
+    }
+
+    .main .copyright-box {
+        /* 🤖 Keep the copyright text explicitly between the left logo and the
+           right cat instead of centering it across the whole viewport. */
+        position: absolute;
+        left: calc(var(--mobile-logo-width) + 0.5rem);
+        right: calc(var(--mobile-cat-width) + 1rem);
+        bottom: 0;
+        top: auto;
+        transform: none;
+        text-align: center;
+        width: auto;
+        min-width: 0;
+        flex: none;
+        margin: 0;
+        overflow-wrap: anywhere;
+    }
+
+    /* 🤖 Anchor the mobile cat to the right edge, matching its desktop position
+       instead of letting the copyright flex item center it. */
+    .main > .cat-box {
+        position: absolute;
+        right: 0.2em;
+        bottom: 0;
+        margin: 0;
+    }
+}
 
         .hint{
             font-size: 1em;
@@ -591,8 +1066,26 @@ display: inline-block;
             font-family: Arial, Helvetica, sans-serif;            
             /* font-size: 1px; */
 
-            padding: 0.25em;
+            /* 🤖 Keep a small, consistent inset around the whole cat box. */
+            /* padding: 0.25em; */
+            padding: 0.2em;
         }   
+
+/* 🤖 Legacy desktop copyright bounds retained for review but disabled; the
+   canonical flexbox layout handles this spacing without calculated insets. */
+@media (min-width: 100000px) {
+    .main .copyright-box {
+        left: calc(var(--desktop-logo-width) + 1rem);
+        /* 🤖 Use the same inset on both sides to preserve the shared viewport
+           center while leaving a safe gap before the right-side cat. */
+        right: calc(var(--desktop-logo-width) + 1rem);
+        width: auto;
+        bottom: 0;
+        transform: none;
+        min-width: 0;
+        overflow-wrap: anywhere;
+    }
+}
   
 
 
@@ -615,13 +1108,25 @@ display: inline-block;
     }
 
 
-.cat-box__cat--invertocat{
+/* 🤖 The empty legacy rule is intentionally retained as a reference. */
 
-}
+/* .cat-box__cat--invertocat{ */
+ /* width: 10px; */
+/* } */
+
+
+/* 🤖 Keep the text cat, Bongo Cat, and Invertocat aligned with the bottom
+   edge of the cat area instead of floating above its padding. */
+.cat-box__cat--text-cat,
+.cat-box__cat--bongo-cat,
+.cat-box__cat--invertocat {
+        position: relative;
+        bottom: -0.2em;
+    }
 
 .cat-box__cat-img--bongo-cat{
         width: clamp(10rem, 5vw + 3rem, 30rem);
-        margin-bottom: 10px;
+        margin-bottom: 0;
     }
 
 .cat-box__cat-img--disneys-stitch{
@@ -637,8 +1142,63 @@ display: inline-block;
         width: clamp(10rem, 5vw + 3rem, 30rem);
     }
 
+/* 🤖 Keep the Persian cat behind the Persian background layer so the
+   background can cover it when both are visible. */
+.cat-box__cat--persian-cat {
+        position: relative;
+        /* 🤖 Keep the cat in the main stacking context so desktop hover
+           remains stable; the background video still renders above it. */
+        z-index: 1;
+    }
+.cat-box__cat-img--invertocat{
+    width: clamp(1rem, 1.5vh, 3rem);
+}
+
+/* 🤖 Scale the interactive animated cats by viewport height on small screens
+   so they remain contained and clickable on short devices. */
+/* 🤖 Legacy mobile cat sizing retained for review but disabled; the canonical
+   mobile flexbox block owns these responsive image sizes. */
+@media (max-width: 700px) and (max-height: 500px) and (min-width: 100000px) {
+    .cat-box__cat-img--bongo-cat,
+    .cat-box__cat-img--disneys-stitch,
+    .cat-box__cat-img--nyan-cat,
+    .cat-box__cat-img--persian-cat {
+        width: clamp(4rem, 24vh, 8rem);
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* 🤖 Keep Nyan Cat flush with the viewport edge after the cat box inset. */
+    .cat-box__cat-img--nyan-cat {
+        display: block;
+        margin-right: -20px;
+    }
+}
+
+/* 🤖 Apply a stricter size cap on extremely short mobile viewports. */
+@media (max-width: 700px) and (max-height: 320px) and (min-width: 100000px) {
+    .cat-box__cat-img--bongo-cat,
+    .cat-box__cat-img--disneys-stitch,
+    .cat-box__cat-img--nyan-cat,
+    .cat-box__cat-img--persian-cat {
+        width: clamp(3.5rem, 22vh, 5.5rem);
+    }
+
+    /* 🤖 Keep Nyan Cat in its natural position on the smallest screens. */
+    .cat-box__cat--nyan-cat {
+        right: 0;
+    }
+
+    .cat-box__cat-img--nyan-cat, .cat-box {
+        margin-right: 0;
+    }
+}
+
     .persian-background video{
         opacity: 0;
+        /* 🤖 The background must not steal hover from Persian Cat when it
+           fades in above the cat layer. */
+        pointer-events: none;
         /* teraz działa ale pewnie zżera zasoby komputera, kiedy wyświetla się niewidoczne cały czas - do sprawdzenie w dev tools*/
         /* następnie mogę spróbować zostawić w display none, i zrobić, żeby display:block się włączało dopiero przy wybierniu kota */
         /* ponadto 🐛 bugguje głaskanie pieska przy jego dużym rozmiarze */
@@ -652,7 +1212,7 @@ display: inline-block;
         width: 100vw;
         height: 60vh;
 
-        z-index: -10;
+        z-index: 4;
     }
 
 
@@ -673,10 +1233,9 @@ display: inline-block;
     display: block;
 }
 
-    /* 🟡 ewentualnie do zrobienia na koniec */
-/* ⓘ 280 px — fallback dla ekstremalnych urządzeń  */
-/* ⓘ 280 px — fallback for extreme devices  */
-    @media (max-width: 280px){
+    /* 🤖 Legacy empty fallback retained for review but disabled because the
+       canonical mobile block already covers the supported narrow viewports. */
+    @media (max-width: 0px){
 
     }
 
@@ -963,6 +1522,302 @@ refractoring jednak na vw i vh?
         height: fit-content;
     }
 }  */
+
+/* 🤖 Canonical flexbox layout. This block replaces the accumulated absolute
+   positioning used during visual tuning while preserving the original rules
+   above for historical reference. */
+.box {
+    --logo-column-width: clamp(7rem, 17vw + 2rem, 32rem);
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+}
+
+.nav-topbar {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex: 0 0 auto;
+    position: relative;
+}
+
+.nav-lang {
+    display: flex;
+    flex: 1 1 0;
+    justify-content: center;
+    position: static;
+    transform: none;
+}
+
+.nav-cats,
+.nav-projects {
+    flex: 1 1 0;
+}
+
+.nav-projects {
+    justify-content: flex-end;
+}
+
+.hero {
+    display: flex;
+    align-items: stretch;
+    min-height: 0;
+    width: 100%;
+    max-width: 90rem;
+    margin: 0 auto;
+
+    /* 🤖 Keep the desktop header slightly below the top bar. */
+    padding: clamp(1.5rem, 1.5vw, 2rem) clamp(1rem, 4vh, 4rem);
+}
+
+.hero > .header {
+    min-width: 0;
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 0;
+    text-align: center;
+}
+
+.hero > .header .header__name {
+    font-size: clamp(3.5rem, 7vw, 10rem);
+}
+
+.hero > .header .header__surname-github-name {
+    font-size: clamp(5rem, 10vw, 16rem);
+}
+
+.hero > .header .header__description {
+    font-size: clamp(2.5rem, 6vw, 7rem);
+}
+
+.header__surname,
+.header__surname h1,
+.header__description {
+    margin: 0;
+}
+
+.header__surname h1 {
+    text-align: center;
+}
+
+.header__surname-github-name {
+    margin-left: 0;
+}
+
+.logo-box {
+    display: flex;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    /* 🤖 Keep the logo above Persian Background at every viewport size. */
+    z-index: 5;
+    width: var(--logo-column-width);
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 0 0 0 0.2em;
+}
+
+.logo-box > .hint-box--dog,
+.logo-box > .logo,
+.logo-box > .logo > .logo__img {
+    max-width: 100%;
+}
+
+.logo-box > .hint-box--dog {
+    width: var(--logo-column-width);
+}
+
+.logo-box > .hint-box--dog .hint {
+    width: 100%;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+}
+
+.logo-box > .logo > .logo__img {
+    display: block;
+    width: var(--logo-column-width);
+    height: auto;
+}
+
+.main {
+    display: flex;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 3;
+    align-items: flex-end;
+    gap: 1rem;
+    min-width: 0;
+    width: 100%;
+    /* 🤖 Reserve the logo column so the copyright is centered in the
+       available space instead of extending underneath the logo. */
+    padding: 0.2em 0.2em 0  clamp(5rem, 12vw + 2rem, 20rem);
+}
+
+.main .copyright-box {
+    flex: 1 1 auto;
+    min-width: 0;
+    width: auto;
+    margin: 0;
+    overflow-wrap: anywhere;
+    text-align: center;
+}
+
+.main > .cat-box {
+    position: static;
+    flex: 0 0 auto;
+    align-self: flex-end;
+    margin: 0 0 0 auto;
+}
+
+.main > .cat-box > .cat-box__cat--text-cat,
+.main > .cat-box > .cat-box__cat--bongo-cat,
+.main > .cat-box > .cat-box__cat--invertocat {
+    position: static;
+}
+
+.main > .cat-box .cat-box__cat-img--bongo-cat {
+    margin-bottom: 0;
+}
+
+@media (max-width: 700px) {
+    .nav-topbar {
+        align-items: flex-start;
+    }
+
+    .nav-topbar > .nav-lang {
+        position: static;
+        transform: none;
+    }
+
+    .hero {
+        padding-left: 0;
+    }
+
+    .box {
+        --logo-column-width: clamp(3.5rem, 15vh, 7rem);
+    }
+
+    .hero > .header {
+        flex: 0 1 auto;
+        align-items: center;
+        justify-content: center;
+        order: 1;
+        width: 100%;
+        margin-right: 0;
+        padding: 1rem 0;
+    }
+
+    .hero > .header .header__name {
+        font-size: clamp(0.9rem, 5vh, 2.5rem);
+    }
+
+    .hero > .header .header__surname-github-name {
+        font-size: clamp(1.25rem, 9vh, 4rem);
+        margin-left: 0.35em;
+    }
+
+    .hero > .header .header__description {
+        font-size: clamp(0.7rem, 4vh, 1.6rem);
+    }
+
+    .logo-box {
+        width: min(100%, var(--logo-column-width));
+        /* 🤖 Remove the former bottom inset so the logo reaches the viewport
+           edge instead of appearing to float above it. */
+        padding: 0 0 0 0.2em;
+    }
+
+    .logo-box > .hint-box--dog,
+    .logo-box > .logo > .logo__img {
+        width: min(100%, var(--logo-column-width));
+    }
+
+    /* 🤖 Keep line-height: 0 limited to the image wrapper; inheriting it on
+       the hint collapses the label and hint text to zero height. */
+    .logo-box > .hint-box--dog .hint {
+        line-height: normal;
+    }
+
+    .logo-box > .logo {
+        line-height: 0;
+    }
+
+    .logo-box > .hint-box--dog .hint {
+        font-size: clamp(0.45rem, 2vh, 0.9rem);
+    }
+
+    .main {
+        gap: 0.5rem;
+        padding-left: clamp(4rem, 18vh, 8rem);
+    }
+
+    .main .copyright-box {
+        font-size: clamp(0.3rem, 2vw, 0.8rem);
+    }
+
+    .main > .cat-box .cat-box__cat-img--bongo-cat,
+    .main > .cat-box .cat-box__cat-img--disneys-stitch,
+    .main > .cat-box .cat-box__cat-img--nyan-cat,
+    .main > .cat-box .cat-box__cat-img--persian-cat {
+        width: min(22vw, 8rem);
+        height: auto;
+    }
+}
+
+/* 🤖 Compact only short landscape phones after rotation. */
+@media (max-width: 700px) and (max-height: 500px) and (orientation: landscape) {
+    .box {
+        --logo-column-width: clamp(2.5rem, 13vh, 5rem);
+    }
+
+    .hero {
+        flex-direction: column;
+        flex: 1 1 auto;
+        min-height: 0;
+        padding: 0 0.75rem;
+        overflow: hidden;
+    }
+
+    .hero > .header {
+        flex: 1 1 auto;
+        width: 100%;
+        padding: 0.25rem 0;
+    }
+
+    .hero > .header .header__name {
+        font-size: clamp(0.75rem, 4vh, 1.75rem);
+    }
+
+    .hero > .header .header__surname-github-name {
+        font-size: clamp(1.1rem, 7vh, 2.75rem);
+    }
+
+    .hero > .header .header__description {
+        font-size: clamp(0.6rem, 3vh, 1.1rem);
+    }
+
+    .logo-box > .hint-box--dog .hint {
+        font-size: clamp(0.35rem, 1.5vh, 0.65rem);
+    }
+
+    .logo-box {
+        width: min(100vw, clamp(7rem, 30vw, 10rem));
+    }
+
+    .logo-box > .hint-box--dog {
+        width: 100%;
+    }
+
+    .main {
+        padding-left: clamp(3rem, 13vh, 5rem);
+    }
+}
 </style>
  
 <body>
@@ -1038,34 +1893,38 @@ refractoring jednak na vw i vh?
         </iframe>
         -->
 
-        <header class="header">
-            <!-- 🤖 Replaced h2 with span for semantic correctness: Emil is a personal name, not a section heading. -->
-            <span class="header__name">Emil</span>
-            <span class="header__surname">
-                <h1 class="header__surname-github-name"><a href="https://github.com/piesikot" target="_blank" onmouseenter="piesikotEnter()" onmouseleave="piesikotLeave()">Pies<span class="header__surname-i">i</span><span class="header__surname-k">k</span><span class="ot1 header__surname-ot">ot</span></a>
-                </h1>
-                <p lang="pl" class="header__description header__description--pl">
-                    <span class="ot2 header__description-ot header__description-ot--pl">ot</span><span class="dot header__description-dot header__description-dot--pl" aria-hidden="true">.</span><span class="co header__description-co--pl">co</span>
-                </p>
-                <p lang="en" class="header__description header__description--en">
+        <!-- 🤖 The hero contains only the centered header; the logo is an
+             independent bottom-left layout element below. -->
+        <div class="hero">
+            <header class="header">
+                <!-- 🤖 Replaced h2 with span for semantic correctness: Emil is a personal name, not a section heading. -->
+                <span class="header__name">Emil</span>
+                <span class="header__surname">
+                    <h1>
+                        <a class="header__surname-github-name" href="https://github.com/piesikot" target="_blank" onmouseenter="piesikotEnter()" onmouseleave="piesikotLeave()">Pies<span class="header__surname-i">i</span><span class="header__surname-k">k</span><span class="ot1 header__surname-ot">ot</span></a>
+                    </h1>
+                        <p lang="pl" class="header__description header__description--pl">
+                        <span class="ot2 header__description-ot header__description-ot--pl">ot</span><span class="dot header__description-dot header__description-dot--pl" aria-hidden="true">.</span><span class="co header__description-co--pl">co</span>
+                    </p>
+                    <p lang="en" class="header__description header__description--en">
                     <span class="ot2 header__description-ot header__description-ot--en"> </span><span class="dot header__description-dot header__description-dot--en" aria-hidden="true">.</span><span class="co header__description-co--en">co</span>
-                </p>
-            
-        </header>
+                    </p>
+                </header>
+            </div>
+
+        <div class="logo-box">
+            <div class="hint-box--dog">
+                <span class="hint hint--dog" aria-hidden="true"><span class="hint__icon"> ⓘ </span>
+                <label lang="en"class="hint__label hint__label--dog">Hint</label><span lang="en" class="hint__text">You can pet the dog, using your finger or cursor.</span>
+                <label lang="pl" class="hint__label hint__label--dog">Wskazówka</label><span lang="pl" class="hint__text hint__text--dog">Możesz pogłaskać psa, używając palca lub kursora.</span> </span>
+            </div>
+
+            <div class="logo">
+                <img class="logo__img" src="src/e-Pies.svg" alt="e-Pies logo przedstawiające psa">
+            </div>
+        </div>
 
         <main class="main">
-                <div class="logo-box">
-                    <div class="hint-box--dog">
-                        <span class="hint hint--dog" aria-hidden="true"><span class="hint__icon"> ⓘ </span>
-                        <label lang="en"class="hint__label hint__label--dog">Hint</label><span lang="en" class="hint__text">You can pet the dog, using your finger or cursor.</span> 
-                        <label lang="pl" class="hint__label hint__label--dog">Wskazówka</label><span lang="pl" class="hint__text hint__text--dog">Możesz pogłaskać psa, używając palca lub kursora.</span> </span>
-                    </div>
-
-                    <div class="logo">
-                        <img class="logo__img" src="src/e-Pies.svg" alt="e-Pies logo przedstawiające psa">
-                    </div>
-                </div>
-
                 <span id="copyright" class="copyright-box" aria-hidden="true" onmouseenter="piesikotEnter()" onmouseleave="piesikotLeave()">
 
                     <span class="copyright__text copyright__text--text-cat" lang="en">
@@ -1132,15 +1991,7 @@ refractoring jednak na vw i vh?
                 <div id="kot" class="cat-box" aria-hidden="true" onmouseenter="piesikotEnter()" onmouseleave="piesikotLeave()">
                     <!-- <div id="cat"> -->
 
-                    <!-- 🔴 pododawać wszystkie koty i zmienić mechanizm zmiany z innerHTML na display:block -->
-
                     <span id="text-cat" class="cat-box__cat cat-box__cat--text-cat">/ᐠ..ᐟ\</span>
-                        
-                    <div class="cat-box__cat cat-box__cat--invertocat">
-                        <a href="https://github.com/piesikot" class="github-link" target="_blank">
-                            <img  class="cat-box__cat-img cat-box__cat-img--invertocat" src="src/Invertocat.png" alt="GitHub Logo">
-                        </a>
-                    </div>
 
                     <div class="cat-box__cat cat-box__cat--bongo-cat">
                         <img 
@@ -1181,9 +2032,13 @@ refractoring jednak na vw i vh?
                             class="cat-box__cat-img cat-box__cat-img--persian-cat"
                             src="src/Persian_Lion.png"
                             alt="Persian Lion and Sun"
-                            onmouseenter="persiancatEnter()"
-                            onmouseleave="persiancatLeave()"
                         >
+                    </div>
+
+                    <div class="cat-box__cat cat-box__cat--invertocat">
+                        <a href="https://github.com/piesikot" class="github-link" target="_blank">
+                            <img  class="cat-box__cat-img cat-box__cat-img--invertocat" src="src/Invertocat.png" alt="GitHub Logo">
+                        </a>
                     </div>
 
                     <!-- </div> -->
@@ -1196,7 +2051,7 @@ refractoring jednak na vw i vh?
     <audio id="myAudio">
         <source src="src/nyanaudio.mp3" type="audio/mpeg">
     </audio>
-    <audio id="persianAudio">
+    <audio id="persianAudio" loop>
         <source src="src/Iranian woman singing.mp3" type="audio/mpeg">
     </audio>
 
@@ -1320,6 +2175,10 @@ cats.forEach(catKey => {
 // NOWE KOTY FUNKCJE
 
 const bongoCat = document.querySelector(".cat-box__cat-img--bongo-cat");
+const persianCat = document.querySelector(".cat-box__cat--persian-cat");
+
+persianCat.addEventListener("mouseenter", persiancatEnter);
+persianCat.addEventListener("mouseleave", persiancatLeave);
 
 bongoCat.addEventListener("mousedown", function (event) {
     if (event.button === 0) {
@@ -1451,11 +2310,8 @@ function nyancatEnter(){ document.querySelector("body").style.background = "blac
 
                 });
 
-            var audio = document.getElementById("persianAudio");
-                           function playAudio() {
-                           audio.pause();
-                           }
-                           playAudio();
+            const audio = document.getElementById("persianAudio");
+            audio.pause();
         }
         
 //📌 ✓ dzialająca lokalizacja z racism.wtf i nowe koty działające WET ✓ 📌

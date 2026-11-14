@@ -27,12 +27,15 @@
     .box{
         /* overflow-x: hidden; */
         font-family: 'Montserrat';
+        /* 🤖 Keep the layout variables and viewport sizing in the base rule
+           so the later Flexbox block does not redefine the same selector. */
+        --logo-column-width: clamp(7rem, 17vw + 2rem, 32rem);
 
         /* 🤖 Keep the complete composition inside the viewport. */
         position: relative;
         height: 100vh;
         height: 100dvh;
-        min-height: 0;
+        min-height: 100dvh;
         overflow: hidden;
         display: flex;
         flex-direction: column;
@@ -46,6 +49,12 @@
     .nav-topbar{
         display: flex;
         justify-content:space-between;
+        /* 🤖 Keep all shared topbar layout declarations together in the
+           base rule; the canonical block only handles component-specific
+           alignment below. */
+        align-items: flex-start;
+        flex: 0 0 auto;
+        position: relative;
     }
 
     .nav-cats__button, .nav-lang__button, .nav-projects__button  {
@@ -490,7 +499,9 @@ p{
         pointer-events: none;
         /* teraz działa ale pewnie zżera zasoby komputera, kiedy wyświetla się niewidoczne cały czas - do sprawdzenie w dev tools*/
         /* następnie mogę spróbować zostawić w display none, i zrobić, żeby display:block się włączało dopiero przy wybierniu kota */
-        /* ponadto 🐛 bugguje głaskanie pieska przy jego dużym rozmiarze */
+
+        /* 🟡 na telefonie w Firefoxie po pacnięciu --persian-cat Persian background przycina. Czy to z powodu tego, co opisałem powyżej? Tyle, że mechanizm tego już jest przecież chyba inny... */
+
         display: block;
 
         position: absolute;
@@ -503,7 +514,6 @@ p{
 
         z-index: 4;
     }
-
 
 
 
@@ -522,288 +532,10 @@ p{
     display: block;
 }
 
-/* STARE RWD Z BRAKPOINTAMI */
 
 
-/* Poprawić navbar na duze ekrany */
-
-/* min-width / big-screens */
-/* 
-
-@media only screen and (min-width: 1600px) {
-    nav{
-        font-size: 3em;
-    }
-
-    .cats-dropdown-content, .projects-dropdown-content {
-        font-size: 1.5em;
-    }
-
-
-    .projects-dropdown-content{
-        margin-left: -100px;
-    }
-
-    #copyright{
-        font-size: 2vw;
-    }
-}
-
-/* max-width */
-/* 
-@media only screen and (max-width: 1024px) {
-    .cats-dropdown-content, .projects-dropdown-content {
-        height: 150px;
-        overflow-y:scroll; 
-    }
-
-        h1{
-            font-size: 600%;
-            margin-top: -10px;
-            margin-bottom: 30px;
-            margin-left: -44px;
-        }
-
-        /* 🤖 Responsive font-size for .header__name (previously h2) on tablet screens. */
-       
-        /* .header__name{
-            font-size: 300%;
-        }
-
-        p{
-            font-size:200%;
-        }
-
-  
-
-        #text-cat{
-            font-size: 2em;
-        }
-
-        #inverto{
-            width: 30px;
-            margin-right: -10px;
-        }
-
-        #bongo{
-        width: 25%;
-        }
-
-        #stitch{
-            width: 180px;
-            margin-left: -110px;
-        }
-
-        #nyan{
-            width: 100px;
-        }
-    } */ 
-
-/* max-width / mobile */
-/* 
-@media only screen and (max-width: 760px) {
-    .cats-dropdown-content, .projects-dropdown-content {
-        height: 150px;
-        overflow-y:scroll; 
-    }
-
-        #copyright {
-            }
-        
-        h1{
-            font-size: 300%;
-            margin-top: -10px;
-            margin-bottom: 30px;
-            margin-left: -44px;
-        }
-
-        .header__name{
-            font-size: 150%;
-        }
-
-        p{
-            font-size:100%;
-        }
-
-        .logo__img{
-            width: 20%;
-        }
-
-        #text-cat{
-            font-size: 1.6em;
-        }
-
-        #inverto{
-            width: 25px;
-            margin-right: -10px;
-        }
-
-        #bongo{
-        width: 25%;
-        }
-
-        #stitch{
-            width: 180px;
-            margin-left: -110px;
-        }
-
-        #nyan{
-            width: 100px;
-        }
-    } */
-
-/* /* 
-@media only screen and (max-width: 480px) {
-.cats-dropdown .cats-dropbtn, .projects-dropdown .projects-dropbtn {
-        border-bottom: none;
-    }
-        #copyright {
-            }
-        
-        h1{
-            font-size: 260%;
-            margin-top: -10px;
-            margin-bottom: 30px;
-            margin-left: -44px;
-        }
-
-.header__name{
-            font-size: 130%;
-        }
-
-        p{
-            font-size:100%;
-        }
-
-        .logo__img{
-            width: 20%;
-        }
-
-        #text-cat{
-            font-size: 1.4em;
-        }
-
-        #inverto{
-            width: 25px;
-            margin-right: -10px;
-        }
-
-        #bongo{
-        width: 20%;
-        }
-
-        #stitch{
-            width: 130px;
-            margin-left: -70px;
-        }
-
-        #nyan{
-            width: 60px;
-        }
-    } */
- /* */
-/* @media only screen and (max-width: 350px) {
-
-    #nav-cats, #nav-projects{
-        font-size: 60%;
-    }
-    .hint__label, .hint__text{
-        font-size: 40%;
-    }
-    .cats-dropdown-content, .projects-dropdown-content {
-        height: 150px;
-        overflow-y:scroll; 
-    }
-
-        #copyright {
-                font-size: 1.5vw;
-            }
-        
-        h1{
-            font-size: 220%;
-            margin-top: -10px;
-            margin-bottom: 30px;
-            margin-left: -44px;
-        } */
-/* 
-.header__name{
-            font-size: 110%;
-        }
-
-        p{
-            font-size:85%;
-        }
-
-        .logo__img{
-            width: 20%;
-        }
-
-        #text-cat{
-            font-size: 1.2em;
-        }
-
-        #inverto{
-            width: 20px;
-            margin-right: -10px;
-        }
-
-        #bongo{
-        width: 20%;
-        }
-
-        #stitch{
-            width: 130px;
-            margin-left: -70px;
-        }
-
-        #nyan{
-            width: 60px;
-        }
-    } */ 
-
-/* 
-h2, h1 i p na telefonie są za małe
-refractoring jednak na vw i vh?
-*/
-
-/* max-height */
-/* 
-@media only screen and (max-height: 200px) {
-    .cats-dropdown-content, .projects-dropdown-content {
-        height: 300px;
-        overflow-y:scroll; 
-    }
-
-    .cats-dropdown .cats-dropbtn, .projects-dropdown .projects-dropbtn {
-        border-bottom: none;
-    }
-} */
-/* 
-@media only screen and (max-height: 350px) {
-    .logo__img{
-        width: 25vh;
-    }
-}
-
-@media only screen and (min-height: 400px) {
-    .cats-dropdown-content, .projects-dropdown-content {
-        height: fit-content;
-    }
-}  */
-
-/* 🤖 Canonical flexbox layout. This block replaces the accumulated absolute
-   positioning used during visual tuning while preserving the original rules
-   above for historical reference. */
-.box {
-    --logo-column-width: clamp(7rem, 17vw + 2rem, 32rem);
-    min-height: 100dvh;
-}
-
-.nav-topbar {
-    align-items: flex-start;
-    flex: 0 0 auto;
-    position: relative;
-}
+/* 🤖 Main Flexbox layout rules. These declarations add to and, where
+   specified, override earlier base styles. Mobile overrides follow below. */
 
 .nav-lang {
     display: flex;

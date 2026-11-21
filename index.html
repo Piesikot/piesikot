@@ -175,8 +175,6 @@
         transform: scaleX(0.0);
     }
 
-
-
     .nav-projects{
        top: 0px;
         right: 0px;
@@ -299,9 +297,9 @@
 /* 🔴 margin left minus kot */
 .header__surname{
 }
-.header__surname-github-name {
+/* .header__surname-github-name {
     margin-left: 30px;
-}
+} */
 p{
     font-size: 32px;
     }
@@ -444,6 +442,152 @@ p{
 
 
 
+
+
+/* 🤖 Main Flexbox layout rules. These declarations add to and, where
+   specified, override earlier base styles. Mobile overrides follow below. */
+
+.nav-lang {
+    display: flex;
+    flex: 1 1 0;
+    justify-content: center;
+    position: static;
+    transform: none;
+}
+
+.nav-cats,
+.nav-projects {
+    flex: 1 1 0;
+}
+
+.nav-projects {
+    justify-content: flex-end;
+}
+
+.hero {
+    display: flex;
+    align-items: stretch;
+    min-height: 0;
+    width: 100%;
+    max-width: 90rem;
+    margin: 0 auto;
+
+    /* 🤖 Keep the desktop header slightly below the top bar. */
+    padding: clamp(1.5rem, 1.5vw, 2rem) clamp(1rem, 4vh, 4rem);
+}
+
+.hero > .header {
+    min-width: 0;
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 0;
+    text-align: center;
+}
+
+.hero > .header .header__name {
+    font-size: clamp(3.5rem, 7vw, 10rem);
+}
+
+.hero > .header .header__surname-github-name {
+    font-size: clamp(5rem, 10vw, 16rem);
+}
+
+.hero > .header .header__description {
+    font-size: clamp(2.5rem, 6vw, 7rem);
+}
+
+.header__surname,
+.header__description {
+    margin: 0;
+}
+
+.header__surname-github-name {
+    /* margin-left: 0; */
+    margin-left: 0.5em;
+}
+
+.logo-box {
+    display: flex;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    /* 🤖 Keep the logo above Persian Background at every viewport size. */
+    z-index: 5;
+    width: var(--logo-column-width);
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 0 0 0 0.2em;
+}
+
+.logo-box > .hint-box--dog,
+.logo-box > .logo,
+.logo-box > .logo > .logo__img {
+    max-width: 100%;
+}
+
+.logo-box > .hint-box--dog {
+    width: var(--logo-column-width);
+}
+
+.logo-box > .hint-box--dog .hint {
+    width: 100%;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+}
+
+.logo-box > .logo > .logo__img {
+    display: block;
+    width: var(--logo-column-width);
+    height: auto;
+}
+
+.main {
+    display: flex;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 3;
+    align-items: flex-end;
+    gap: 1rem;
+    min-width: 0;
+    width: 100%;
+    /* 🤖 Reserve the logo column so the copyright is centered in the
+       available space instead of extending underneath the logo. */
+    padding: 0.2em 0.2em 0  clamp(5rem, 12vw + 2rem, 20rem);
+}
+
+.main .copyright-box {
+    flex: 1 1 auto;
+    min-width: 0;
+    width: auto;
+    margin: 0;
+    overflow-wrap: anywhere;
+    text-align: center;
+}
+
+.main > .cat-box {
+    position: static;
+    flex: 0 0 auto;
+    align-self: flex-end;
+    margin: 0 0 0 auto;
+}
+
+.main > .cat-box > .cat-box__cat--text-cat,
+.main > .cat-box > .cat-box__cat--bongo-cat,
+.main > .cat-box > .cat-box__cat--invertocat {
+    position: static;
+}
+
+.main > .cat-box .cat-box__cat-img--bongo-cat {
+    margin-bottom: 0;
+}
+
+
 /* KOTY */
 
 .cat-box__cat--text-cat{
@@ -533,154 +677,6 @@ p{
 }
 
 
-
-/* 🤖 Main Flexbox layout rules. These declarations add to and, where
-   specified, override earlier base styles. Mobile overrides follow below. */
-
-.nav-lang {
-    display: flex;
-    flex: 1 1 0;
-    justify-content: center;
-    position: static;
-    transform: none;
-}
-
-.nav-cats,
-.nav-projects {
-    flex: 1 1 0;
-}
-
-.nav-projects {
-    justify-content: flex-end;
-}
-
-.hero {
-    display: flex;
-    align-items: stretch;
-    min-height: 0;
-    width: 100%;
-    max-width: 90rem;
-    margin: 0 auto;
-
-    /* 🤖 Keep the desktop header slightly below the top bar. */
-    padding: clamp(1.5rem, 1.5vw, 2rem) clamp(1rem, 4vh, 4rem);
-}
-
-.hero > .header {
-    min-width: 0;
-    display: flex;
-    flex: 1 1 auto;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 0;
-    text-align: center;
-}
-
-.hero > .header .header__name {
-    font-size: clamp(3.5rem, 7vw, 10rem);
-}
-
-.hero > .header .header__surname-github-name {
-    font-size: clamp(5rem, 10vw, 16rem);
-}
-
-.hero > .header .header__description {
-    font-size: clamp(2.5rem, 6vw, 7rem);
-}
-
-.header__surname,
-.header__surname h1,
-.header__description {
-    margin: 0;
-}
-
-.header__surname h1 {
-    text-align: center;
-}
-
-.header__surname-github-name {
-    margin-left: 0;
-}
-
-.logo-box {
-    display: flex;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    /* 🤖 Keep the logo above Persian Background at every viewport size. */
-    z-index: 5;
-    width: var(--logo-column-width);
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-end;
-    padding: 0 0 0 0.2em;
-}
-
-.logo-box > .hint-box--dog,
-.logo-box > .logo,
-.logo-box > .logo > .logo__img {
-    max-width: 100%;
-}
-
-.logo-box > .hint-box--dog {
-    width: var(--logo-column-width);
-}
-
-.logo-box > .hint-box--dog .hint {
-    width: 100%;
-    max-width: 100%;
-    overflow-wrap: anywhere;
-}
-
-.logo-box > .logo > .logo__img {
-    display: block;
-    width: var(--logo-column-width);
-    height: auto;
-}
-
-.main {
-    display: flex;
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 3;
-    align-items: flex-end;
-    gap: 1rem;
-    min-width: 0;
-    width: 100%;
-    /* 🤖 Reserve the logo column so the copyright is centered in the
-       available space instead of extending underneath the logo. */
-    padding: 0.2em 0.2em 0  clamp(5rem, 12vw + 2rem, 20rem);
-}
-
-.main .copyright-box {
-    flex: 1 1 auto;
-    min-width: 0;
-    width: auto;
-    margin: 0;
-    overflow-wrap: anywhere;
-    text-align: center;
-}
-
-.main > .cat-box {
-    position: static;
-    flex: 0 0 auto;
-    align-self: flex-end;
-    margin: 0 0 0 auto;
-}
-
-.main > .cat-box > .cat-box__cat--text-cat,
-.main > .cat-box > .cat-box__cat--bongo-cat,
-.main > .cat-box > .cat-box__cat--invertocat {
-    position: static;
-}
-
-.main > .cat-box .cat-box__cat-img--bongo-cat {
-    margin-bottom: 0;
-}
-
 @media (max-width: 700px) {
     .hero {
         padding-left: 0;
@@ -706,7 +702,11 @@ p{
 
     .hero > .header .header__surname-github-name {
         font-size: clamp(1.25rem, 9vh, 4rem);
-        margin-left: 0.35em;
+        /* margin-left: 0.35em; */
+        /* margin-left: 2em; */
+        /* margin-left: 10rem; */
+        margin-left: 0.5em;
+
     }
 
     .hero > .header .header__description {
@@ -1655,7 +1655,7 @@ selectPersianCat.onclick = function persianCat() {
         document.querySelector(".cat-box").style.opacity = "1.0";  
 
         document.querySelector(".header__surname-i").style.transition = "3s";
-        document.querySelector(".header__surname-i").style.margin = "0px 10px 0px 10px";
+        document.querySelector(".header__surname-i").style.margin = "0 0.2em 0 0.2em";
         document.querySelector(".ot1").style.color = "black";
         document.querySelector(".ot1").style.transition = "3s";
 
